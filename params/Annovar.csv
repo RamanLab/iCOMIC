@@ -1,0 +1,10 @@
+Parameter,Value,Short description,Description,Default value,Essential
+--minqueryfrac,FLOAT,--minqueryfrac,minimum percentage of query overlap to define match to DB ,0,no
+--splicing_threshold,INT,--splicing_threshold, distance between splicing variants and exon/intron boundary,2,no
+--maf_threshold,INT,--maf_threshold,filter 1000G variants with MAF above this threshold,0,no
+--sift_threshold,FLOAT,--sift_threshold,SIFT threshold for deleterious prediction for -dbtype avsift ,0.05,no
+--indexfilter_threshold,FLOAT,--indexfilter_threshold,controls whether filter-based annotation use index if this fraction of bins need to be scanned,0.9,no
+--maxgenethread   ,INT,--maxgenethread   ,max number of threads for gene-based annotation,6,no
+--mingenelinecount ,INT,--mingenelinecount , min line counts to enable threaded gene-based annotation ,1000000,no
+--memfree          ,INT,--memfree          ,ensure minimum amount of free system memory,0,no
+--batchsize,INT,--batchsize,batch size for processing variants per batch (default: 5m),5000000,yes

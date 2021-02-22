@@ -1,0 +1,22 @@
+    expand('results/fastqc/{sample}_{condition}_Rep{rep}_R1_fastqc.zip', sample=samples, condition=type, rep=reps),
+    expand('results/fastqc/{sample}_{condition}_Rep{rep}_R2_fastqc.zip', sample=samples, condition=type, rep=reps),
+    expand('results/cutadapt/{sample}_{condition}_Rep{rep}_cutadapt_R1.fastq', sample=samples, condition=type, rep=reps),
+    expand('results/cutadapt/{sample}_{condition}_Rep{rep}_cutadapt_R2.fastq', sample=samples, condition=type, rep=reps),
+    expand('results/summary_stats/{sample}_{condition}_Rep{rep}_cutadapt_summary.txt', sample=samples, condition=type, rep=reps),
+    expand('results/fastqc_after/{sample}_{condition}_Rep{rep}_cutadapt_R1_fastqc.zip', sample=samples, condition=type, rep=reps),
+    expand('results/fastqc_after/{sample}_{condition}_Rep{rep}_cutadapt_R2_fastqc.zip', sample=samples, condition=type, rep=reps),
+    expand('results/hisat2/{sample}_{condition}_Rep{rep}_cutadapt.sam', sample=samples, condition=type, rep=reps),
+    expand('results/hisat2/{sample}_{condition}_Rep{rep}_cutadapt.bam', sample=samples, condition=type, rep=reps),
+    expand('results/star/{sample}_{condition}_Rep{rep}/Aligned.out.bam', sample=samples, condition=type, rep=reps),
+    expand('results/star/{sample}_{condition}_Rep{rep}/ReadsPerGene.out.tab', sample=samples, condition=type, rep=reps),
+    expand('results/salmon/{sample}_{condition}_Rep{rep}_cutadapt_salmon_quant', sample=samples, condition=type, rep=reps),
+    expand('results/salmon_deseq2_results/salmon_results.Rdata'),
+    expand('results/stringtie/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_transcript.gtf', sample=samples, condition=type, rep=reps),
+    #expand('results/stringtie/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_gene_abundances.tsv', sample=samples, condition=type, rep=reps),
+    #expand('results/stringtie/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_cov_ref.gtf', sample=samples, condition=type, rep=reps),
+    expand('results/stringtie/merge/{sample}_mergelist.txt', sample=samples),
+    expand('results/stringtie/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_merge_transcripts.gtf', sample=samples, condition=type, rep=reps),
+    expand('results/stringtie_counts/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_transcripts.gtf', sample=samples, condition=type, rep=reps),
+    expand('results/ballgown/SigDE.txt')
+    #expand('results/bowtie2/{sample}_{condition}_Rep{rep}_cutadapt.sam', sample=samples, condition=type, rep=reps)
+

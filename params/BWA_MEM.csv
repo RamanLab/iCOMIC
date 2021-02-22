@@ -1,0 +1,18 @@
+Parameter,Value,Short description,Description,Default value,Essential
+-k ,INT,minSeedLen,Minimum seed length. Matches shorter than INT will be missed. The alignment speed is usually insensitive to this value unless it significantly deviates 20. ,19,yes
+-w ,INT,Band width,"Band width. Essentially, gaps longer than INT will not be found. Note that the maximum gap length is also affected by the scoring matrix and the hit length, not solely determined by this option. ",100,no
+-d ,INT,Z-dropoff,"Off-diagonal X-dropoff (Z-dropoff). Stop extension when the difference between the best and the current extension score is above |i-j|*A+INT, where i and j are the current positions of the query and reference, respectively, and A is the matching score. Z-dropoff is similar to BLAST’s X-dropoff except that it doesn’t penalize gaps in one of the sequences in the alignment. Z-dropoff not only avoids unnecessary extension, but also reduces poor alignments inside a long good alignment. ",101,no
+-r ,FLOAT,seedSplitRatio,"Trigger re-seeding for a MEM longer than minSeedLen*FLOAT. This is a key heuristic parameter for tuning the performance. Larger value yields fewer seeds, which leads to faster alignment speed but lower accuracy. ",1.5,no
+-c,INT,maxOcc,Discard a MEM if it has more than INT occurence in the genome. This is an insensitive parameter. ,10000,no
+-A ,INT,matchScore,Matching score. ,1,yes
+-B ,INT,mmPenalty,Mismatch penalty. The sequence error rate is approximately: {.75 * exp[-log(4) * B/A]}. ,4,no
+-O ,INT,gapOpenPen,Gap open penalty. ,6,no
+-E ,INT,gapExtPen,Gap extension penalty. A gap of length k costs O + k*E (i.e. -O is for opening a zero-length gap). ,1,no
+-L ,INT,clipPen,"Clipping penalty. When performing SW extension, BWA-MEM keeps track of the best score reaching the end of query. If this score is larger than the best SW score minus the clipping penalty, clipping will not be applied. Note that in this case, the SAM AS tag reports the best SW score; clipping penalty is not deducted. ",5,no
+-U ,INT,unpairPen,Penalty for an unpaired read pair. BWA-MEM scores an unpaired read pair as scoreRead1+scoreRead2-INT and scores a paired as scoreRead1+scoreRead2-insertPenalty. It compares these two scores to determine whether we should force pairing. ,9,no
+-T ,INT,Don’t output alignment with score lower than INT,Don’t output alignment with score lower than INT. This option only affects output. ,30,no
+-v ,INT,verboseLevel,"Control the verbose level of the output. This option has not been fully supported throughout BWA. Ideally, a value 0 for disabling all the output to stderr; 1 for outputting errors only; 2 for warnings and errors; 3 for all normal messages; 4 or higher for debugging. When this option takes value 4, the output is not SAM. ",3,no
+-a,na,Output known alignments,Output all found alignments for single-end or unpaired paired-end reads. These alignments will be flagged as secondary alignments,na,no
+-c,na,Append FASTA/Q comment to SAM output,Append append FASTA/Q comment to SAM output. This option can be used to transfer read meta information (e.g. barcode) to the SAM output. Note that the FASTA/Q comment (the string after a space in the header line) must conform the SAM spec (e.g. BC:Z:CGTAC). Malformated comments lead to incorrect SAM output,na,no
+-H,na,Hard clipping of SAM output,Use hard clipping ’H’ in the SAM output. This option may dramatically reduce the redundancy of output when mapping long contig or BAC sequences,na,no
+-M,na,Indicate secondary hits,Mark shorter split hits as secondary (for Picard compatibility,,

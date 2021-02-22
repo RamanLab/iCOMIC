@@ -1,0 +1,5 @@
+sample	unit	condition
+MAQC_tumor_Rep2.counts	tumor_Rep2	tumor
+MAQC_tumor_Rep1.counts	tumor_Rep1	tumor
+MAQC_normal_Rep1.counts	normal_Rep1	normal
+MAQC_normal_Rep2.counts	normal_Rep2	normal

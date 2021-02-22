@@ -1,0 +1,3 @@
+sample	unit	condition	fq1	fq2
+TCRBOA	1	tumor	/data/Priyanka/other_pipelines/iCOMIC/sample_demo/TCRBOA_tumor_Rep1_R1.fastq	/data/Priyanka/other_pipelines/iCOMIC/sample_demo/TCRBOA_tumor_Rep1_R2.fastq
+TCRBOA	1	normal	/data/Priyanka/other_pipelines/iCOMIC/sample_demo/TCRBOA_normal_Rep1_R1.fastq	/data/Priyanka/other_pipelines/iCOMIC/sample_demo/TCRBOA_normal_Rep1_R2.fastq

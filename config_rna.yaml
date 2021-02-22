@@ -1,0 +1,12 @@
+ref: 
+  index-hisat2: /data/Priyanka/other_pipelines/iCOMIC/Test/gencode_input-RNA/Ref/hisat2-index/ 
+  annotation: /data/Priyanka/other_pipelines/iCOMIC/Test/gencode_input-RNA/gencode.v29.annotation.gtf
+  fasta: /data/Priyanka/other_pipelines/iCOMIC/Test/gencode_input-RNA/GRCh38.primary_assembly.genome.fa
+  transcript: /data/Priyanka/other_pipelines/iCOMIC/Test/gencode_input-RNA/gencode.v29.transcripts.fa
+params: 
+  cutadapt: '--threads 1' 
+  star: "--quantMode GeneCounts --limitBAMsortRAM 10000000000 --outSAMattrIHstart 0" #--sjdbOverhang 150 
+  hisat2 : ''
+  stringtie : ''
+  ballgown : ''
+sample: /data/Priyanka/other_pipelines/iCOMIC

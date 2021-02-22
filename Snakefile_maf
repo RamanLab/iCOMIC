@@ -1,0 +1,9 @@
+include: "rules/common_dna.smk"
+
+rule all:
+  input:
+    "results_dna/annotated/all." + config["ref"]["name"] + "_multianno.txt",
+#    "results_dna/annotated/all_multianno.vcf",
+    "results_dna/variants.maf"
+include: "rules/Annovar.smk"
+include: "rules/annovar2maf.smk"

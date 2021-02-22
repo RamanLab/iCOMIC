@@ -1,0 +1,3 @@
+Remove char after . in tx2gene
+
+sed 's/\.[0-9]*//g' tx2gene.gencode.v29.csv > tx2gene.gencode.v29_test.csv

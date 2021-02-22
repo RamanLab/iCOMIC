@@ -1,0 +1,19 @@
+Parameter,Value,Short description,Description,Default value,Essential
+-P,INT,Report if polymorphism at the site >,Report sites if the probability that there is a polymorphism                    at the site is greater than N.  Default: 0.0,0,no
+-T,INT,expected mutation rate(population model),The expected mutation rate or pairwise nucleotide diversity among the population under analysis.  This serves as the  single parameter to the Ewens Sampling Formula prior model   ,0.001,no
+-P,INT, default ploidy (ppulation model),Sets the default ploidy for the analysis,2,no
+-E,INT,--max-complex-gap,Allow haplotype calls with contiguous embedded matches of up  to this length. Set N=-1 to disable clumping. ,3,no
+-m,INT, --min-mapping-quality,Exclude alignments from analysis if they have a mapping quality less than this value  ,30,no
+-q,INT,--min-base-quality ,Exclude alleles from analysis if their supporting base quality is less than this value,20,yes
+-Q,INT, --mismatch-base-quality-threshold ,Count mismatches  if the base quality of the mismatch is >= INT,10,no
+-z,FLOAT, --read-max-mismatch-fraction,Exclude reads with more than the given fraction of mismatches,1,no
+-F,FLOAT, --min-alternate-fraction,Require at least this fraction of observations supporting an alternate allele within a single individual in the in order to evaluate the position,0.2,no
+-C ,INT,--min-alternate-count,Require at least this count of observations supporting an alternate allele within a single individual in order to evaluate the position.,2,no
+-3,INT,--min-alternate-qsum,Require at least this sum of quality of observations supporting an alternate allele within a single individual in order to evaluate the position.,0,no
+-G,INT, --min-alternate-total,Require at least this count of observations supporting an alternate allele within the total population in order to use the allele in analysis.,1,no
+--min-coverage ,INT,--min-coverage,Require at least this coverage to process a site,0,no
+-B,INT, --genotyping-max-iterations,Iterate no more than N times during genotyping step,1000,no
+--genotyping-max-banddepth ,INT,--genotyping-max-banddepth ,Integrate no deeper than the Nth best genotype by likelihood when genotyping,6,no
+-D ,FLOAT,--read-dependence-factor,Incorporate non-independence of reads by scaling successive observations by this factor during data likelihood calculations.,0.9,no
+--min-repeat-entropy,STR,--min-repeat-entropy,"Detect interrupted repeats, build across sequence until it has entropy > N bitd per bp ",off,no
+--min-repeat-size,INT,--min-repeat-size,Atleast these many bp of the total repeat length is required for the assembly of observations across repeats,5,no

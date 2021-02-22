@@ -1,0 +1,7 @@
+sample	unit	condition	fq1	fq2
+hcc1395	1	normal	/data/priyanka/other_pipelines/iCOMIC_keerthika/data/hcc1395_normal_Rep1_R1.fastq	/data/priyanka/other_pipelines/iCOMIC_keerthika/data/hcc1395_normal_Rep1_R2.fastq
+hcc1395	2	normal	/data/priyanka/other_pipelines/iCOMIC_keerthika/data/hcc1395_normal_Rep2_R1.fastq	/data/priyanka/other_pipelines/iCOMIC_keerthika/data/hcc1395_normal_Rep2_R2.fastq
+hcc1395	3	normal	/data/priyanka/other_pipelines/iCOMIC_keerthika/data/hcc1395_normal_Rep3_R1.fastq	/data/priyanka/other_pipelines/iCOMIC_keerthika/data/hcc1395_normal_Rep3_R2.fastq
+hcc1395	1	tumor	/data/priyanka/other_pipelines/iCOMIC_keerthika/data/hcc1395_tumor_Rep1_R1.fastq	/data/priyanka/other_pipelines/iCOMIC_keerthika/data/hcc1395_tumor_Rep1_R2.fastq
+hcc1395	2	tumor	/data/priyanka/other_pipelines/iCOMIC_keerthika/data/hcc1395_tumor_Rep2_R1.fastq	/data/priyanka/other_pipelines/iCOMIC_keerthika/data/hcc1395_tumor_Rep2_R2.fastq
+hcc1395	3	tumor	/data/priyanka/other_pipelines/iCOMIC_keerthika/data/hcc1395_tumor_Rep3_R1.fastq	/data/priyanka/other_pipelines/iCOMIC_keerthika/data/hcc1395_tumor_Rep3_R2.fastq

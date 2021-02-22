@@ -1,0 +1,10 @@
+Parameter,Value,Short description,Description,Default value,Essential
+--min-coverage,INT,Minimum coverage,Minimum coverage in normal and tumor to call variant,8,no
+--min-coverage-normal,INT,Minimum coverage-normal,Minimum coverage in normal to call somatic,8,no
+--min-coverage-tumor,INT,Minimum coverage-tumor,Minimum coverage in tumor to call somatic,6,no
+--min-var-freq,FLOAT,Minimum variant frequency heterozygote,Minimum variant frequency to call a heterozygote,0.1,no
+--min-freq-for-hom,FLOAT,Minimum frequency homozygote,Minimum frequency to call homozygote,0.75,no
+--normal-purity,FLOAT,purity  of normal sample,Estimated purity (non-tumor content) of normal sample,1,no
+--tumor-purity,FLOAT,purity of tumor sample ,Estimated purity (tumor content) of tumor sample,1,no
+--p-value,FLOAT,p value,P-value threshold to call a heterozygote,0.99,no
+--somatic-p-value,FLOAT,p value for somatic sites,P-value threshold to call a somatic site,0.05,no

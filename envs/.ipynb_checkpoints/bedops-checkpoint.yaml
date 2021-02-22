@@ -1,0 +1,10 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bioconda::bedops =2.4
+  - annovar:150617 
+  - bcftools=1.7
+  - tabix=1.7
+  - gem3-mapper
+  

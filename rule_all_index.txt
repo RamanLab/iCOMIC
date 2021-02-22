@@ -1,0 +1,14 @@
+#    "results_dna/index/BWA_MEM/" + config['ref']['genome-name'] + ".fai"
+    "results_dna/index/BWA_MEM/" + config['ref']['genome-name'] + ".amb",
+    "results_dna/index/BWA_MEM/" + config['ref']['genome-name'] + ".ann",
+    "results_dna/index/BWA_MEM/" + config['ref']['genome-name'] + ".bwt",
+    "results_dna/index/BWA_MEM/" + config['ref']['genome-name'] + ".pac",
+    "results_dna/index/BWA_MEM/" + config['ref']['genome-name'] + ".sa"
+    "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".1.bt2",
+    "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".2.bt2",
+    "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".3.bt2",
+    "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".4.bt2",
+    "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".rev.1.bt2",
+    "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".rev.2.bt2"
+    "results_dna/index/GEM3/" + config['ref']['genome-name']+ ".gem"
+    "results/index/hisat2"

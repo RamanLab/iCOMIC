@@ -1,0 +1,3 @@
+sample	unit	condition	fq1	fq2
+TCRBOA	1	normal	/data/anjana/tumornormal/bam_split/TCRBOA1-N-chr21_r1.fastq	/data/anjana/tumornormal/bam_split/TCRBOA1-N-chr21_r2.fastq
+TCRBOA	1	tumor	/data/anjana/tumornormal/bam_split/TCRBOA1-T-chr21_r1.fastq	/data/anjana/tumornormal/bam_split/TCRBOA1-T-chr21_r2.fastq

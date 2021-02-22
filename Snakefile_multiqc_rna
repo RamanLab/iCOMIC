@@ -1,0 +1,6 @@
+include: "rules/common_rna.smk"
+
+rule all:
+  input:
+    "results/fastqc/multiqc.html"
+include: "rules/multiqc_rna.smk"

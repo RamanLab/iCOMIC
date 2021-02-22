@@ -1,0 +1,2 @@
+Parameter,Value,Short description,Description,Default value,Essential
+#-mbq,INT,minbasequalityscore,Minimum base quality required to consider a base for calling,10,yes

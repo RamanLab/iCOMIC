@@ -1,0 +1,24 @@
+Parameter,Value,Short description,Description,Default value,Essential
+ -contamination,INT,Contamination fraction to filter,Fraction of contamination to aggressively remove,0,no
+ -hets,FLOAT,heterozygosity,Heterozygosity value used to compute prior likelihoods for any locus,0.001,no
+ -heterozygosityStandardDeviation,FLOAT,heterozygosity stdev,Standard deviation of eterozygosity for SNP and indel calling.,0.01,no
+ -indelHeterozygosity",FLOAT,Indel heterozygosity,Heterozygosity for indel calling,0.000125,no
+--maxReadsInRegionPerSample,INT,Maximum reads in an active region,Maximum reads in an active region,10000,no
+ -mbq,INT,Min base quality score,Minimum base quality required to consider a base for calling,10,no
+ -minReadsPerAlignStart,INT, Min Reads Per Alignment Start,Minimum number of reads sharing the same alignment start for each genomic location in an active region,10,no
+ -ploidy,INT,sample ploidy,"Ploidy per sample. For pooled data, set to (Number of samples in each pool * Sample Ploidy).",2,no
+ -stand_call_conf,INT,Standard min confidence threshold for calling,The minimum phred-scaled confidence threshold at which variants should be called,10,no
+ -ActProbThresh,FLOAT, Active Probability Threshold,Threshold for the probability of a profile state being active.,0.002,no
+--gcpHMM,INT,gcpHMM,Flat gap continuation penalty for use in the Pair HMM,10,no
+ -ERCIS,INT,Indel Size To Eliminate In Ref Model,The size of an indel to check for in the reference model,10,no
+ -maxAltAlleles,INT,Max alternate alleles,Maximum number of alternate alleles to genotype,6,no
+ -maxGT,INT,Max genotype count,Maximum number of genotypes to consider at any site,1024,no
+ -maxNumPLValues,INT,Max num PL values,Maximum number of PL values to output,100,no
+--maxNumHaplotypesInPopulation,INT, Max Num Haplotypes In Population,Maximum number of haplotypes to consider for your population,128,no
+--maxReadsInMemoryPerSample,INT,Max Reads In Memory Per Sample,Maximum reads per sample given to traversal map() function,30000,no
+--maxTotalReadsInMemory,INT,Max Total Reads In Memory,Maximum total reads given to traversal map() function,10000000,no
+--minDanglingBranchLength,INT,Min Dangling Branch Length,Minimum length of a dangling branch to attempt recovery,4,no
+--minPruning,INT,Min Pruning,Minimum support to not prune paths in the graph,2,no
+--numPruningSamples,INT,Num Pruning Samples,Number of samples that must pass the minPruning threshold,1,no
+ -globalMAPQ,INT,Phred Scaled Global Read Mismapping Rate,The global assumed mismapping rate for reads,45,no
+

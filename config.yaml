@@ -1,0 +1,27 @@
+samples: ./samples.tsv 
+units: units.tsv
+ref: 
+  name: hg38
+  genome: /data/Priyanka/other_pipelines/iCOMIC/ref/hg38.fa
+  genome-name: hg38.fa
+  genome-dict: /data/Priyanka/other_pipelines/iCOMIC/ref/hg38
+  known-variants: /data/Priyanka/other_pipelines/iCOMIC/ref/clinvar_20191231.vcf.gz
+processing: 
+  remove-duplicates: true
+index: 
+  BWA_MEM: /data/Priyanka/other_pipelines/iCOMIC/ref/hg38.fa
+threads: 10
+params: 
+  cutadapt: '-q 20' 
+  BWA_MEM : ''
+  Mutect2 : ''
+  Annovar : '--batchsize 5000000.0 '
+  picard: 
+    MarkDuplicates: REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT 
+filtering:
+  vqsr: false
+  hard:
+    snvs:
+      "QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0"
+    indels:
+      "QD < 2.0 || FS > 200.0 || ReadPosRankSum < -20.0"

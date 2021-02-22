@@ -1,0 +1,17 @@
+sample	unit	condition	fq1	fq2
+62E1AAAXX	1	normal	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966813/62E1AAAXX_1_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966814/62E1AAAXX_1_2.fastq.gz
+62E1AAAXX	2	normal	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966815/62E1AAAXX_2_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966816/62E1AAAXX_2_2.fastq.gz
+62E1AAAXX	3	normal	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966817/62E1AAAXX_3_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966818/62E1AAAXX_3_2.fastq.gz
+62E1AAAXX	4	normal	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966819/62E1AAAXX_4_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966820/62E1AAAXX_4_2.fastq.gz
+62E1AAAXX	5	normal	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966821/62E1AAAXX_5_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966822/62E1AAAXX_5_2.fastq.gz
+62E1AAAXX	6	normal	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966823/62E1AAAXX_6_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966824/62E1AAAXX_6_2.fastq.gz
+62E1AAAXX	7	normal	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966825/62E1AAAXX_7_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966826/62E1AAAXX_7_2.fastq.gz
+62E1AAAXX	8	normal	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966827/62E1AAAXX_8_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966828/62E1AAAXX_8_2.fastq.gz
+62E1AAAXX	1	tumor	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966837/62E1VAAXX_1_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966838/62E1VAAXX_1_2.fastq.gz
+62E1AAAXX	2	tumor	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966839/62E1VAAXX_2_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966840/62E1VAAXX_2_2.fastq.gz
+62E1AAAXX	3	tumor	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966841/62E1VAAXX_3_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966842/62E1VAAXX_3_2.fastq.gz
+62E1AAAXX	4	tumor	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966843/62E1VAAXX_4_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966844/62E1VAAXX_4_2.fastq.gz
+62E1AAAXX	5	tumor	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966845/62E1VAAXX_5_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966846/62E1VAAXX_5_2.fastq.gz
+62E1AAAXX	6	tumor	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966847/62E1VAAXX_6_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966848/62E1VAAXX_6_2.fastq.gz
+62E1AAAXX	7	tumor	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966849/62E1VAAXX_7_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966850/62E1VAAXX_7_2.fastq.gz
+62E1AAAXX	8	tumor	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966851/62E1VAAXX_8_1.fastq.gz	/data/common_data/wgs_somatic_benchmark/EGAD00001001858/EGAF00000966852/62E1VAAXX_8_2.fastq.gz

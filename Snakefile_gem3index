@@ -1,0 +1,7 @@
+include: "rules/common_dna.smk" 
+ 
+rule all: 
+  input: 
+      "results_dna/index/GEM3/" + config['ref']['genome_name']+ ".gem"
+      
+include: "rules/GEM3_index.smk"

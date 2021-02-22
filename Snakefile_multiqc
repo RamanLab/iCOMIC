@@ -1,0 +1,6 @@
+include: "rules/common_dna.smk"
+
+rule all:
+  input:
+    "results_dna/qc/multiqc.html"
+include: "rules/multiqc.smk"

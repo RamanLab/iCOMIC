@@ -1,0 +1,17 @@
+include: "rules/common_dna.smk"
+rule all:
+  input:
+    expand("results_dna/mapped/{u.sample}-{u.unit}-{u.condition}.sorted.bam", u = units.itertuples()),
+    expand("results_dna/dedup/{u.sample}-{u.unit}-{u.condition}.bam", u = units.itertuples()),
+    "results_dna/qc/multiqc.html",
+    "results_dna/merged/all.vcf.gz",
+    "results_dna/mutect2_filter/all.vcf.gz",
+    "filtered/all.vcf.gz",
+    "results_dna/annotated/all.vcf",
+    "tables/calls_new.tsv.gz",
+    "plots/depths.svg",
+    "plots/allele-freqs.svg"
+include: "rules/BWA_MEM.smk" 
+include: "rules/Mutect2_new.smk"
+include: "rules/filtering.smk" 
+include: "rules/SnpEff.smk" 

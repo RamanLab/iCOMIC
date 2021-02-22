@@ -1,0 +1,8 @@
+Parameter,Value,Short description,Description,Default value,Essential
+-e,FLOAT,--alignment-max-error,Maximum divergency rate allowed between the input sequence and the reported matches (i.e. maximum number of mismatches or indels allowed). All global-Matches above this error rate will be discarded,0.12,yes
+--alignment-global-min-identity,INT,--alignment-global-min-identity  default=80%),Minimum global-alignment identity required (i.e. total number of matching bases). All global-matches below this identity will be discared ,80,no
+--alignment-global-min-score,FLOAT,--alignment-global-min-score,Minimum global-alignment score required (i.e. gap-affine score). All global-matches with score below this threshold will be discarded ,0.2,no
+--alignment-local-min-identity,INT,--alignment-local-min-identity,Minimum local-alignment identity required (i.e. total number of matching bases). All local-matches below this identity will be discarded,40,no
+--alignment-local-min-score,INT,--alignment-local-min-score,Minimum global-alignment score required (i.e. gap-affine score). All global-matches with score below this threshold will be discarded ,20,no
+-p,na,--paired-end-alignment,Enable Paired-End mapping mode (in case a single FASTA/FASTQ input is given),na,no
+-L,INT,--max-template-length,Maximum template length allowed (distance between the beginning of the left-most mapped read and the end of the right-most mapped read). All matches with longer template length will be discarded as discordant.,10000,no

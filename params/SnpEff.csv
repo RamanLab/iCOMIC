@@ -1,0 +1,24 @@
+Parameter,Value,Short description,Description,Default value,Essential
+-spliceSiteSize ,INT,spliceSiteSize , Set size for splice sites (donor and acceptor) in bases,2,no
+-spliceRegionExonSize ,INT,spliceRegionExonSize , Set size for splice site region within exons,3,no
+-spliceRegionIntronMin ,INT,spliceRegionIntronMin , Set minimum number of bases for splice site region within intron,3,no
+-spliceRegionIntronMax ,INT,spliceRegionIntronMax , Set maximum number of bases for splice site region within intron,8,no
+-noStats,na,noStats,Do not create stats (summary) file,na,no
+-csvStats,na,csvStats,Create CSV summary file instead of HTML,na,no
+-fi / -filterInterval,na,filterInterval,Only analyze changes that intersect with the intervals specified in this file (you may use this option many times),,
+-no-downstream,na,no-downstream,Do not show DOWNSTREAM changes,na,no
+-no-intergenic,na,no-intergenic,Do not show INTERGENIC changes,na,no
+-no-intron,na,no-intron,Do not show INTRON changes,na,no
+-no-upstream,na,no-upstream,Do not show DPSTREAMOWNUSTREAM changes,na,no
+-no-utr,na,no-utr,Do not show 5_PRIME_UTR or 3_PRIME_UTR changes,na,no
+-no EffectType,na,no EffectType,Do not show 'EffectType'. This option can be used several times.,na,no
+-cancer,STR,CancerComparison,Perform 'cancer' comparisons (Somatic vs Germline),FALSE,no
+-cancerSamples ,na,CancerSamples,Two column TXT file defining 'oringinal \t derived' samples.,na,no
+-geneId,STR,GeneID,Use gene ID instead of gene name (VCF output).,FALSE,no
+-hgvs,STR,hgvsAnnotation,Use HGVS annotations for amino acid sub-field,TRUE,no
+-lof,na,(LOF/NMD)Tags,Add loss of function (LOF) and Nonsense mediated decay (NMD) tags,na,no
+-noHgvs,na,noHgvs,Do not add HGVS annotations,na,no
+-noLof,na,noLof,Do not add LOF and NMD annotations,na,no
+-oicr,STR,oicrTag,Add OICR tag in VCF file,FALSE,no
+-sequenceOntology,STR,sequenceOntology,Use Sequence Ontology terms,TRUE,no
+-download,na,Download,"Download a SnpEff database, if not available locally",na,no

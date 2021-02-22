@@ -1,0 +1,4 @@
+CompletedProcess(args=['snakemake', '--use-conda'], returncode=0)
+CompletedProcess(args=['snakemake', '--use-conda'], returncode=0)
+CompletedProcess(args=['snakemake', '--use-conda'], returncode=1)
+CompletedProcess(args=['snakemake', '--use-conda'], returncode=1)

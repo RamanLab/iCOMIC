@@ -1,0 +1,13 @@
+include: "rules/common_dna.smk" 
+ 
+rule all: 
+  input: 
+      expand("Qesults_dna/mapped/{u.sample}-{u.unit}.bam", u = units.itertuples()),
+      expand("Qesults_dna/mapped/{u.sample}-{u.unit}.sorted.bam", u = units.itertuples()),
+      expand("Qesults_dna/mapped/{u.sample}-{u.unit}.sorted.bam.bai", u = units.itertuples()),
+      expand("Qesults_dna/dedup/{u.sample}-{u.unit}.bam", u = units.itertuples()),
+      expand("Qesults_dna/qc/dedup/{u.sample}-{u.unit}.metrics.txt", u = units.itertuples()),
+      expand("Qesults_dna/qc/samtools-stats/{u.sample}-{u.unit}.txt", u = units.itertuples()),
+      
+      
+include: "rules/GEM3.smk"

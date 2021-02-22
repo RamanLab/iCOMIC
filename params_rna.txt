@@ -1,0 +1,9 @@
+hisat2 '--phred33'
+star '--quantMode GeneCounts --limitBAMsortRAM 10000000000 --outSAMattrIHstart 0'
+HTseq ''
+stringtie '--rf'
+deseq2 '-t 1'
+ballgown  
+fastqc '--threads 1 --quiet'
+None 
+

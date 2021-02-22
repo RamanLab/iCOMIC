@@ -1,0 +1,1 @@
+Annovar : '--batchsize 5000000.0 '

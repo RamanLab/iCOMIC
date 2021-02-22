@@ -1,0 +1,21 @@
+include: "rules/common_dna.smk"
+rule all:
+  input:
+    "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".1.bt2",
+
+include: "rules/Bowtie2_index.smk" 
+    "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".2.bt2",
+
+include: "rules/Bowtie2_index.smk" 
+    "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".3.bt2",
+
+include: "rules/Bowtie2_index.smk" 
+    "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".4.bt2",
+
+include: "rules/Bowtie2_index.smk" 
+    "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".rev.1.bt2",
+
+include: "rules/Bowtie2_index.smk" 
+    "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".rev.2.bt2"
+
+include: "rules/Bowtie2_index.smk" 
