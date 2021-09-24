@@ -1,0 +1,2 @@
+sample	unit	condition	fq1	fq2
+HG001	1	normal	/data/Priyanka/other_pipelines/iCOMIC/benchmark_data/samples/HG001_normal_Rep1_R1.fastq	/data/Priyanka/other_pipelines/iCOMIC/benchmark_data/samples/HG001_normal_Rep1_R2.fastq

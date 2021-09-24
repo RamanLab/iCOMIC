@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import re
 
-test_dir = '/data/Priyanka/other_pipelines/iCOMIC/sample_demo/'
+test_dir = '/data/Priyanka/other_pipelines/iCOMIC/benchmark_data/samples/'
 
 fq1 = []
 fq2 = []

@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import re
 
-test_dir = '/data/Priyanka/other_pipelines/iCOMIC/sample_demo/'
+test_dir = '/data/Priyanka/other_pipelines/iCOMIC/benchmark_data/samples/'
 
 if not any (file.endswith(".fastq") for file in os.listdir(test_dir)):
     print("No fastq files in the folder!", file=open('name_check.txt', 'w'))
