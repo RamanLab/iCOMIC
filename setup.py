@@ -1,4 +1,5 @@
 from setuptools import setup
+import os
 
 setup(name='icomic',
       version='0.1',
@@ -18,3 +19,10 @@ setup(name='icomic',
       },
       include_package_data=True,
       zip_safe=False)
+      
+      with open('requirements.txt') as f:
+      required = f.read().splitlines()
+
+      setup(...
+      install_requires=required,
+      ...)
