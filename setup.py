@@ -1,8 +1,20 @@
 from setuptools import setup
-setup(
-    name='test_icomic',
-    version='0.0.1',
-    entry_points={
-        'console_script': [
-            'test_icomic=test_icomic:run'
-            ]})
+
+setup(name='icomic',
+      version='0.1',
+      description='icomic gui',
+      classifiers=[
+        'Development Status :: 3 - Alpha',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3.6',
+        'Topic :: Text Processing :: Linguistic',
+      ],
+      keywords='GUI toolkit',
+      install_requires=[
+          'markdown',
+      ],
+      entry_points={
+          'console_scripts': ['icomic=mainwin_v35.py:main'],
+      },
+      include_package_data=True,
+      zip_safe=False)
