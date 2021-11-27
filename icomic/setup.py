@@ -1,7 +1,7 @@
 from setuptools import setup
 import os
-with open('requirements.txt') as f:
-      required = f.read().splitlines()
+with open('requirements.txt', 'r') as f:
+      required = f.readlines()
 setup(name='icomictest',
       version='0.1',
       description='icomic gui',
@@ -12,7 +12,7 @@ setup(name='icomictest',
         'Topic :: Text Processing :: Linguistic',
       ],
       keywords='GUI toolkit',
-      install_requires= required,
+      install_requires= [i.strip() for i in required],
       entry_points={
           'console_scripts': ['icomic=mainwin_v35.py:main'],
       },
