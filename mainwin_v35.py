@@ -5045,7 +5045,6 @@ class ResultsDialog_old(QtWidgets.QMainWindow):
 
 
 def main():
-#if __name__ == "__main__":
 #    p1 = Process(target=func1)
 #    p1.start()
 #    p2 = Process(target=func2)
@@ -5058,4 +5057,5 @@ def main():
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-main()
+if __name__ == "__main__":
+    main()
