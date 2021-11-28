@@ -14,7 +14,7 @@ setup(name='icomic',
       keywords='GUI toolkit',
       # install_requires= required,
       entry_points={
-          'console_scripts': ['icomic=mainwin_v35.py:main'],
+          'console_scripts': ['icomic=icomic.mainwin_v35.py:main'],
       },
       include_package_data=True,
       zip_safe=False)
