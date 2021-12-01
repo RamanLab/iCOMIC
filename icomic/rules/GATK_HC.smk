@@ -84,7 +84,8 @@ rule recalibrate_base_qualities:
         "logs/gatk/bqsr/{sample}-{unit}-{condition}.log"
     wrapper:
         "0.27.1/bio/gatk/baserecalibrator"
-
+#        "0.35.0/bio/gatk/baserecalibrator"
+#        "0.79.0/bio/gatk/baserecalibrator"
 #rule recalibrate_base_qualities_vqsr:
 #    input:
 #        bam=get_recal_input(),
@@ -217,18 +218,27 @@ rule hard_filter_calls:
         "0.27.1/bio/gatk/variantfiltration"
 
 
-rule recalibrate_calls:
-    input:
-        vcf="results_dna/filtered/all.{vartype}.vcf.gz"
-    output:
-        vcf=temp("results_dna/filtered/all.{vartype}.recalibrated.vcf.gz")
-    params:
-        extra = ""
+#rule recalibrate_calls:
+#    input:
+#        vcf="results_dna/filtered/all.{vartype}.vcf.gz",
+#        ref=config["ref"]["genome"]
+#    output:
+#        vcf="results_dna/filtered/all.{vartype}.recalibrated.vcf.gz",
+#        tranches="results_dna/filtered/all.{vartype}.tranches"
+#    params:
+#        extra = ""
 #        extra="{}".format(config["params"]["GATK_HC"]["VariantRecalibrator"])
-    log:
-        "logs/gatk/variantrecalibrator/{vartype}.log"
-    wrapper:
-        "0.27.1/bio/gatk/variantrecalibrator"
+#        filters=get_filter
+#        mode = "BOTH",
+#        resources={"hapmap": {"known": False, "training": True, "truth": True, "prior": 15.0},
+#                   "omni":   {"known": False, "training": True, "truth": False, "prior": 12.0},
+#                   "g1k":   {"known": False, "training": True, "truth": False, "prior": 10.0},
+#                   "dbsnp":  {"known": True, "training": False, "truth": False, "prior": 2.0}},
+#        annotation=["QD", "FisherStrand"]
+#    log:
+#        "logs/gatk/variantrecalibrator/{vartype}.log"
+#    wrapper:
+#        "0.27.1/bio/gatk/variantrecalibrator"
 
 
 rule merge_calls:
@@ -244,3 +254,4 @@ rule merge_calls:
         "logs/picard/merge-filtered.log"
     wrapper:
         "0.27.1/bio/picard/mergevcfs"
+#        "0.79.0/bio/picard/mergevcfs"

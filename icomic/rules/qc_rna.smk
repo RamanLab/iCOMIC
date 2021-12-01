@@ -1,17 +1,35 @@
-############Test Rule############
 rule fastqc:
     input:
-        R1 = config["sample"]+'/{sample}_{condition}_Rep{rep}_R1.fastq',
-        R2 = config["sample"]+'/{sample}_{condition}_Rep{rep}_R2.fastq'
-#        unpack(get_fastq)
+        get_fastq
     output:
-        R1 = "results/fastqc/{sample}_{condition}_Rep{rep}_R1_fastqc.zip",
-        R2 = "results/fastqc/{sample}_{condition}_Rep{rep}_R2_fastqc.zip"
-    threads: 40
-    message:
-        "--- running fastqc ---"
-    shell:
-        "fastqc -q -f fastq -o results/fastqc/ {input.R1} {input.R2}"
+        html="results/fastqc/{sample}_{condition}_Rep{rep}.html",
+        zip="results/fastqc/{sample}_{condition}_Rep{rep}.zip"
+#    params: "--quiet"
+    log:
+        "logs_rna/fastqc/{sample}_{condition}_Rep{rep}.log"
+    threads: config["threads"]
+    wrapper:
+        "0.31.1/bio/fastqc"
+#        "0.66.0/bio/fastqc"
+#        "0.78.0/bio/fastqc"
+#        "0.48.0/bio/fastqc"
+#    shell:
+#        "fastqc -q {input} -t {threads} -f fastq -o results/fastqc/ {output.html} {output.zip} " 
+
+
+############Test Rule############
+#rule fastqc:
+#    input:
+#        R1 = config["sample"]+'/{sample}_{condition}_Rep{rep}_R1.fastq',
+#        R2 = config["sample"]+'/{sample}_{condition}_Rep{rep}_R2.fastq'
+#    output:
+#        R1 = "results/fastqc/{sample}_{condition}_Rep{rep}_R1_fastqc.zip",
+#        R2 = "results/fastqc/{sample}_{condition}_Rep{rep}_R2_fastqc.zip"
+#    threads: 40
+#    message:
+#        "--- running fastqc ---"
+#    shell:
+#        "fastqc -q -f fastq -o results/fastqc/ {input.R1} {input.R2}"
 
 #rule qc_after:
 #    input:

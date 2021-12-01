@@ -8,9 +8,12 @@ rule snpeff:
         "logs/snpeff.log"
     params:
         reference="{}".format(config["ref"]["name"]),
+#        reference=config["ref"]["genome"],
         extra=config["params"]["SnpEff"]
     wrapper:
-        "0.35.0/bio/snpeff"
+        "0.27.1/bio/snpeff"
+#        "0.35.0/bio/snpeff"
+#        "0.27.0/bio/snpeff"
         
 #rule vcf_to_tsv:
 #    input:

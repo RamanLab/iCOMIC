@@ -1,8 +1,9 @@
 rule multiqc:
     input:
-        get_fastq_data(path = "results/fastqc_after/")
+        get_fastq_data(path = "results/cutadapt/fastqc_after/")
     output:
-        "results/fastqc_after/multiqc_after.html"
+        "results/cutadapt/fastqc_after/multiqc_after.html"
     wrapper:
-        "0.35.0/bio/multiqc"
 #        "0.31.1/bio/multiqc"
+#        "0.38.0/bio/multiqc"
+        "0.35.0/bio/multiqc"

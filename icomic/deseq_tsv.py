@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
 import numpy as np
 import pandas as pd
 import os
 
-test_dir = '/data/Priyanka/other_pipelines/iCOMIC_keerthika/test'
+test_dir = './results/em_results'
 
 sample = []
 unit = []
@@ -26,4 +27,4 @@ for i in range(len(sample)):
 units_data = pd.DataFrame({'sample': sample,
                            'unit': unit,
                            'condition': condition})
-units_data.to_csv('emtable.tsv', sep = '\t', index=False)
+units_data.to_csv('./results/em_results/emtable.tsv', sep = '\t', index=False)

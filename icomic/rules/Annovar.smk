@@ -29,6 +29,7 @@ rule annovar:
         "results_dna/filtered/all.vcf.gz",
     output:
         vcf="results_dna/annotated/all." + config["ref"]["name"] + "_multianno.vcf"
+#        vcf="results_dna/annotated/all.multianno.vcf"
     params:
         prefix="results_dna/annotated/all",
         name=config["ref"]["name"]

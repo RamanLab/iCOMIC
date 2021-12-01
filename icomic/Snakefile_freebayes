@@ -1,8 +1,0 @@
-include: "rules/common_dna.smk" 
- 
-rule all: 
-  input: 
-      "Qesults_dna/filtered/all.vcf"
-      
-      
-include: "rules/freebayes.smk"

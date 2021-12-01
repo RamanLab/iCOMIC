@@ -1,9 +1,9 @@
-Parameter,Value,Short description,Description,Default value,Essential
---p   ,INT,Threads,Number of extra output compression threads ,0,yes
--f,FLOAT,Isoform abundance of predicted transcripts,Sets the minimum isoform abundance of the predicted transcripts as a fraction of the most abundant transcript assembled at a given locus. Lower abundance transcripts are often artifacts of incompletely spliced precursors of processed transcripts (0.1 – 1.0),0.1,no
--m,INT,Minimum length for allowed transcripts,Sets the minimum length allowed for the predicted transcripts.,200,no
--c,FLOAT,Minimum read coverage for predicted transcripts,Sets the minimum read coverage allowed for the predicted transcripts. A transcript with a lower coverage than this value is not shown in the output.,2.5,no
--g,INT,Minimum locus gap separation value,Minimum locus gap separation value. Reads that are mapped closer than this distance are merged together in the same processing bundle,50,no
--a,INT,Filtering junctions that don’t align with these  minimum number of bases,Junctions that don't have spliced reads that align across them with at least this amount of bases on both sides are filtered out.,10,no
+Parameter,Value,Short description,Description,Default value,Essential,
+--p   ,INT,Threads,Number of extra output compression threads ,0,no,
+-f,FLOAT,Isoform abundance of predicted transcripts,Sets the minimum isoform abundance of the predicted transcripts as a fraction of the most abundant transcript assembled at a given locus. Lower abundance transcripts are often artifacts of incompletely spliced precursors of processed transcripts (0.1 – 1.0),0.1,no,
+-m,INT,Minimum length for allowed transcripts,Sets the minimum length allowed for the predicted transcripts.,200,no,
+-c,FLOAT,Minimum read coverage for predicted transcripts,Sets the minimum read coverage allowed for the predicted transcripts. A transcript with a lower coverage than this value is not shown in the output.,2.5,no,
+-g,INT,Minimum locus gap separation value,Minimum locus gap separation value. Reads that are mapped closer than this distance are merged together in the same processing bundle,50,no,
+-a,INT,Filtering junctions that don’t align with these  minimum number of bases,Junctions that don't have spliced reads that align across them with at least this amount of bases on both sides are filtered out.,10,no,
 -j,FLOAT,Junction coverage,"There should be at least this many spliced reads that align across a junction (i.e. junction coverage). This number can be fractional, since some reads align in more than one place. A read that aligns in n places will contribute 1/n to the junction coverage.",1,no
--M,FLOAT,Fraction of multiple-location-mapped reads at a locus, Sets the maximum fraction of muliple-location-mapped reads that are allowed to be present at a given locus. (0.1-1.0),0.95,no
+-M,FLOAT,Fraction of multiple-location-mapped reads at a locus, Sets the maximum fraction of muliple-location-mapped reads that are allowed to be present at a given locus. (0.1-1.0),0.95,no,

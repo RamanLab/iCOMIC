@@ -1,17 +1,24 @@
-########### Rule Test ###############
+def get_bams(wildcards):
+#    "get input files from the respective tools"
+    if os.path.exists("results/aligner_results/hisat2"):
+        return "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam"
+    else:
+        return "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
 
 rule stringtie:
     input:
-        bam = "results/aligner_results/{sample}_{condition}_Rep{rep}_cutadapt.bam"
+#        bam = "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam"
+        bam = get_bams
     output:
         R1 = "results/em_results/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_transcript.gtf",
         R2 = "results/em_results/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_gene_abundances.tsv",
         R3 = "results/em_results/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_cov_ref.gtf"
     params:
         gtf= config['ref']['annotation']
+    threads: config["threads"]
     shell:
-#        "/data/Priyanka/softwares/stringtie-1.3.4d.Linux_x86_64/stringtie -G {params.gtf} --rf -o {output.R1} {input.bam}"
-        "/data/Priyanka/softwares/stringtie-1.3.4d.Linux_x86_64/stringtie -G {params.gtf} --rf -e -B -o {output.R1} -A {output.R2} -C {output.R3} --rf {input.bam}"
+#        "/data/Priyanka/softwares/stringtie-1.3.4d.Linux_x86_64/stringtie -G {params.gtf} --rf -p {threads} -o {output.R1} -A {output.R2} -C {output.R3} --rf {input.bam}"
+        "stringtie -G {params.gtf} --rf -e -B -p {threads} -o {output.R1} -A {output.R2} -C {output.R3} --rf {input.bam}"
 
 #rule mergelist:
 #    input:

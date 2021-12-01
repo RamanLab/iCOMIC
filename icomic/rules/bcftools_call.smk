@@ -150,7 +150,8 @@ rule merge_variants:
     log:
         "logs/picard/merge-genotyped.log"
     wrapper:
-        "0.27.1/bio/picard/mergevcfs"
+#        "0.27.1/bio/picard/mergevcfs"
+        "0.35.0/bio/picard/mergevcfs"
         
 rule filter_vcfs:
     input:

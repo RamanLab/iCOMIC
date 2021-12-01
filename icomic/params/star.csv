@@ -1,74 +1,74 @@
-Parameter,Value,Short description,Description,Default value,Essential
---runThreadN,INT,Threads,Number of threads to run STAR,1,yes
---runRNGseed,INT,--runRNGseed,Random number Generator Seed,777,yes
---outFilterMultimapNmax,INT,--outFilterMultimapNmax,"Maximum number of multiple alignments allowed for a read, if exceeded, read is considered unmapped.",10,no
---sjdbScore,INT,--sjdbScore,Extra alignment score for alignmets that cross database junctions,2,no
---sjdbOverhang,INT,--sjdbOverhang,"Length of the donor/acceptor sequence on each side of the junctions,ideally = (matelength – 1)",100,no
---clip3pNbases,INT,--clip3pNbases,"Number(s) of bases to clip from 3p of each mate. If one value is given, itwill be assumed the same for both mates.",0,no
---clip5pNbases,INT,--clip5pNbases,"Number(s) of bases to clip from 5p of each mate.  If one value is given, itwill be assumed the same for both mates",0,no
---clip3pAdapterMMp,FLOAT,--clip3pAdapterMMp,"Maximum proportion of mismatches for 3p adpater clipping for each mate.If one value is given, it will be assumed the same for both mates.",0.1,no
---clip3pAfterAdapterNbases,INT,--clip3pAfterAdapterNbases,"Number of bases to clip from 3p of each mate after the adapter clipping.If one value is given, it will be assumed the same for both mates.",0,no
---outFilterMultimapScoreRange,INT,--outFilterMultimapScoreRange,The score range below the maximum score for multimapping alignments,1,no
---outFilterMismatchNmax,INT,--outFilterMismatchNmax,Alignment will be given as output only if it has no more mismatches than this value.,10,no
---outFilterMismatchNoverLmax,FLOAT,--outFilterMismatchNoverLmax,Alignment will be given as output only if its ratio of mismatches to *mapped*length is less than or equal to this value. (0.1 – 1.0),0.3,no
---outFilterMismatchNoverReadLmax,FLOAT,--outFilterMismatchNoverReadLmax,Alignment will be given as output only if its ratio of mismatches to *read* length isless than or equal to this value. (0.1 – 1.0),1,no
---outFilterScoreMin,INT,--outFilterScoreMin,Alignment will be given as output only if its score is higher than or equal to this value.,0,no
---outFilterScoreMinOverLread,FLOAT,--outFilterScoreMinOverLread,"Same as outFilterScoreMin, but normalized to read length (sum of mates’lengths for paired-end reads)",0.66,no
---outFilterMatchNmin,INT,--outFilterMatchNmin,Alignment will be given as output only if the number of matched bases is higher than or equal to this value.,0,no
---scoreGap,INT,--scoreGap,Splice junction penalty (independent on intron motif),0,no
---scoreGapNoncan,INT,--scoreGapNoncan,Non-canonical junction penalty (in addition to scoreGap),8,no
---scoreGapGCAG,INT,--scoreGapGCAG,GC/AG and CT/GC junction penalty (in addition to scoreGap),4,no
---scoreGapATAC,INT,--scoreGapATAC,AT/AC and GT/AT junction penalty (in addition to scoreGap),8,no
---seedSearchStartLmax,INT,--seedSearchStartLmax,Defines the search start point through the read - the read is split intopieces no longer than this value,50,no
---seedSearchLmax,INT,--seedSearchLmax,"Defines the maximum length of the seeds, if =0 max seed lengthisinfinite",0,no
---seedMultimapNmax,INT,--seedMultimapNmax,Only pieces that map fewer than this value are utilized in the stitchingprocedure,10000,no
---seedPerReadNmax,INT,--seedPerReadNmax,Maximum number of seeds per read,1000,no
---seedPerWindowNmax,INT,--seedPerWindowNmax,Maximum number of seeds per window,50,no
---seedNoneLociPerWindow,INT,--seedNoneLociPerWindow,Maximum number of one seed loci per window,10,no
---seedSplitMin,INT,--seedSplitMin,Minimum length of the seed sequences split by Ns or mate gap,12,no
---alignIntronMin,INT,--alignIntronMin,"Minimum intron size:  genomic gap is considered intron if itslength>=alignIntronMin, otherwise it is considered Deletion",21,no
---alignIntronMax,INT,--alignIntronMax,"Maximum intron size, if 0, max intron size will be determined by(2ˆwinBinNbits)*winAnchorDistNbins",0,no
---alignMatesGapMax,INT,--alignMatesGapMax,"Maximum gap between two mates, if 0, max intron gap will be determined by(2ˆwinBinNbits)*winAnchorDistNbins",0,no
---alignSJoverhangMin,INT,--alignSJoverhangMin,Minimum overhang (i.e.  block size) for spliced alignments,5,no
---alignSJDBoverhangMin,INT,--alignSJDBoverhangMin,Minimum overhang (i.e.  block size) for annotated (sjdb) splicedalignments,3,no
---alignSplicedMateMapLmin,INT,--alignSplicedMateMapLmin,Minimum mapped length for a read mate that is spliced,0,no
---alignSplicedMateMapLminOverLmate,FLOAT,--alignSplicedMateMapLminOverLmate,alignSplicedMateMapLmin normalized to mate length,0.66,no
---alignWindowsPerReadNmax,INT,--alignWindowsPerReadNmax,Maximum number of windows per read,10000,no
---alignTranscriptsPerWindowNmax,INT,--alignTranscriptsPerWindowNmax,Maximum number of transcripts per window,100,no
---alignTranscriptsPerReadNmax,INT,--alignTranscriptsPerReadNmax,Maximum number of different alignments per read to consider,10000,no
---alignEndsType,STR,--alignEndsType,"Type of read ends alignment (Local : standard local alignment with soft-clipping allowed; EndToEnd :force end-to-end read alignment, do not soft-clip ; Extend5pOfRead1 : fully extend only the 5p of the read1, all other ends:  local alignment; Extend5pOfReads12 : fully extend only the 5p of the both read1 and read2, all other ends:local alignment)",Local,no
---alignEndsProtrude,INT,--alignEndsProtrude,"Allow protrusion of alignment ends, i.e.  start (end) of the +strandmate downstream of the start (end) of the -strand mate ;  maximum number of protrusion bases allowed",0,no
---alignEndsProtrude,STR,--alignEndsProtrude,"Allow protrusion of alignment ends, i.e.  start (end) of the +strandmate downstream of the start (end) of the -strand mate ; ConcordantPair : report alignments with non-zero protrusion as concordant pairs; DiscordantPair : report alignments with non-zero protrusion as discordant pairs)",ConcordantPair,no
---alignSoftClipAtReferenceEnds,STR,--alignSoftClipAtReferenceEnds,"Allow the soft-clipping of the alignments past the end of the chromosomes (Yes : allow ; No: prohibit, useful for compatibility with Cufflinks)",Yes,no
---alignInsertionFlush,STR,--alignInsertionFlush,How to flush ambiguous insertion positions (None : insertions are not flushed ; Right : insertions are flushed to the right),None,no
---peOverlapNbasesMin,INT,--peOverlapNbasesMin,Minimum number of overlap bases to trigger mates merging and re-alignment,0,no
---peOverlapMMp,FLOAT,--peOverlapMMp,Maximum proportion of mismatched bases in the overlap area,0.01,no
---winAnchorMultimapNmax,INT,--winAnchorMultimapNmax,Maximum number of loci anchors are allowed to map to,50,no
---winBinNbits,INT,--winBinNbits,"log2(winBin), where winBin is the size of the bin for the windows/clustering, each window will occupy an integer number of bins.",16,no
---winAnchorDistNbins,INT,--winAnchorDistNbins,Maximum number of bins between two anchors that allows aggregation ofanchors into one window,9,no
---winFlankNbins,INT,--winFlankNbins," log2(winFlank), where win Flank is the size of the left and right flanking regions for each window",4,no
---winReadCoverageRelativeMin,FLOAT,--winReadCoverageRelativeMin,"minimum relative coverage of the read sequence by the seeds in awindow, for STARlong algorithm only.",0.5,no
---winReadCoverageBasesMin,INT,--winReadCoverageBasesMin,"Minimum number of bases covered by the seeds in a window , for STARlong algorithm only.",0,no
---chimSegmentMin,INT,--chimSegmentMin,"Minimum length of chimeric segment length, if ==0, no chimericoutput",0,no
---chimScoreMin,INT,--chimScoreMin,Minimum total (summed) score of the chimeric segments,0,no
---chimScoreDropMax,INT,--chimScoreDropMax,Maximum drop (difference) of chimeric score (the sum of scores of allchimeric segments) from the read length,20,no
---chimScoreSeparation,INT,--chimScoreSeparation,Minimum difference (separation) between the best chimeric score andthe next one,10,no
---chimScoreJunctionNonGTAG,INT,--chimScoreJunctionNonGTAG,Penalty for a non-GT/AG chimeric junction,1,no
---chimJunctionOverhangMin,INT,--chimJunctionOverhangMin,Minimum overhang for a chimeric junction,20,no
---chimSegmentReadGapMax,INT,--chimSegmentReadGapMax,Maximum gap in the read sequence between chimeric segments,0,no
---chimMainSegmentMultNmax,INT,--chimMainSegmentMultNmax,Maximum number of multi-alignments for the main chimeric segment.=1 will prohibit multimapping main segments,10,no
---chimMultimapNmax,INT,--chimMultimapNmax,Maximum number of chimeric multi-alignments (0 : use the old scheme for chimeric detection which only considered unique alignments),0,no
---chimMultimapScoreRange,INT,--chimMultimapScoreRange,The score range for multi-mapping chimeras below the best chimericscore.  Only works with –chimMultimapNmax>1,1,no
---chimNonchimScoreDropMin,INT,--chimNonchimScoreDropMin,"To trigger chimeric detection, the drop in the best non-chimericalignment score with respect to the read length has to be smaller than this value",20,no
---chimOutType,STR,--chimOutType,Type of chimeric output. (Junctions : Chimeric.out.junction ; SeparateSAMold : output old SAM into separate Chimeric.out.sam file ; WithinBAM : output into main aligned BAM files (Aligned.*.bam) ; WithinBAM HardClip : hard-clipping in the CIGAR for supplemental chimeric alignments (defaultif no 2nd word is present) ; WithinBAM SoftClip : soft-clipping in the CIGAR for supplemental chimeric alignments),Junctions,no
---chimFilter,STR,--chimFilter,Different filters for chimeric alignments. (None : no filtering ; banGenomicN : Ns are not allowed in the genome sequence around the chimeric junction),banGenomicN,no
---chimOutJunctionFormat,INT,--chimOutJunctionFormat,"Formatting type for the Chimeric.out.junction file. (0 : no comment lines/headers ; 1 : comment lines at the end of the file : command line and Nreads: total,unique, multi)",0,no
---quantMode,STR,--quantMode,Types of quantification requested. (- none ; TranscriptomeSAM : output SAM/BAM alignments to transcriptome into a separate file ; GeneCounts : count reads per gene),none,no
---quantTranscriptomeBan,STR,--quantTranscriptomeBan,"Prohibit various alignment type ; IndelSoftclipSingleend : prohibit indels, soft clipping and single-end alignments – compatible with RSEM ; Singleend : prohibit single-end alignments)",IndelSoftclipSingleend,no
---twopass1readsN,INT,--twopass1readsN,Number of reads to process for the 1st step.  Use very large number (ordefault -1) to map all reads in the first step,-1,no
+Parameter,Value,Short description,Description,Default value,Essential,,,,
+--runThreadN,INT,Threads,Number of threads to run STAR,1,no,,,,
+--runRNGseed,INT,--runRNGseed,Random number Generator Seed,777,no,,,,
+--outFilterMultimapNmax,INT,--outFilterMultimapNmax,"Maximum number of multiple alignments allowed for a read, if exceeded, read is considered unmapped.",10,no,,
+--sjdbScore,INT,--sjdbScore,Extra alignment score for alignmets that cross database junctions,2,no,,,,
+--sjdbOverhang,INT,--sjdbOverhang,"Length of the donor/acceptor sequence on each side of the junctions,ideally = (matelength – 1)",100,no,,,
+--clip3pNbases,INT,--clip3pNbases,"Number(s) of bases to clip from 3p of each mate. If one value is given, itwill be assumed the same for both mates.",0,no,,,
+--clip5pNbases,INT,--clip5pNbases,"Number(s) of bases to clip from 5p of each mate.  If one value is given, itwill be assumed the same for both mates",0,no,,,
+--clip3pAdapterMMp,FLOAT,--clip3pAdapterMMp,"Maximum proportion of mismatches for 3p adpater clipping for each mate.If one value is given, it will be assumed the same for both mates.",0.1,no,,,
+--clip3pAfterAdapterNbases,INT,--clip3pAfterAdapterNbases,"Number of bases to clip from 3p of each mate after the adapter clipping.If one value is given, it will be assumed the same for both mates.",0,no,,,
+--outFilterMultimapScoreRange,INT,--outFilterMultimapScoreRange,The score range below the maximum score for multimapping alignments,1,no,,,,
+--outFilterMismatchNmax,INT,--outFilterMismatchNmax,Alignment will be given as output only if it has no more mismatches than this value.,10,no,,,,
+--outFilterMismatchNoverLmax,FLOAT,--outFilterMismatchNoverLmax,Alignment will be given as output only if its ratio of mismatches to *mapped*length is less than or equal to this value. (0.1 – 1.0),0.3,no,,,,
+--outFilterMismatchNoverReadLmax,FLOAT,--outFilterMismatchNoverReadLmax,Alignment will be given as output only if its ratio of mismatches to *read* length isless than or equal to this value. (0.1 – 1.0),1,no,,,,
+--outFilterScoreMin,INT,--outFilterScoreMin,Alignment will be given as output only if its score is higher than or equal to this value.,0,no,,,,
+--outFilterScoreMinOverLread,FLOAT,--outFilterScoreMinOverLread,"Same as outFilterScoreMin, but normalized to read length (sum of mates’lengths for paired-end reads)",0.66,no,,,
+--outFilterMatchNmin,INT,--outFilterMatchNmin,Alignment will be given as output only if the number of matched bases is higher than or equal to this value.,0,no,,,,
+--scoreGap,INT,--scoreGap,Splice junction penalty (independent on intron motif),0,no,,,,
+--scoreGapNoncan,INT,--scoreGapNoncan,Non-canonical junction penalty (in addition to scoreGap),8,no,,,,
+--scoreGapGCAG,INT,--scoreGapGCAG,GC/AG and CT/GC junction penalty (in addition to scoreGap),4,no,,,,
+--scoreGapATAC,INT,--scoreGapATAC,AT/AC and GT/AT junction penalty (in addition to scoreGap),8,no,,,,
+--seedSearchStartLmax,INT,--seedSearchStartLmax,Defines the search start point through the read - the read is split intopieces no longer than this value,50,no,,,,
+--seedSearchLmax,INT,--seedSearchLmax,"Defines the maximum length of the seeds, if =0 max seed lengthisinfinite",0,no,,,
+--seedMultimapNmax,INT,--seedMultimapNmax,Only pieces that map fewer than this value are utilized in the stitchingprocedure,10000,no,,,,
+--seedPerReadNmax,INT,--seedPerReadNmax,Maximum number of seeds per read,1000,no,,,,
+--seedPerWindowNmax,INT,--seedPerWindowNmax,Maximum number of seeds per window,50,no,,,,
+--seedNoneLociPerWindow,INT,--seedNoneLociPerWindow,Maximum number of one seed loci per window,10,no,,,,
+--seedSplitMin,INT,--seedSplitMin,Minimum length of the seed sequences split by Ns or mate gap,12,no,,,,
+--alignIntronMin,INT,--alignIntronMin,"Minimum intron size:  genomic gap is considered intron if itslength>=alignIntronMin, otherwise it is considered Deletion",21,no,,,
+--alignIntronMax,INT,--alignIntronMax,"Maximum intron size, if 0, max intron size will be determined by(2ˆwinBinNbits)*winAnchorDistNbins",0,no,,
+--alignMatesGapMax,INT,--alignMatesGapMax,"Maximum gap between two mates, if 0, max intron gap will be determined by(2ˆwinBinNbits)*winAnchorDistNbins",0,no,,
+--alignSJoverhangMin,INT,--alignSJoverhangMin,Minimum overhang (i.e.  block size) for spliced alignments,5,no,,,,
+--alignSJDBoverhangMin,INT,--alignSJDBoverhangMin,Minimum overhang (i.e.  block size) for annotated (sjdb) splicedalignments,3,no,,,,
+--alignSplicedMateMapLmin,INT,--alignSplicedMateMapLmin,Minimum mapped length for a read mate that is spliced,0,no,,,,
+--alignSplicedMateMapLminOverLmate,FLOAT,--alignSplicedMateMapLminOverLmate,alignSplicedMateMapLmin normalized to mate length,0.66,no,,,,
+--alignWindowsPerReadNmax,INT,--alignWindowsPerReadNmax,Maximum number of windows per read,10000,no,,,,
+--alignTranscriptsPerWindowNmax,INT,--alignTranscriptsPerWindowNmax,Maximum number of transcripts per window,100,no,,,,
+--alignTranscriptsPerReadNmax,INT,--alignTranscriptsPerReadNmax,Maximum number of different alignments per read to consider,10000,no,,,,
+--alignEndsType,STR,--alignEndsType,"Type of read ends alignment (Local : standard local alignment with soft-clipping allowed; EndToEnd :force end-to-end read alignment, do not soft-clip ; Extend5pOfRead1 : fully extend only the 5p of the read1, all other ends:  local alignment; Extend5pOfReads12 : fully extend only the 5p of the both read1 and read2, all other ends:local alignment)",Local,no,
+--alignEndsProtrude,INT,--alignEndsProtrude,"Allow protrusion of alignment ends, i.e.  start (end) of the +strandmate downstream of the start (end) of the -strand mate ;  maximum number of protrusion bases allowed",0,no,,,
+--alignEndsProtrude,STR,--alignEndsProtrude,"Allow protrusion of alignment ends, i.e.  start (end) of the +strandmate downstream of the start (end) of the -strand mate ; ConcordantPair : report alignments with non-zero protrusion as concordant pairs; DiscordantPair : report alignments with non-zero protrusion as discordant pairs)",ConcordantPair,no,,,
+--alignSoftClipAtReferenceEnds,STR,--alignSoftClipAtReferenceEnds,"Allow the soft-clipping of the alignments past the end of the chromosomes (Yes : allow ; No: prohibit, useful for compatibility with Cufflinks)",Yes,no,,,
+--alignInsertionFlush,STR,--alignInsertionFlush,How to flush ambiguous insertion positions (None : insertions are not flushed ; Right : insertions are flushed to the right),None,no,,,,
+--peOverlapNbasesMin,INT,--peOverlapNbasesMin,Minimum number of overlap bases to trigger mates merging and re-alignment,0,no,,,,
+--peOverlapMMp,FLOAT,--peOverlapMMp,Maximum proportion of mismatched bases in the overlap area,0.01,no,,,,
+--winAnchorMultimapNmax,INT,--winAnchorMultimapNmax,Maximum number of loci anchors are allowed to map to,50,no,,,,
+--winBinNbits,INT,--winBinNbits,"log2(winBin), where winBin is the size of the bin for the windows/clustering, each window will occupy an integer number of bins.",16,no,,
+--winAnchorDistNbins,INT,--winAnchorDistNbins,Maximum number of bins between two anchors that allows aggregation ofanchors into one window,9,no,,,,
+--winFlankNbins,INT,--winFlankNbins," log2(winFlank), where win Flank is the size of the left and right flanking regions for each window",4,no,,,
+--winReadCoverageRelativeMin,FLOAT,--winReadCoverageRelativeMin,"minimum relative coverage of the read sequence by the seeds in awindow, for STARlong algorithm only.",0.5,no,,,
+--winReadCoverageBasesMin,INT,--winReadCoverageBasesMin,"Minimum number of bases covered by the seeds in a window , for STARlong algorithm only.",0,no,,,
+--chimSegmentMin,INT,--chimSegmentMin,"Minimum length of chimeric segment length, if ==0, no chimericoutput",0,no,,
+--chimScoreMin,INT,--chimScoreMin,Minimum total (summed) score of the chimeric segments,0,no,,,,
+--chimScoreDropMax,INT,--chimScoreDropMax,Maximum drop (difference) of chimeric score (the sum of scores of allchimeric segments) from the read length,20,no,,,,
+--chimScoreSeparation,INT,--chimScoreSeparation,Minimum difference (separation) between the best chimeric score andthe next one,10,no,,,,
+--chimScoreJunctionNonGTAG,INT,--chimScoreJunctionNonGTAG,Penalty for a non-GT/AG chimeric junction,1,no,,,,
+--chimJunctionOverhangMin,INT,--chimJunctionOverhangMin,Minimum overhang for a chimeric junction,20,no,,,,
+--chimSegmentReadGapMax,INT,--chimSegmentReadGapMax,Maximum gap in the read sequence between chimeric segments,0,no,,,,
+--chimMainSegmentMultNmax,INT,--chimMainSegmentMultNmax,Maximum number of multi-alignments for the main chimeric segment.=1 will prohibit multimapping main segments,10,no,,,,
+--chimMultimapNmax,INT,--chimMultimapNmax,Maximum number of chimeric multi-alignments (0 : use the old scheme for chimeric detection which only considered unique alignments),0,no,,,,
+--chimMultimapScoreRange,INT,--chimMultimapScoreRange,The score range for multi-mapping chimeras below the best chimericscore.  Only works with –chimMultimapNmax>1,1,no,,,,
+--chimNonchimScoreDropMin,INT,--chimNonchimScoreDropMin,"To trigger chimeric detection, the drop in the best non-chimericalignment score with respect to the read length has to be smaller than this value",20,no,,,
+--chimOutType,STR,--chimOutType,Type of chimeric output. (Junctions : Chimeric.out.junction ; SeparateSAMold : output old SAM into separate Chimeric.out.sam file ; WithinBAM : output into main aligned BAM files (Aligned.*.bam) ; WithinBAM HardClip : hard-clipping in the CIGAR for supplemental chimeric alignments (defaultif no 2nd word is present) ; WithinBAM SoftClip : soft-clipping in the CIGAR for supplemental chimeric alignments),Junctions,no,,,,
+--chimFilter,STR,--chimFilter,Different filters for chimeric alignments. (None : no filtering ; banGenomicN : Ns are not allowed in the genome sequence around the chimeric junction),banGenomicN,no,,,,
+--chimOutJunctionFormat,INT,--chimOutJunctionFormat,"Formatting type for the Chimeric.out.junction file. (0 : no comment lines/headers ; 1 : comment lines at the end of the file : command line and Nreads: total,unique, multi)",0,no,,
+--quantMode,STR,--quantMode,Types of quantification requested. (- none ; TranscriptomeSAM : output SAM/BAM alignments to transcriptome into a separate file ; GeneCounts : count reads per gene),none,no,,,,
+--quantTranscriptomeBan,STR,--quantTranscriptomeBan,"Prohibit various alignment type ; IndelSoftclipSingleend : prohibit indels, soft clipping and single-end alignments – compatible with RSEM ; Singleend : prohibit single-end alignments)",IndelSoftclipSingleend,no,,,
+--twopass1readsN,INT,--twopass1readsN,Number of reads to process for the 1st step.  Use very large number (ordefault -1) to map all reads in the first step,-1,no,,,,
 --waspOutputMode,STR,--waspOutputMode,"WASP allele-specific output type.  This is re-implemenation of theoriginal WASP mappability filtering by Bryce van de Geijn, Graham McVicker,Yoav Gilad & Jonathan K Pritchard.  Please cite the original WASP paper:Nature Methods 12, 1061–1063 (2015),https://www.nature.com/articles/nmeth.3582 (SAMtag : add WASP tags to the alignments that pass WASP filtering)",None,no
---soloType,STR,--soloType,Type of single-cell RNA-seq (None ; Droplet : one cell barcode and one UMI barcode in read2 e.g. Drop-seq and 10X Chromium),None,no
---soloCBstart,INT,--soloCBstart,Cell barcode start base,1,no
---soloCBlen,INT,--soloCBlen,Cell barcode length,16,no
---soloUMIstart,INT,--soloUMIstart,UMI start base,17,no
---soloUMIlen,INT,--soloUMIlen,UMI length,10,no
+--soloType,STR,--soloType,Type of single-cell RNA-seq (None ; Droplet : one cell barcode and one UMI barcode in read2 e.g. Drop-seq and 10X Chromium),None,no,,,,
+--soloCBstart,INT,--soloCBstart,Cell barcode start base,1,no,,,,
+--soloCBlen,INT,--soloCBlen,Cell barcode length,16,no,,,,
+--soloUMIstart,INT,--soloUMIstart,UMI start base,17,no,,,,
+--soloUMIlen,INT,--soloUMIlen,UMI length,10,no,,,,

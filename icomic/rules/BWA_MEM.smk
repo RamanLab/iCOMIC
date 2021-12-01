@@ -68,7 +68,8 @@ rule samtools_index:
     output:
         "{prefix}.bam.bai"
     wrapper:
-        "0.27.1/bio/samtools/index"
+#        "0.27.1/bio/samtools/index"
+        "0.38.0/bio/samtools/index"
 
 #rule samtools_index:
 #    input:
@@ -102,7 +103,8 @@ rule samtools_stats:
     log:
         "logs/samtools-stats/{sample}-{unit}-{condition}.log"
     wrapper:
-        "0.27.1/bio/samtools/stats"
+#        "0.27.1/bio/samtools/stats"
+        "0.38.0/bio/samtools/stats"
 
 
 rule bcf_stat:

@@ -1,15 +1,12 @@
-include: "rules/common_dna.smk"
+include: "rules/common_rna.smk"
 rule all:
   input:
-    expand("results_dna/mapped/{u.sample}-{u.unit}-{u.condition}.sorted.bam", u = units.itertuples()),
-    expand("results_dna/dedup/{u.sample}-{u.unit}-{u.condition}.bam", u = units.itertuples()),
-    "results_dna/filtered/all.vcf.gz",
-    "results_dna/multiqc/multiqc.html",
-    "results_dna/filtered/all.avinput",
-    config["ref"]["genome-dict"]+ ".dict",
-    config["ref"]["genome"]+ ".fai",
-    "results_dna/annotated/all." + config["ref"]["name"] + "_multianno.vcf", 
-
-include: "rules/BWA_MEM.smk" 
-include: "rules/Mutect2.smk" 
-include: "rules/Annovar.smk" 
+    expand('results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.sam', sample=samples, condition=type, rep=reps),
+    expand('results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam', sample=samples, condition=type, rep=reps),
+    expand('results/em_results/{sample}_{condition}_Rep{rep}.counts', sample=samples, condition=type, rep=reps),
+    "results/em_results/emtable.tsv",
+    expand('results/de_results/DESeq2_normalized_counts.txt'),
+    "results/multiqc/multiqc.html",
+include: "rules/hisat2.smk" 
+include: "rules/HTseq.smk" 
+include: "rules/deseq2.smk" 

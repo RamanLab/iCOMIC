@@ -1,8 +1,15 @@
 # for ballgown analysis
+#if (!requireNamespace("BiocManager", quietly = TRUE))
+#    install.packages("BiocManager")
+#
+#BiocManager::install("ballgown")
 library(ballgown)
 # for plot labeling
+#install.packages("calibrate",repos = "http://cran.us.r-project.org")
 library(calibrate)
 # for manipulating file names/strings
+#install.packages("stringi",repos = "http://cran.us.r-project.org")
+#install.packages("stringr",repos = "http://cran.us.r-project.org")
 library(stringr) 
 
 dataDir = file.path("./results/em_results/")
@@ -124,9 +131,9 @@ results_genes = stattest(bg, feature="gene", covariate="group", getFC=TRUE, meas
 ## Compare the data before and after normalization. boxplot with and without log transformation
 #par(mfrow=c(1,2))
 
-boxplot(gene_expression, col=rainbow(6),  las=2, ylab="log2(FPKM)", main="Distribution of FPKMs for all 6 samples")
+boxplot(gene_expression, col=rainbow(6),  las=2, ylab="log2(FPKM)", main="Distribution of FPKMs for all the samples")
 
-boxplot(log2(gene_expression+1), col=rainbow(6),  las=2, ylab="log2(FPKM)", main="log transformed distribution of FPKMs for all 6 samples")
+boxplot(log2(gene_expression+1), col=rainbow(6),  las=2, ylab="log2(FPKM)", main="log transformed distribution of FPKMs for all the samples")
 # dev.off()
 
 ## FPKM values are not logged. Hence fold change (FC) is not also logged. Log # fold changes and store it in logfc column
@@ -136,7 +143,7 @@ results_genes[,"logfc"] = log2(results_genes[,"fc"])
 qsig=which(results_genes$qval<0.05)
  
 # draw histogram
-hist(results_genes[qsig,"logfc"], breaks=50, col="seagreen", xlab="log2(Fold change) Tumor vs Normal", main="Distribution of differential expression values")
+#hist.default(results_genes[qsig,"logfc"], breaks=50, col="seagreen", xlab="log2(Fold change) Tumor vs Normal", main="Distribution of differential expression values")
 
 # Add vertical cut offs
 abline(v=c(-2,2), col="black", lwd=2, lty=2)

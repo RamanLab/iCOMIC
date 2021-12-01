@@ -1,9 +1,0 @@
-BWA_MEM '--threads 1'
-Bowtie2 '-Sbh --threads 1'
-bcftools_call '--BCF --uncompressed'
-GATK_HC '-ERC GVCF'
-SnpEff '-Xmx4g'
-fastqc '--threads 1 --quiet'
-Annovar
-GEM3 '--threads'
-freebayes 'chunksize=100000'

@@ -1,7 +1,0 @@
-include: "rules/common_dna.smk"
-rule all:
-  input:
-    expand("results_dna/qc/fastqc_after/{u.sample}-{u.unit}-{u.condition}.aftertrim.html", u = units.itertuples()),
-    expand("results_dna/qc/fastqc_after/{u.sample}-{u.unit}-{u.condition}.aftertrim.zip", u = units.itertuples()) 
-
-include: "rules/fastqc_after_dna.smk"

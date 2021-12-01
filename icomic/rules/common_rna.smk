@@ -65,13 +65,10 @@ print(lens)
 
 units = pd.read_table(config["units"], dtype=str).set_index(["sample", "unit", "condition"], drop=False)
 units.index = units.index.set_levels([i.astype(str) for i in units.index.levels])  # enforce str in index
-##### Wildcard constraints ######
-wildcard_constraints:
-    vartype="snvs|indels",
-    sample="|".join(samples.index),
-    unit="|".join(units["unit"]),
-#    contig="|".join(contigs),
-    condition = "|".join(units["condition"])
+###### Wildcard constraints ######
+#wildcard_constraints:
+#    unit="|".join(units["unit"]),
+#    condition = "|".join(units["condition"])
 
 #### Helper functions #####
 
@@ -79,12 +76,12 @@ def get_fastq(wildcards):
     """Get fastq files of given sample-unit."""
     if os.path.exists("results/cutadapt"):
         if not is_single_end(**wildcards):
-            return expand("results/cutadapt/{sample}-{unit}-{condition}.{group}.fastq.gz",
+            return expand("results/cutadapt/{sample}_{condition}_Rep{rep}_R{group}.fastq",
                           group=[1, 2], **wildcards)
         # single end sample
-        return "results/cutadapt/{sample}-{unit}-{condition}.fastq.gz".format(**wildcards)
+        return "results/cutadapt_se/{sample}_{condition}_Rep{rep}.fastq".format(**wildcards)
     else:
-        return units.loc[(wildcards.sample, wildcards.unit, wildcards.condition), ["fq1", "fq2"]].dropna()
+        return units.loc[(wildcards.sample, wildcards.rep, wildcards.condition), ["fq1", "fq2"]].dropna()
         if len(fastqs) == 2:
             return {"r1": fastqs.fq1, "r2": fastqs.fq2}
         return {"r1": fastqs.fq1}
@@ -92,15 +89,14 @@ def get_fastq(wildcards):
 def get_trimmed(wildcards):
     if not is_single_end(**wildcards):
         # paired-end sample
-        return expand("results/cutadapt/{sample}-{unit}-{condition}.{group}.fastq.gz",
+        return expand("results/cutadapt/{sample}_{condition}_Rep{rep}_R{group}.fastq",
                       group=[1, 2], **wildcards)
     # single end sample
-    return "results/cutadapt/{sample}-{unit}-{condition}.fastq.gz".format(**wildcards)        
-
+    return "results/cutadapt_se/{sample}_{condition}_Rep{rep}.fastq".format(**wildcards)
     
-def is_single_end(sample, unit, condition):
+def is_single_end(sample, rep, condition):
     """Return True if sample-unit is single end."""
-    return pd.isnull(units.loc[(sample, unit, condition), "fq2"])
+    return pd.isnull(units.loc[(sample, rep, condition), "fq2"])
 
 
 def get_fastq_data(path):
@@ -122,3 +118,18 @@ def get_fastq_data(path):
         else:
             pass
     return name_list
+
+#def get_bams(wildcards):
+##    "get input files from the respective tools"
+#    if os.path.exists("results/aligner_results/hisat2"):
+#        return "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam"
+#    else:
+#        return "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
+
+
+
+
+
+
+
+

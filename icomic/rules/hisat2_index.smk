@@ -5,8 +5,10 @@ rule hisat2_index:
         directory("results/index/hisat2")
     params:
         prefix = "results/index/hisat2/"
+#        extra = ""
     log:
-        "logs/hisat2_index.log"
-    threads: 2
+        "logs_rna/hisat2_index.log"
+    
+    threads: config["threads"]
     wrapper:
-        "0.36.0/bio/hisat2/index"
+        "0.35.0/bio/hisat2/index"
