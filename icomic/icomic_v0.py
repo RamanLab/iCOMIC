@@ -928,7 +928,7 @@ class Ui_MainWindow(object):
         self.pushbutton_result1_rna.setGeometry(QtCore.QRect(215, 145, 255, 48))
 
         self.pushbutton_result2_rna=QtWidgets.QPushButton(self.result_rna)
-        self.pushbutton_result2_rna.setText("Differentially Expressed Genes")
+        self.pushbutton_result2_rna.setText("DE Genes")
         self.pushbutton_result2_rna.setIcon(QtGui.QIcon("./icons/document.svg"))
         self.pushbutton_result2_rna.setIconSize(QtCore.QSize(40, 40))
         self.pushbutton_result2_rna.setFont(font_resulttab)
@@ -1529,19 +1529,19 @@ class Ui_MainWindow(object):
 
         ## End ##
 
-        self.AlignercomboBoxRNA.setItemText(0, _translate("MainWindow", "hisat2"))
-        self.AlignercomboBoxRNA.setItemText(1, _translate("MainWindow", "star"))
-        self.AlignercomboBoxRNA.setItemText(2, _translate("MainWindow", "salmon"))
-        self.AlignercomboBoxRNA.setItemText(3, _translate("MainWindow", "None"))
+        self.AlignercomboBoxRNA.setItemText(0, _translate("MainWindow", "HISAT2"))
+        self.AlignercomboBoxRNA.setItemText(1, _translate("MainWindow", "STAR"))
+#        self.AlignercomboBoxRNA.setItemText(2, _translate("MainWindow", "salmon"))
+#        self.AlignercomboBoxRNA.setItemText(3, _translate("MainWindow", "None"))
 
-        self.EMcomboBoxRNA.setItemText(0, _translate("MainWindow", "stringtie"))
-        self.EMcomboBoxRNA.setItemText(1, _translate("MainWindow", "HTseq"))
-        self.EMcomboBoxRNA.setItemText(2, _translate("MainWindow", "salmon"))
-        self.EMcomboBoxRNA.setItemText(3, _translate("MainWindow", "None"))
+        self.EMcomboBoxRNA.setItemText(0, _translate("MainWindow", "StringTie"))
+        self.EMcomboBoxRNA.setItemText(1, _translate("MainWindow", "HTSeq"))
+#        self.EMcomboBoxRNA.setItemText(2, _translate("MainWindow", "salmon"))
+#        self.EMcomboBoxRNA.setItemText(3, _translate("MainWindow", "None"))
 
         self.DEcomboBoxRNA.setItemText(0, _translate("MainWindow", "ballgown"))
-        self.DEcomboBoxRNA.setItemText(1, _translate("MainWindow", "deseq2"))
-        self.DEcomboBoxRNA.setItemText(2, _translate("MainWindow", "None"))
+        self.DEcomboBoxRNA.setItemText(1, _translate("MainWindow", "DESeq2"))
+#        self.DEcomboBoxRNA.setItemText(2, _translate("MainWindow", "None"))
         self.nextbuttontoolRNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
         self.nextbuttontoolRNA.setStyleSheet("background-color: #704214")
         self.nextbuttontoolRNA.setIconSize(QtCore.QSize(35, 35))
@@ -1894,7 +1894,7 @@ class Ui_MainWindow(object):
     def de_result(self):
         if self.DEcomboBoxRNA.currentText() == 'ballgown':
             path='results/de_results/SigDE.txt'
-        elif self.DEcomboBoxRNA.currentText() == 'deseq2':
+        elif self.DEcomboBoxRNA.currentText() == 'DESeq2':
             path = 'results/de_results/DESeq2_normalized_counts.txt'
             self.result_dialog= ResultsDialog(path)
             self.result_dialog.show()
@@ -2349,8 +2349,8 @@ class Ui_MainWindow(object):
         self.AlignercomboBoxRNA.setObjectName("AlignercomboBoxRNA")
         self.AlignercomboBoxRNA.addItem("")
         self.AlignercomboBoxRNA.addItem("")
-        self.AlignercomboBoxRNA.addItem("")
-        self.AlignercomboBoxRNA.addItem("")
+#        self.AlignercomboBoxRNA.addItem("")
+#        self.AlignercomboBoxRNA.addItem("")
         self.hlayout0_aligner_rna.addWidget(self.AlignercomboBoxRNA)
         self.hlayout0_aligner_rna.addStretch(0)
         self.vlayout_rna.addItem(self.hlayout0_aligner_rna)
@@ -2510,8 +2510,8 @@ class Ui_MainWindow(object):
         self.EMcomboBoxRNA.setObjectName("EMcomboBoxRNA")
         self.EMcomboBoxRNA.addItem("")
         self.EMcomboBoxRNA.addItem("")
-        self.EMcomboBoxRNA.addItem("")
-        self.EMcomboBoxRNA.addItem("")
+#        self.EMcomboBoxRNA.addItem("")
+#        self.EMcomboBoxRNA.addItem("")
         self.hlayout0_em.addWidget(self.EMcomboBoxRNA)
         self.hlayout0_em.addStretch(0)
         self.vlayout_em.addItem(self.hlayout0_em)
@@ -2603,7 +2603,7 @@ class Ui_MainWindow(object):
         self.DEcomboBoxRNA.setObjectName("DEcomboBoxRNA")
         self.DEcomboBoxRNA.addItem("")
         self.DEcomboBoxRNA.addItem("")
-        self.DEcomboBoxRNA.addItem("")
+#        self.DEcomboBoxRNA.addItem("")
         self.hlayout0_de.addWidget(self.DEcomboBoxRNA)
         self.hlayout0_de.addStretch(0)
         self.vlayout_de.addItem(self.hlayout0_de)
@@ -4703,7 +4703,7 @@ class Ui_MainWindow(object):
         conf = open('config.yaml', 'w')
         conf.write('units: units.tsv \n')
         conf.write('ref: \n')
-        if self.AlignercomboBoxRNA.currentText() == 'hisat2':
+        if self.AlignercomboBoxRNA.currentText() == 'HISAT2':
             conf.write('  index-'+self.AlignercomboBoxRNA.currentText() + ': ' + self.StarIndexlineEdit.text() + '/ \n')
         elif self.AlignercomboBoxRNA.currentText() == 'bowtie2':
             conf.write('  index-'+ self.AlignercomboBoxRNA.currentText() + ': ' + self.StarIndexlineEdit.text() + '/bowtie2-index \n')
@@ -4736,24 +4736,27 @@ class Ui_MainWindow(object):
         snakef.write('  input:\n')
 #        snakef.write("    expand('results/cutadapt/{sample}_{condition}_Rep{rep}_cutadapt_R1.fastq', sample=samples, condition=type, rep=reps),\n")
 #        snakef.write("    expand('results/cutadapt/{sample}_{condition}_Rep{rep}_cutadapt_R2.fastq', sample=samples, condition=type, rep=reps),\n")
-        if self.AlignercomboBoxRNA.currentText() == 'hisat2':
-            snakef.write("    expand('results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.sam', sample=samples, condition=type, rep=reps),\n")
-            snakef.write("    expand('results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam', sample=samples, condition=type, rep=reps),\n")
-        elif self.AlignercomboBoxRNA.currentText() == 'star':
-            snakef.write("    expand('results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam', sample=samples, condition=type, rep=reps),\n")
-            #snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}/ReadsPerGene.out.tab', sample=samples, condition=type, rep=reps),\n")
-            #snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}/Aligned.out.sam', sample=samples, condition=type, rep=reps),\n")
-            #snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}/ReadsPerGene.out.tab', sample=samples, condition=type, rep=reps),\n")
-        if self.EMcomboBoxRNA.currentText() == 'stringtie':
+        if self.AlignercomboBoxRNA.currentText() == 'HISAT2':
+#            snakef.write("    expand('results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.sam', sample=samples, condition=type, rep=reps),\n")
+#            snakef.write("    expand('results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam', sample=samples, condition=type, rep=reps),\n")
+            snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}.sam', sample=samples, condition=type, rep=reps),\n")
+            snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}.bam', sample=samples, condition=type, rep=reps),\n")
+        elif self.AlignercomboBoxRNA.currentText() == 'STAR':
+#            snakef.write("    expand('results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam', sample=samples, condition=type, rep=reps),\n")
+#            snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}/ReadsPerGene.out.tab', sample=samples, condition=type, rep=reps),\n")
+            snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}/Aligned.out.sam', sample=samples, condition=type, rep=reps),\n")
+            snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}.bam', sample=samples, condition=type, rep=reps),\n")
+#            snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}/ReadsPerGene.out.tab', sample=samples, condition=type, rep=reps),\n")
+        if self.EMcomboBoxRNA.currentText() == 'StringTie':
             snakef.write("    expand('results/em_results/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_transcript.gtf', sample=samples, condition=type, rep=reps),\n")
             snakef.write("    expand('results/em_results/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_gene_abundances.tsv', sample=samples, condition=type, rep=reps),\n")
             snakef.write("    expand('results/em_results/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_cov_ref.gtf', sample=samples, condition=type, rep=reps),\n")
-        elif self.EMcomboBoxRNA.currentText() == 'HTseq':
+        elif self.EMcomboBoxRNA.currentText() == 'HTSeq':
             snakef.write("    expand('results/em_results/{sample}_{condition}_Rep{rep}.counts', sample=samples, condition=type, rep=reps),\n")
             snakef.write('    "results/em_results/emtable.tsv",\n')
         if self.DEcomboBoxRNA.currentText() == 'ballgown':
             snakef.write("    expand('results/de_results/SigDE.txt'),\n")
-        elif self.DEcomboBoxRNA.currentText() == 'deseq2':
+        elif self.DEcomboBoxRNA.currentText() == 'DESeq2':
             snakef.write("    expand('results/de_results/DESeq2_normalized_counts.txt'),\n")
         snakef.write('    "results/multiqc/multiqc.html",\n')
         snakef.write('include: "rules/' + self.AlignercomboBoxRNA.currentText() + '.smk" \n')

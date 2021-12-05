@@ -1,14 +1,14 @@
-def get_bams(wildcards):
-#    "get input files from the respective tools"
-    if os.path.exists("results/aligner_results/hisat2"):
-        return "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam"
-    else:
-        return "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
+#def get_bams(wildcards):
+##    "get input files from the respective tools"
+#    if os.path.exists("results/aligner_results/hisat2"):
+#        return "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam"
+#    else:
+#        return "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
 rule HTSeq:
     input:
 #        bam = "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
-#        bam = "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam"
-        bam = get_bams
+        bam = "results/aligner_results/{sample}_{condition}_Rep{rep}.bam"
+#        bam = get_bams
     output:
 #        R1 = "results/em_results/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}.counts"
         R1 = "results/em_results/{sample}_{condition}_Rep{rep}.counts"

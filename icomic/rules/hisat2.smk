@@ -24,7 +24,8 @@ rule hisat2:
 #      idx = "/home/priyanka/Desktop/test_env/iCOMIC/results/index/hisat2/",
       reads=get_fastq
     output:
-      sam="results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.sam"
+#      sam="results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.sam"
+      sam="results/aligner_results/{sample}_{condition}_Rep{rep}.sam"
     log:
       "logs_rna/hisat2/hisat2_{sample}_{condition}_Rep{rep}.log"
     message:
@@ -71,9 +72,11 @@ rule hisat2:
     
 rule create_bams:
     input:
-        sam = "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.sam"
+#        sam = "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.sam"
+        sam = "results/aligner_results/{sample}_{condition}_Rep{rep}.sam"
     output:
-        bam = "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam"
+#        bam = "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam"
+        bam = "results/aligner_results/{sample}_{condition}_Rep{rep}.bam"
     message:
         "---coverting sam to bam  and indexing the bam files"
     shell:
@@ -81,7 +84,8 @@ rule create_bams:
 
 rule samtools_stats:
     input:
-        "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam"
+#        "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam"
+         "results/aligner_results/{sample}_{condition}_Rep{rep}.bam"
     output:
         "results/aligner_results/hisat2/samtools-stats/{sample}_{condition}_Rep{rep}.txt"
     log:

@@ -1,20 +1,16 @@
-################# Rule Test #######################
-
 rule star:
     input:
-#        fq1 = ["results/cutadapt/{sample}_{condition}_Rep{rep}_R1.fastq"],
-#        fq2 = ["results/cutadapt/{sample}_{condition}_Rep{rep}_R2.fastq"]
         reads=get_fastq
     output:
-#        "results/aligner_results/{sample}_{condition}_Rep{rep}.sam"
-        "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
-        #"results/aligner_results/{sample}_{condition}_Rep{rep}/ReadsPerGene.out.tab" #output is automatically creating with the param
+        "results/aligner_results/{sample}_{condition}_Rep{rep}/Aligned.out.sam"
+#        "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
+#        "results/aligner_results/{sample}_{condition}_Rep{rep}/ReadsPerGene.out.tab" #output is automatically creating with the param
     message:
         "------aligning with star....wait.."
     log:
         "logs_rna/star/star_{sample}_{condition}_Rep{rep}.log"
     params:
-        prefix = "results/aligner_results/star/{sample}_{condition}_Rep{rep}/",
+        prefix = "results/aligner_results/{sample}_{condition}_Rep{rep}/",
         index= config['ref']['index-star'],
         annotate= config['ref']['annotation'],
         extra=config['params']['star']
@@ -31,16 +27,25 @@ rule star:
             raise RuntimeError(
                 "Reads parameter must contain at least 1 and at most 2" " input files."
             )      
-        shell("STAR {params.extra} --runMode alignReads --runThreadN {threads} --genomeDir {params.index} --readFilesIn {input_flags} --outFileNamePrefix {params.prefix} --sjdbGTFfile {params.annotate} --outSAMtype BAM SortedByCoordinate --quantMode GeneCounts" )
+#        shell("STAR {params.extra} --runMode alignReads --runThreadN {threads} --genomeDir {params.index} --readFilesIn {input_flags} --outFileNamePrefix {params.prefix} --sjdbGTFfile {params.annotate} --outSAMtype BAM SortedByCoordinate --quantMode GeneCounts" )
+        shell("STAR {params.extra} --runMode alignReads --runThreadN {threads} --genomeDir {params.index} --readFilesIn {input_flags} --outFileNamePrefix {params.prefix} --sjdbGTFfile {params.annotate} --outStd Log {log}--quantMode GeneCounts" )
 #    wrapper:
 #        "0.65.0/bio/star/align"
 
-
+rule create_bams:
+    input:
+        sam = "results/aligner_results/{sample}_{condition}_Rep{rep}/Aligned.out.sam"
+    output:
+        bam = "results/aligner_results/{sample}_{condition}_Rep{rep}.bam"
+    message:
+        "---coverting sam to bam  and indexing the bam files"
+    shell:
+        "samtools view -bh {input.sam} | samtools sort - -o {output.bam}; samtools index {output.bam}"
 
 rule samtools_stats:
     input:
-        "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
-#        "results/aligner_results/{sample}_{condition}_Rep{rep}.bam"
+#        "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
+        "results/aligner_results/{sample}_{condition}_Rep{rep}.bam"
     output:
         "results/aligner_results/star/samtools-stats/{sample}_{condition}_Rep{rep}.txt"
     log:

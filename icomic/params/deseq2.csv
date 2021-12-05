@@ -1,2 +1,0 @@
-Parameter,Value,Short description,Description,Default value,Essential
---threads              ,INT,Threads,number of extra output compression threads ,0,no
