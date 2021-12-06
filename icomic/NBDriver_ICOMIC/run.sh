@@ -1,5 +1,5 @@
 #!/bin/bash
-name="vcf1"
+name="NBDriver_vcf"
 REF_GENOME_PATH="./NBDriver_ICOMIC/hg19.fa"
 VCF_FILE_PATH="./NBDriver_ICOMIC/vcf/"
 VCF_FILE_PATH+="$name.vcf"
@@ -9,7 +9,7 @@ echo "Extracting neighborhood sequences for the given set of mutations..."
 ./NBDriver_ICOMIC/extract_nbd.R $VCF_FILE_PATH
 echo "Done"
 echo "Preparing data for the pre-trained machine learning model"
-bedtools getfasta -fi $REF_GENOME_PATH -bed $BED_FILE_PATH -fo snv_nbd.fa
+bedtools getfasta -fi $REF_GENOME_PATH -bed $BED_FILE_PATH -fo NBDriver_ICOMIC/snv_nbd.fa
 sed -n 2~2p NBDriver_ICOMIC/snv_nbd.fa > NBDriver_ICOMIC/snv_nbd_extract.fa
 ./NBDriver_ICOMIC/prepare_nbdriver.R NBDriver_ICOMIC/edited_vcf.txt NBDriver_ICOMIC/snv_nbd_extract.fa
 echo "Done"

@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 #input consists of a vcf file containing chr/pos/ref/alt
 #output consists of a dataframe containing chr/pos/ref/alt/nbd/type
-name="vcf1"
+name="NBDriver_vcf"
 edited_vcf <- read.table(commandArgs(TRUE)[1],header = TRUE)
 nbd_fa<-read.table(commandArgs(TRUE)[2])
 edited_vcf$nbd=nbd_fa$V1

@@ -1087,7 +1087,7 @@ class Ui_MainWindow(object):
         self.nblabel5.setGeometry(QtCore.QRect(185, 90, 400, 100))
         self.nblabel5.setObjectName("nblabel5")
         self.nblabel4 = QtWidgets.QLabel(self.NB)
-        self.nblabel4.setGeometry(QtCore.QRect(10, 160, 500, 100))
+        self.nblabel4.setGeometry(QtCore.QRect(10, 160, 1000, 100))
         self.nblabel4.setObjectName("nblabel4")        
         
         self.vcflineEdit = QtWidgets.QLineEdit(self.NB)
@@ -1590,6 +1590,8 @@ class Ui_MainWindow(object):
         self.mafparamlabel.setText(_translate("MainWindow", "Parameters"))
         self.mafparamlabel1.setText(_translate("MainWindow", "- m"))
         self.mafparamlabel2.setText(_translate("MainWindow", "- p"))
+        self.mafparamlineEdit.setText(_translate("MainWindow", "2000"))
+        self.mafparamlineEdit1.setText(_translate("MainWindow", "0.05"))
         
         self.ctaglabel.setText(_translate("MainWindow", "cTaG  (classify TSG and OG)"))
         self.ctaglabel.setFont(font_label)
@@ -1633,9 +1635,9 @@ class Ui_MainWindow(object):
         self.nblabel2.setText(_translate("MainWindow", "NBDriver is a tool used to differentiate between driver \n and passenger mutations using features derived from \n the neighborhood sequences of somatic mutations.NBDriver \n returns a list of all mutations labelled as Driver or Passenger")) 
         self.nblabel2.setFont(font_label2)
         
-        urlLink = "<a href=\'https://github.com/RamanLab/NBDriver'>'NBDriver'</a>"
+        urlLink = "<a href=\'https://github.com/RamanLab/NBDriver'>NBDriver</a>"
         self.nblabel3.setText(_translate("MainWindow", urlLink ))
-        urlLink1 = "<a href=\'https://doi.org/10.3390/cancers13102366'>'Banerjee er al.'</a>"
+        urlLink1 = "<a href=\'https://doi.org/10.3390/cancers13102366'>Banerjee et al.</a>"
         self.nblabel5.setText(_translate("MainWindow", urlLink1 ))
         self.nbgithubbutton.setIcon(QtGui.QIcon("./icons/github.png"))
         self.nbgithubbutton.setIconSize(QtCore.QSize(22, 22))
@@ -1643,8 +1645,8 @@ class Ui_MainWindow(object):
         self.nbpaperbutton.setIcon(QtGui.QIcon("./icons/document.svg"))
         self.nbpaperbutton.setIconSize(QtCore.QSize(22, 22))
         self.nbpaperbutton.setToolTip("GitHub link")
-        self.nblabel4.setText(_translate("MainWindow", " NBDriver predictions has been derived using hg19 reference genome only and \n the input vcf file must be kept inside /NBDriver_ICOMIC/vcf" ))
-               
+        self.nblabel4.setText(_translate("MainWindow", " NBDriver predictions has been derived using hg19 reference genome only. The user needs to download the \n reference file from this link and put it in the /NBDriver_iCOMIC/ directory and the input vcf file must be \n kept inside /NBDriver_ICOMIC/vcf directory and renamed as NBDriver_vcf.vcf" ))
+
         self.vcfBrowseButton.setIcon(QtGui.QIcon("./icons/browse.png"))
         self.vcfBrowseButton.setToolTip("Browse VCF File")
         self.vcfBrowseButton.setIconSize(QtCore.QSize(22, 22))
@@ -1797,15 +1799,15 @@ class Ui_MainWindow(object):
         ##menu_popups##
         self.actionAbout_2.triggered.connect(self.about)
         self.actionQuick_Start.triggered.connect(self.quick_start)
-        self.SampleslineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/benchmark_data/samples")
-        self.RefGenomelineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/hg38.fa")
-        self.RefVariantlineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/GRCh37_knownvcf.vcf.gz")
-        self.SampleFolderLineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/samples")
+#        self.SampleslineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/benchmark_data/samples")
+#        self.RefGenomelineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/hg38.fa")
+#        self.RefVariantlineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/GRCh37_knownvcf.vcf.gz")
+#        self.SampleFolderLineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/samples")
 #        self.SampletablelineEdit.setText("")
-        self.FastalineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/hg38.chr22.fa")
-        self.AnnotatedlineEditRNA.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/chr22_refGene.gtf")
+#        self.FastalineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/hg38.chr22.fa")
+#        self.AnnotatedlineEditRNA.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/chr22_refGene.gtf")
 #        self.TranscriptlineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/gencode.v29.transcripts.fa")
-        self.BWAIndexlineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/hg38.fa")
+#        self.BWAIndexlineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/hg38.fa")
 #        self.SampleFolderLineEdit.setText(_translate("MainWindow", "/data/Priyanka/other_pipelines/iCOMIC"))
 
         
