@@ -1086,9 +1086,16 @@ class Ui_MainWindow(object):
         self.nblabel5 = QtWidgets.QLabel(self.NB)
         self.nblabel5.setGeometry(QtCore.QRect(185, 90, 400, 100))
         self.nblabel5.setObjectName("nblabel5")
+        self.nblabel5.setEnabled(True)
+        self.nblabel5.setOpenExternalLinks(True)
         self.nblabel4 = QtWidgets.QLabel(self.NB)
         self.nblabel4.setGeometry(QtCore.QRect(10, 160, 1000, 100))
-        self.nblabel4.setObjectName("nblabel4")        
+        self.nblabel4.setObjectName("nblabel4") 
+        self.nblabel6 = QtWidgets.QLabel(self.NB)
+        self.nblabel6.setGeometry(QtCore.QRect(151, 161, 100, 100))
+        self.nblabel6.setObjectName("nblabel6")
+        self.nblabel6.setEnabled(True)
+        self.nblabel6.setOpenExternalLinks(True)
         
         self.vcflineEdit = QtWidgets.QLineEdit(self.NB)
         self.vcflineEdit.setGeometry(QtCore.QRect(160, 250, 450, 23))
@@ -1591,13 +1598,13 @@ class Ui_MainWindow(object):
         self.mafparamlabel1.setText(_translate("MainWindow", "- m"))
         self.mafparamlabel2.setText(_translate("MainWindow", "- p"))
         self.mafparamlineEdit.setText(_translate("MainWindow", "2000"))
-        self.mafparamlineEdit1.setText(_translate("MainWindow", "0.05"))
+        self.mafparamlineEdit1.setText(_translate("MainWindow", "5"))
         
         self.ctaglabel.setText(_translate("MainWindow", "cTaG  (classify TSG and OG)"))
         self.ctaglabel.setFont(font_label)
         self.ctaglabel2.setText(_translate("MainWindow", "cTaG is a tool used to identify tumour suppressor genes (TSGs)\n and oncogenes (OGs) using somatic mutation data.The cTaG model \n returns the list of all genes labelled as TSG or OG or unlabelled\n along with predictions made by each model and whether\n the gene is among the top predictions ")) 
         self.ctaglabel2.setFont(font_label2)
-        urlLink1 = "<a href=\'https://github.com/RamanLab/cTaG'>'cTaG'</a>"
+        urlLink1 = "<a href=\'https://github.com/RamanLab/cTaG'>cTaG</a>"
         self.ctaglabel3.setText(_translate("MainWindow", urlLink1 ))
         self.ctaggithubbutton.setIcon(QtGui.QIcon("./icons/github.png"))
         self.ctaggithubbutton.setIconSize(QtCore.QSize(22, 22))
@@ -1645,8 +1652,10 @@ class Ui_MainWindow(object):
         self.nbpaperbutton.setIcon(QtGui.QIcon("./icons/document.svg"))
         self.nbpaperbutton.setIconSize(QtCore.QSize(22, 22))
         self.nbpaperbutton.setToolTip("GitHub link")
-        self.nblabel4.setText(_translate("MainWindow", " NBDriver predictions has been derived using hg19 reference genome only. The user needs to download the \n reference file from this link and put it in the /NBDriver_iCOMIC/ directory and the input vcf file must be \n kept inside /NBDriver_ICOMIC/vcf directory and renamed as NBDriver_vcf.vcf" ))
-
+        urlLink2 = "<a href=\'https://doi.org/10.5281/zenodo.5759698'>link</a>"
+        self.nblabel4.setText(_translate("MainWindow", " NBDriver predictions has been derived using hg19 reference genome only. The user needs to download the \n reference file from this      and put it in the /NBDriver_iCOMIC/ directory and the input vcf file must be \n kept inside /NBDriver_ICOMIC/vcf directory and renamed as NBDriver_vcf.vcf" ))
+        self.nblabel6.setText(_translate("MainWindow", urlLink2 ))
+        
         self.vcfBrowseButton.setIcon(QtGui.QIcon("./icons/browse.png"))
         self.vcfBrowseButton.setToolTip("Browse VCF File")
         self.vcfBrowseButton.setIconSize(QtCore.QSize(22, 22))
@@ -1799,16 +1808,19 @@ class Ui_MainWindow(object):
         ##menu_popups##
         self.actionAbout_2.triggered.connect(self.about)
         self.actionQuick_Start.triggered.connect(self.quick_start)
-#        self.SampleslineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/benchmark_data/samples")
-#        self.RefGenomelineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/hg38.fa")
-#        self.RefVariantlineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/GRCh37_knownvcf.vcf.gz")
-#        self.SampleFolderLineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/samples")
-#        self.SampletablelineEdit.setText("")
-#        self.FastalineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/hg38.chr22.fa")
-#        self.AnnotatedlineEditRNA.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/chr22_refGene.gtf")
-#        self.TranscriptlineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/gencode.v29.transcripts.fa")
-#        self.BWAIndexlineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/hg38.fa")
-#        self.SampleFolderLineEdit.setText(_translate("MainWindow", "/data/Priyanka/other_pipelines/iCOMIC"))
+#==============================================================================
+#         
+#         self.SampleslineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/benchmark_data/samples")
+#         self.RefGenomelineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/hg38.fa")
+#         self.RefVariantlineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/GRCh37_knownvcf.vcf.gz")
+#         self.SampleFolderLineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/samples")
+# #        self.SampletablelineEdit.setText("")
+#         self.FastalineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/hg38.chr22.fa")
+#         self.AnnotatedlineEditRNA.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/chr22_refGene.gtf")
+# #        self.TranscriptlineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/gencode.v29.transcripts.fa")
+#         self.BWAIndexlineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/hg38.fa")
+# #        self.SampleFolderLineEdit.setText(_translate("MainWindow", "/data/Priyanka/other_pipelines/iCOMIC"))
+#==============================================================================
 
         
 
@@ -1950,7 +1962,7 @@ class Ui_MainWindow(object):
         self.AlignercomboBoxDNA.addItem("")
         self.AlignercomboBoxDNA.addItem("")
         self.AlignercomboBoxDNA.addItem("")
-        self.AlignercomboBoxDNA.addItem("")
+#        self.AlignercomboBoxDNA.addItem("")
         self.hlayout0_aligner.addWidget(self.AlignercomboBoxDNA)
         self.hlayout0_aligner.addStretch(0)
         self.vlayout.addItem(self.hlayout0_aligner)
@@ -2743,7 +2755,12 @@ class Ui_MainWindow(object):
     def get_additional_str(self, path):
         dataframe = pd.read_csv(path, header =0)
         self.additional_str = dataframe[(dataframe["Value"] == 'STR') & (dataframe["Essential"] == 'no')]
-        self.new_values_str=[]
+        self.new_values_str = [j.text() for j in self.adv_dialog.line_edit_list_str]
+        self.additional_str['New Value'] = self.new_values_str
+        self.additional_str['New Value'] = self.additional_str['New Value'].astype('str')
+        self.additional_str = self.additional_str.reset_index()
+        self.snakefile_dict_str = dict()
+#        self.new_values_str=[]
         for j in self.adv_dialog.label_list_str:
             if j.isChecked() == True:
                 self.new_values_str.append("TRUE")
@@ -3960,7 +3977,7 @@ class Ui_MainWindow(object):
             pickle.dump(data_path_maf,handle,protocol=pickle.HIGHEST_PROTOCOL)
 
     def browse_data_vcf(self):
-        data_path_vcf, _ =QtWidgets.QFileDialog.getOpenFileName(None,'Open File',r"",'*.vcf *.vcf.gz')
+        data_path_vcf, _ =QtWidgets.QFileDialog.getOpenFileName(None,'Open File','./NBDriver_ICOMIC/vcf/','*.vcf *.vcf.gz')
         self.vcflineEdit.setText(data_path_vcf)
         with open('data_path_vcf.pickle', 'wb') as handle:
             pickle.dump(data_path_vcf,handle,protocol=pickle.HIGHEST_PROTOCOL)
@@ -5035,6 +5052,7 @@ class AdvancedDialog(QtWidgets.QDialog):
         self.label_list_float = []
         self.line_edit_list_float = []
         self.radio_label_list_na = []
+        self.line_edit_list_str = []
         self.label_list_str = []
         for y in range(num_add_int_param):
             label_name = str(add_int_param.iloc[y, 2])
@@ -5054,12 +5072,18 @@ class AdvancedDialog(QtWidgets.QDialog):
             formLayout.addRow(self.label_list_float[x], self.line_edit_list_float[x])
         for p in range(num_add_str_param):
             label_name = str(add_str_param.iloc[p, 2])
-            self.radio_true = QtWidgets.QCheckBox(label_name)
-            if str(add_str_param.iloc[p, 4]) == "TRUE":
-                self.radio_true.setChecked(True)
-            else:
-                self.radio_true.setChecked(False)
-            self.label_list_str.append(self.radio_true)
+#            self.radio_true = QtWidgets.QCheckBox(label_name)
+            self.label_name = QtWidgets.QLabel(label_name)
+            self.label_list_str.append(self.label_name)
+            default_value = str(add_str_param.iloc[p, 4])
+            self.line_edit = QtWidgets.QLineEdit(default_value)
+            self.line_edit_list_str.append(self.line_edit)
+            formLayout.addRow(self.label_list_str[p], self.line_edit_list_str[p])
+#            if str(add_str_param.iloc[p, 4]) == "TRUE":
+#                self.radio_true.setChecked(True)
+#            else:
+#                self.radio_true.setChecked(False)
+#            self.label_list_str.append(self.radio_true)
             formLayout.addRow(self.label_list_str[p])
         for z in range(num_add_na_param):
             radio_name = str(add_na_param.iloc[z, 2])

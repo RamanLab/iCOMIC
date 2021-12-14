@@ -1,3 +1,14 @@
 Parameter,Value,Short description,Description,Default value,Essential
 --threads              ,INT,Threads,number of extra output compression threads ,0,no
 -s,STR,--stranded,whether the data is from strand-specific assay,yes,yes
+-f,STR,--format,format of the input data,sam,no
+-r,STR,--order,for paired end data the alignment have to be sorted either by read name or position,name,no
+--max-reads-in-buffer,INT,--max-reads-in-buffer,When <alignment_file> is paired end sorted by position allow only so many reads to stay in memory until the mates are found (raising this number will use more memory),30000000,no
+-a,INT,--a,skip all reads with alignment quality lower than the given minimum value,10,no
+-t,STR,--type,feature type (3rd column in GFF file) to be used all features of other type are ignored,exon,no
+-i,STR,--idattr,GFF attribute to be used as feature ID,gene_id,no
+--additional-attr,STR,--additional-attr,Additional feature attributes which will be printed as an additional column after the primary attribute column but before the counts column(s),none,no
+-m,STR,--mode,Mode to handle reads overlapping more than one feature,union,no
+--nonunique,STR,--nonunique,Mode to handle reads that align to or are assigned to more than one feature in the overlap <mode> of choice (see -m option),none,no
+--secondary-alignments,STR,--secondary-alignments,Mode to handle secondary alignments (SAM flag 0x100),score,no
+--supplementary-alignments,STR,--supplementary-alignments,Mode to handle supplementary/chimeric alignments (SAM flag 0x800),score,no

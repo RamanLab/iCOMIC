@@ -1,5 +1,4 @@
 Parameter,Value,Short description,Description,Default value,Essential,
---p   ,INT,Threads,Number of extra output compression threads ,0,no,
 -f,FLOAT,Isoform abundance of predicted transcripts,Sets the minimum isoform abundance of the predicted transcripts as a fraction of the most abundant transcript assembled at a given locus. Lower abundance transcripts are often artifacts of incompletely spliced precursors of processed transcripts (0.1 – 1.0),0.1,no,
 -m,INT,Minimum length for allowed transcripts,Sets the minimum length allowed for the predicted transcripts.,200,no,
 -c,FLOAT,Minimum read coverage for predicted transcripts,Sets the minimum read coverage allowed for the predicted transcripts. A transcript with a lower coverage than this value is not shown in the output.,2.5,no,

@@ -26,14 +26,14 @@ def maf2ctag(fname, PATH):
     """
     DATAPATH = PATH + "/data"
     os.chdir(DATAPATH)
-    datamaf = pd.read_csv(fname, sep=",", header=0, comment="#", index_col=0)
+    datamaf = pd.read_csv(fname, sep="\t", header=0, comment="#", index_col= False)
     datamaf = datamaf[(datamaf["Func.refGene"] == "exonic") |
                       (datamaf["Func.refGene"] == "splicing")]
 
     # Load required supporting files
     os.chdir(DATAPATH)
     geneLen = pd.read_csv("GeneLengths2.txt", sep="\t", header=0,
-                          index_col="Ensembl_gene")
+                          index_col="Gene_name")
 #    os.chdir(DATAPATH)
 #    geneInfo = pd.read_csv("Homo_sapiens.gene_info", sep="\t", header=0,
 #                           index_col="GeneID")
@@ -102,13 +102,13 @@ def maf2ctag(fname, PATH):
     datactag['Accession Number'] = datamaf['Gene.refGene']
     datactag["Gene CDS length"] = ([geneLen.loc[gene, "Gene_length"] if
                                    gene in geneLen.index else None for gene in
-                                   datamaf["ens_id"]])
+                                   datamaf["Hugo_Symbol"]])
     for idx, cds, sym, in zip(datactag.index, datactag["Gene CDS length"],
                               datactag["Gene name"]):
-        if np.isnan(cds) and sym in list(geneLen["Gene_name"]):
-            datactag.loc[idx, "Gene CDS length"] = max(geneLen[geneLen["Gene_name"] == sym]["Gene_length"])
+        if np.isnan(cds) and sym in list(geneLen.index):
+            datactag.loc[idx, "Gene CDS length"] = max(geneLen.loc[sym, "Gene_length"])
 #    datactag["HGNC ID"] = datamaf["HGNC_ID"]
-    datactag["HGNC ID"] = datamaf["hgnc_symbol"]
+    datactag["HGNC ID"] = datamaf["Hugo_Symbol"]
     datactag["Sample name"] = datamaf["Tumor_Sample_Barcode"]
 #    datactag["Sample name"] = datamaf["sample_id"]
     datactag["ID_sample"] = datamaf["Tumor_Sample_Barcode"]

@@ -1,5 +1,4 @@
 Parameter,Value,Short description,Description,Default value,Essential
---threads              ,INT,Threads,Number of extra output compression threads ,0,no
 --pen-cansplice,INT,Canonical splice site penalty,Sets the penalty for each pair of canonical splice sites (e.g. GT/AG),0,no
 --pen-noncansplice,INT,Non-canonical splice site penalty,Sets the penalty for each pair of non-canonical splice sites (e.g. non-GT/AG),12,no
 --min-intronlen,INT,Maximum Intron Length,Sets minimum intron length,20,no

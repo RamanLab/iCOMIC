@@ -14,8 +14,9 @@ import identifyTSGOG as ito
 import convertMAF2cTAG as m2c
 import createFeatureMat as fm
 import callcTaG as cc
+import warnings
 
-
+warnings.filterwarnings('ignore')
 # pass arguments
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--ifile', action="store", required=True,
@@ -35,6 +36,9 @@ resultsPATH = args.outputpath
 PATH = os.getcwd().replace(os.sep, posixpath.sep) + args.ctagpath
 maxmut = args.maxmut
 perc = args.percentile
+
+#logging.basicConfig(filename= resultsPATH + '/ctag.log', level=logging.INFO)
+logging.basicConfig(level=logging.INFO)
 
 # convert MAF file to feature matrix
 logging.info("Converting MAF to cTAG feature matrix.")

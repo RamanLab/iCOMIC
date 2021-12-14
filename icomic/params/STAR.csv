@@ -1,5 +1,4 @@
 Parameter,Value,Short description,Description,Default value,Essential,,,,
---runThreadN,INT,Threads,Number of threads to run STAR,1,no,,,,
 --runRNGseed,INT,--runRNGseed,Random number Generator Seed,777,no,,,,
 --outFilterMultimapNmax,INT,--outFilterMultimapNmax,"Maximum number of multiple alignments allowed for a read, if exceeded, read is considered unmapped.",10,no,,
 --sjdbScore,INT,--sjdbScore,Extra alignment score for alignmets that cross database junctions,2,no,,,,

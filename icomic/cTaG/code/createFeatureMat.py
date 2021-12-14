@@ -48,7 +48,7 @@ def createFeatMat(dataCosmic, PATH, maxmutations=2000):
         for gene in set(dataCosmic["Gene name"]):
             temp = dataCosmic[dataCosmic["Gene name"] == gene]
             uni_samps = len(set(temp["ID_sample"]))
-            print("{} : {}".format(gene, uni_samps))
+#            print("{} : {}".format(gene, uni_samps))
             if uni_samps >= perc_samps * tot_samps / 100:
                 dataFiltered = pd.concat([dataFiltered, temp])
     dataCosmic = dataFiltered.copy()
