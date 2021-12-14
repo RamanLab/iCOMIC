@@ -24,4 +24,4 @@ iCOMIC is an open source genomic data analysis tool characterized by a user frie
 
 # Links
   * [BioRxiv paper](https://www.biorxiv.org/content/10.1101/2021.09.18.460896v1)
-  * Data
+  * [Data](https://doi.org/10.5281/zenodo.5759698)
