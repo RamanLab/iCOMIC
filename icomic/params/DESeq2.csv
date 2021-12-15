@@ -1,2 +1,10 @@
 Parameter,Value,Short description,Description,Default value,Essential
---threads              ,INT,Threads,number of extra output compression threads ,0,no
+se,STR,RangedSummarizedExperiment,a RangedSummarizedExperiment with columns of variables indicating sample information in colData,se,no
+design,STR,formula or matrix, the formula expresses how the counts for each gene depend on the variables in colData,~ condition,no
+ignoreRank,STR,ignoreRank,use of this argument is reserved for DEXSeq developers only,FALSE,no
+countData,STR,countData,a matrix of non-negative integers,countData,no
+tidy,STR,tidy, whether the first column of countData is the rownames for the count matrix,FALSE,no
+txi,STR,txi,the simple list output of the tximport function,txi,no
+sampleTable,STR,sampleTable,for htseq-count: a data.frame with three or more columns,sampleTable,no
+directory,STR,directory,for htseq-count: the directory relative to which the filenames are specified,directory,no
+colData,STR,colData,for matrix input: a DataFrame or data.frame with at least a single column,colData,no
