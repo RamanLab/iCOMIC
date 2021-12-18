@@ -3,17 +3,17 @@ rule star:
         reads=get_fastq
     output:
         "results/aligner_results/{sample}_{condition}_Rep{rep}/Aligned.out.sam"
-#        "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
+#        "results/aligner_results/STAR/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
 #        "results/aligner_results/{sample}_{condition}_Rep{rep}/ReadsPerGene.out.tab" #output is automatically creating with the param
     message:
-        "------aligning with star....wait.."
+        "------aligning with STAR....wait.."
     log:
-        "logs_rna/star/star_{sample}_{condition}_Rep{rep}.log"
+        "logs_rna/STAR/STAR_{sample}_{condition}_Rep{rep}.log"
     params:
         prefix = "results/aligner_results/{sample}_{condition}_Rep{rep}/",
-        index= config['ref']['index-star'],
+        index= config['ref']['index-STAR'],
         annotate= config['ref']['annotation'],
-        extra=config['params']['star']
+        extra=config['params']['STAR']
     threads: config["threads"]
     run:
         reads = input.reads
@@ -47,16 +47,16 @@ rule samtools_stats:
 #        "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
         "results/aligner_results/{sample}_{condition}_Rep{rep}.bam"
     output:
-        "results/aligner_results/star/samtools-stats/{sample}_{condition}_Rep{rep}.txt"
+        "results/aligner_results/STAR/samtools-stats/{sample}_{condition}_Rep{rep}.txt"
     log:
-        "logs_rna/samtools-stats/star/{sample}_{condition}_Rep{rep}.logs"
+        "logs_rna/samtools-stats/STAR/{sample}_{condition}_Rep{rep}.logs"
     wrapper:
 #        "0.27.1/bio/samtools/stats"
         "0.38.0/bio/samtools/stats"
 
 rule multiqc:
     input:
-        expand("results/aligner_results/star/samtools-stats/{sample}_{condition}_Rep{rep}.txt", sample=samples, condition=type, rep=reps)
+        expand("results/aligner_results/STAR/samtools-stats/{sample}_{condition}_Rep{rep}.txt", sample=samples, condition=type, rep=reps)
     output:
         report("results/multiqc/multiqc.html", caption="../report/multiqc.rst", category="Quality control")
     log:

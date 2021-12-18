@@ -2,8 +2,8 @@ rule star_index:
     input:
         fasta = config["ref"] ["fasta"]
     output:
-        directory("results/index/star/")
-#        directory = "results/index/star"
+        directory("results/index/STAR/")
+#        directory = "results/index/STAR"
     message:
         "Creating STAR index"
     threads: config["threads"]
@@ -11,7 +11,7 @@ rule star_index:
         annotate= config['ref']['annotation']
 #        extra=""
     log:
-        "logs_rna/star_index.log"
+        "logs_rna/STAR_index.log"
 #    wrapper:
 #        "0.65.0/bio/star/index"
     shell:

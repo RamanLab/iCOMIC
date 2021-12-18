@@ -11,5 +11,5 @@
     "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".rev.1.bt2",
     "results_dna/index/Bowtie2/" + config['ref']['genome-name'] + ".rev.2.bt2"
     "results_dna/index/GEM3/" + config['ref']['genome-name']+ ".gem"
-    "results/index/hisat2"
-    "results/index/star/"
+    "results/index/HISAT2"
+    "results/index/STAR/"

@@ -11,6 +11,7 @@ rule deseq2:
 #        "results/de_results/hcc1395-replaceoutliers-results.csv"
     params: expand("{sample}", sample=samples),
             expand("{rep}", rep=reps)
+#            extra=config['params']['DESeq2']
 #            expand("{condition}", condition=type)
     script:
         "../scripts/deseq2.R"

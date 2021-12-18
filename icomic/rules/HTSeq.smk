@@ -16,9 +16,10 @@ rule HTSeq:
         "------HTSeq running....wait.."
     params:
         gtf= config['ref']['annotation']
+#        extra=config['params']['HTSeq']
 #    threads: config["threads"]
     log:
-        "logs_rna/HTseq/{sample}_{condition}_Rep{rep}.log"
+        "logs_rna/HTSeq/{sample}_{condition}_Rep{rep}.log"
     shell:
         "htseq-count -s no -r pos -t exon -i gene_id -f bam {input.bam} {params.gtf} > {output.R1}" 
 #        "htseq-count -s reverse -r pos -a 10 -m union -f bam {input.bam} {params.gtf}  > {output.R1}"

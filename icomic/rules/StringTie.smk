@@ -15,6 +15,7 @@ rule stringtie:
         R3 = "results/em_results/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_cov_ref.gtf"
     params:
         gtf= config['ref']['annotation']
+#        extra = config["params"]["StringTie"]
     threads: config["threads"]
     shell:
 #        "/data/Priyanka/softwares/stringtie-1.3.4d.Linux_x86_64/stringtie -G {params.gtf} --rf -p {threads} -o {output.R1} -A {output.R2} -C {output.R3} --rf {input.bam}"

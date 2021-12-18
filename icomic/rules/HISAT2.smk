@@ -5,13 +5,13 @@
 #        R1 = "results/cutadapt/{sample}_{condition}_Rep{rep}_cutadapt_R1.fastq",
 #        R2 = "results/cutadapt/{sample}_{condition}_Rep{rep}_cutadapt_R2.fastq"
 #        reads=get_fastq
-#        idx=config['ref']['index-hisat2']
+#        idx=config['ref']['index-HISAT2']
 #    output:
 #      "results/aligner_results/{sample}_{condition}_Rep{rep}.sam"
 #    message:
 #        "------aligning with hisat2....wait.."
 #    params:
-#        idx= config['ref']['index-hisat2']
+#        idx= config['ref']['index-HISAT2']
 #    threads: 40
 #    wrapper:
 #        "/data/Priyanka/softwares/hisat2-2.1.0/hisat2 -p {threads} -x {params.index} --dta  --rna-strandness RF -1 {input.reads} -S {output.sam}"
@@ -20,19 +20,20 @@
         
 rule hisat2:
     input:
-      idx = config['ref']['index-hisat2'],
+      idx = config['ref']['index-HISAT2'],
 #      idx = "/home/priyanka/Desktop/test_env/iCOMIC/results/index/hisat2/",
       reads=get_fastq
     output:
 #      sam="results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.sam"
       sam="results/aligner_results/{sample}_{condition}_Rep{rep}.sam"
     log:
-      "logs_rna/hisat2/hisat2_{sample}_{condition}_Rep{rep}.log"
+      "logs_rna/HISAT2/HISAT2_{sample}_{condition}_Rep{rep}.log"
     message:
-        "------aligning with hisat2....wait.."
+        "------aligning with HISAT2....wait.."
     params:
       extra = ""
     threads: config["threads"]
+#    extra = config["params"]["HISAT2"]
     run:
 #        n = len(input.sample)
 #        assert n == 1 or n == 2, "input->sample must have 1 (single-end) or 2 (paired-end) elements."
@@ -87,16 +88,16 @@ rule samtools_stats:
 #        "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam"
          "results/aligner_results/{sample}_{condition}_Rep{rep}.bam"
     output:
-        "results/aligner_results/hisat2/samtools-stats/{sample}_{condition}_Rep{rep}.txt"
+        "results/aligner_results/HISAT2/samtools-stats/{sample}_{condition}_Rep{rep}.txt"
     log:
-        "logs/samtools-stats/hisat2/{sample}_{condition}_Rep{rep}.logs"
+        "logs/samtools-stats/HISAT2/{sample}_{condition}_Rep{rep}.logs"
     wrapper:
 #        "0.27.1/bio/samtools/stats"
         "0.38.0/bio/samtools/stats"
 
 rule multiqc:
     input:
-        expand("results/aligner_results/hisat2/samtools-stats/{sample}_{condition}_Rep{rep}.txt", sample=samples, condition=type, rep=reps)
+        expand("results/aligner_results/HISAT2/samtools-stats/{sample}_{condition}_Rep{rep}.txt", sample=samples, condition=type, rep=reps)
     output:
         report("results/multiqc/multiqc.html", caption="../report/multiqc.rst", category="Quality control")
     log:
