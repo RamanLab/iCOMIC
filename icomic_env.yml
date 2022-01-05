@@ -1,4 +1,4 @@
-name: icomic_test_env
+name: icomic_env
 channels:
   - bioconda/label/cf201901
   - bioconda
@@ -373,4 +373,4 @@ dependencies:
   - zstd=1.5.0=ha95c52a_0
   - pip:
     - markdown==3.3.4
-prefix: /home/priyanka/miniconda3/envs/icomic_test_env
+prefix: /home/priyanka/miniconda3/envs/icomic_env
