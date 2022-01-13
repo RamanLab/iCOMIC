@@ -15,7 +15,3 @@ rule bwa_index:
         algorithm="bwtsw"
     wrapper:
         "0.30.0/bio/bwa/index"
-#    wrapper:
-#        "samtools faidx {input} > {output}"
-#    wrapper:
-#        "0.31.1/bio/samtools/faidx"

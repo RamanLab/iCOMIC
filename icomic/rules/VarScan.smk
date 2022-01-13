@@ -34,13 +34,11 @@ rule varscan_somatic:
     params:
         prefix = "results_dna/called/{sample}-{unit}",
         extra = config["params"]["VarScan"]
-#        extra = config["params"]["VarScan"]
     conda:
         "../envs/varscan.yaml"
     log:
         "logs/varscan/{sample}-{unit}.log"
     shell:
-#        "varscan -h"
         "varscan somatic {input.mpileup} {params.prefix} --mpileup 1 --output-vcf {params.extra}"
         
 def get_vcfs(wildcards):
@@ -52,7 +50,6 @@ def get_vcfs(wildcards):
 rule merge_variants:
     input:
         vcf=expand("results_dna/called/{u.sample}-{u.unit}.{type}.vcf",  u=units.itertuples(), type=['snp', 'indel'])
-#        vcf=expand("results_dna/called/{u.sample}.{u.unit}.vcf", u=units.itertuples())
     output:
         vcf="results_dna/merged/all.vcf.gz"
     log:

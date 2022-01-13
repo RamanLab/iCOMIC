@@ -1,5 +1,0 @@
-configfile: "config.yaml"
-rule all:
-  input:
-    "results/index/star"
-include: "rules/star_index.smk" 

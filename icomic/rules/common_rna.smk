@@ -34,41 +34,29 @@ print(config)
 
 test_data_dir = config["sample"]
 
-#test_data_dir = "/data/Priyanka/other_pipelines/iCOMIC" 
  
 print(test_data_dir)
 
 print("you are executing script in " + test_data_dir)
 
-#print (glob_wildcards(test_data_dir+ "{sample}_{condition}_Rep{rep}_R{len}.fastq"))
 
 (samples, type, reps, lens)=glob_wildcards(test_data_dir+"/{sample}_{condition}_Rep{rep}_R{len}.fastq")
 
 samples=sorted(list(set(samples)))
-#print(samples)
 regex = re.compile(r'cutadapt')
 samples = [i for i in samples if not regex.search(i)]
 print(samples)
 type=sorted(list(set(type)))
-#print(type)
 reps=sorted(list(set(reps)))
-#print(reps)
 regex = re.compile(r'cutadapt')
 reps = [i for i in reps if not regex.search(i)]
 print(reps)
 lens=sorted(list(set(lens)))
 print(lens)
 
-#def get_fastq:
-#    for filename in os.listdir(config['sample']):
-#    return filename
 
 units = pd.read_table(config["units"], dtype=str).set_index(["sample", "unit", "condition"], drop=False)
 units.index = units.index.set_levels([i.astype(str) for i in units.index.levels])  # enforce str in index
-###### Wildcard constraints ######
-#wildcard_constraints:
-#    unit="|".join(units["unit"]),
-#    condition = "|".join(units["condition"])
 
 #### Helper functions #####
 
@@ -119,12 +107,6 @@ def get_fastq_data(path):
             pass
     return name_list
 
-#def get_bams(wildcards):
-##    "get input files from the respective tools"
-#    if os.path.exists("results/aligner_results/hisat2"):
-#        return "results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam"
-#    else:
-#        return "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
 
 
 

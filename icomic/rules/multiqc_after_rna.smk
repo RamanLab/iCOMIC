@@ -4,6 +4,4 @@ rule multiqc:
     output:
         "results/cutadapt/fastqc_after/multiqc_after.html"
     wrapper:
-#        "0.31.1/bio/multiqc"
-#        "0.38.0/bio/multiqc"
         "0.35.0/bio/multiqc"

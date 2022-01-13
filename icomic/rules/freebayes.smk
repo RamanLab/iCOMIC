@@ -33,7 +33,6 @@ rule recalibrate_base_qualities:
         bam=protected("results_dna/recal/{sample}-{unit}-{condition}.bam")
     params:
         extra = ""
-#        extra="{}".format(config["params"]["GATK_HC"]["BaseRecalibrator"])
     log:
         "logs/gatk/bqsr/{sample}-{unit}-{condition}.log"
     wrapper:
@@ -58,13 +57,11 @@ rule freebayes:
 rule merge_variants:
     input:
         vcf=expand("results_dna/called/{u.sample}-{u.unit}-{u.condition}.vcf", u=units.itertuples())
-#        vcf=expand("results_dna/called/{u.sample}.{u.unit}.vcf", u=units.itertuples())
     output:
         vcf="results_dna/merged/all.vcf.gz"
     log:
         "logs/picard/merge-genotyped.log"
     wrapper:
-#        "0.27.1/bio/picard/mergevcfs"
         "0.30.0/bio/picard/mergevcfs"
 
 
@@ -80,68 +77,3 @@ rule filter_vcfs:
     shell:
         "bcftools filter -O z -o {output.vcf} -s LOWQUAL -i'%QUAL>20' {input.vcf}"
 
-#def get_vartype_arg(wildcards):
-#    return "--select-type-to-include {}".format(
-#        "SNP" if wildcards.vartype == "snvs" else "INDEL")
-
-
-#rule select_calls:
-#    input:
-#        ref=config["ref"]["genome"],
-#        vcf="results_dna/merged/all.vcf.gz"
-#    output:
-#        vcf=temp("results_dna/filtered/all.{vartype}.vcf.gz")
-#    params:
-#        extra=get_vartype_arg
-#    log:
-#        "logs/gatk/selectvariants/{vartype}.log"
-#    wrapper:
-#        "0.27.1/bio/gatk/selectvariants"
-
-
-#def get_filter(wildcards):
-#    return {
-#        "snv-hard-filter":
-#        config["filtering"]["hard"][wildcards.vartype]}
-
-
-#rule hard_filter_calls:
-#    input:
-#        ref=config["ref"]["genome"],
-#        vcf="results_dna/filtered/all.{vartype}.vcf.gz"
-#    output:
-#        vcf=temp("results_dna/filtered/all.{vartype}.hardfiltered.vcf.gz")
-#    params:
-#        filters=get_filter
-#    log:
-#        "logs/gatk/variantfiltration/{vartype}.log"
-#    wrapper:
-#        "0.27.1/bio/gatk/variantfiltration"
-
-
-#rule recalibrate_calls:
-#    input:
-#        vcf="results_dna/filtered/all.{vartype}.vcf.gz"
-#    output:
-#        vcf=temp("results_dna/filtered/all.{vartype}.recalibrated.vcf.gz")
-#    params:
-##        extra="{}".format(config["params"]["GATK_HC"]["VariantRecalibrator"])
-#    log:
-#        "logs/gatk/variantrecalibrator/{vartype}.log"
-#    wrapper:
-#        "0.27.1/bio/gatk/variantrecalibrator"
-
-
-#rule merge_calls:
-#    input:
-#        vcf=expand("results_dna/filtered/all.{vartype}.{filtertype}.vcf.gz",
-#                   vartype=["snvs", "indels"],
-#                   filtertype="recalibrated"
-#                              if config["filtering"]["vqsr"]
-#                              else "hardfiltered")
-#    output:
-#        vcf="results_dna/filtered/all.vcf.gz"
-#    log:
-#        "logs/picard/merge-filtered.log"
-#    wrapper:
-#        "0.27.1/bio/picard/mergevcfs"

@@ -1,5 +1,0 @@
-sample	unit	condition	fq1	fq2
-MAQCA	1	tumor	/data/Priyanka/other_pipelines/iCOMIC/benchmarking_RNA/samples/MAQCA_tumor_Rep1_R1.fastq	
-MAQCA	2	tumor	/data/Priyanka/other_pipelines/iCOMIC/benchmarking_RNA/samples/MAQCA_tumor_Rep2_R1.fastq	
-MAQCB	1	normal	/data/Priyanka/other_pipelines/iCOMIC/benchmarking_RNA/samples/MAQCB_normal_Rep1_R1.fastq	
-MAQCB	2	normal	/data/Priyanka/other_pipelines/iCOMIC/benchmarking_RNA/samples/MAQCB_normal_Rep2_R1.fastq	

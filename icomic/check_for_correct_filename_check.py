@@ -20,22 +20,6 @@ else:
         else:
             pass
 
-# =============================================================================
-# for file in os.listdir(test_dir):
-#     if not any (file.endswith(".fastq")):
-#         print("No fastq files in the folder!", file=open('name_check.txt', 'w'))
-#     elif file.endswith(".fastq"):
-#         f = file
-#         if re.match('/\w|.+_\w+_Rep\d_R1|2.fastq$/', f):
-#             continue
-#         elif re.match('/\w|.+_\w+_Rep\d_R2|1.fastq$/', f):
-#             continue
-#         else:
-#             print("Sample filenames not in specified format! Rename!", file=open('name_check.txt', 'w'))
-# =============================================================================
-
-
-
 
 
 

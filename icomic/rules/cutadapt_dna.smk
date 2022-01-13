@@ -25,11 +25,6 @@ rule cutadapt_pe:
         "logs/cutadapt/{sample}-{unit}-{condition}.log"
     threads: config["threads"]
     params: config["params"]["cutadapt"]
-#    run:
-#        if "r2" in {snakemake.input}:
-#            wrapper("0.17.4/bio/cutadapt/pe")
-#        else:
-#            wrapper("0.17.4/bio/cutadapt/se")
     wrapper:
         "0.17.4/bio/cutadapt/pe"
         

@@ -9,13 +9,4 @@ rule fastqc_after:
     threads: config["threads"]
     wrapper:
         "0.31.1/bio/fastqc"
-#        "0.66.0/bio/fastqc"
-#        "0.31.1/bio/fastqc"
         
-#rule multiqc_after:
-#    input:
-#        get_fastq_data(path = "results_dna/qc/fastqc_after/")
-#    output:
-#        "results_dna/qc/multiqc_after.html"
-#    wrapper:
-#        "0.31.1/bio/multiqc"

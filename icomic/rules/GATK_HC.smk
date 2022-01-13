@@ -1,13 +1,3 @@
-#if "restrict-regions" in config["processing"]:
-#    rule compose_regions:
-#        input:
-#            config["processing"]["restrict-regions"]
-#        output:
-#            "called/{contig}.regions.bed"
-#        conda:
-#            "../envs/bedops.yaml"
-#        shell:
-#            "bedextract {wildcards.contig} {input} > {output}"
 
 rule faidx:
     input:
@@ -20,8 +10,6 @@ rule faidx:
         "../envs/samtools.yaml"
     shell:
         "samtools faidx  {input} > {output}"
-#    wrapper:
-#        "0.35.0/bio/samtools/faidx"
         
 rule create_dict:
     input:
@@ -36,8 +24,6 @@ rule create_dict:
         "../envs/picard.yaml"
     shell:
         "picard CreateSequenceDictionary R={input} O={output}"
-#    wrapper:
-#        "0.63.0/bio/picard/createsequencedictionary"
 
 rule replace_rg:
     input:
@@ -48,7 +34,6 @@ rule replace_rg:
         "logs/picard/replace_rg/{sample}-{unit}-{condition}.log"
     params:
         "VALIDATION_STRINGENCY=SILENT SO=coordinate RGLB=lib1 RGPL=illumina RGPU={sample}-{unit}-{condition} RGSM={sample}-{unit}-{condition}"
-#        "VALIDATION_STRINGENCY=SILENT SO=coordinate RGLB=lib1 RGPL=illumina RGPU={sample}-{unit}-{condition} RGSM={sample}-{unit}-{condition}"
     wrapper:
         "0.35.0/bio/picard/addorreplacereadgroups"
         
@@ -71,55 +56,16 @@ rule recalibrate_base_qualities:
     input:
         bam=get_recal_input_rgadded(),
         bai=config["ref"]["known-variants"]+".tbi",
-#        bai=get_recal_input(bai=True),
         ref=config["ref"]["genome"],
         known=config["ref"]["known-variants"]
     output:
         bam=protected("results_dna/recal/{sample}-{unit}-{condition}.bam")
     params:
         extra = "",
-#        index=config["ref"]["genome-dict"]+ ".dict"
-#        extra="{}".format(config["params"]["GATK_HC"]["BaseRecalibrator"])
     log:
         "logs/gatk/bqsr/{sample}-{unit}-{condition}.log"
     wrapper:
         "0.27.1/bio/gatk/baserecalibrator"
-#        "0.35.0/bio/gatk/baserecalibrator"
-#        "0.79.0/bio/gatk/baserecalibrator"
-#rule recalibrate_base_qualities_vqsr:
-#    input:
-#        bam=get_recal_input(),
-#        bai=get_recal_input(bai=True),
-#        ref=config["ref"]["genome"],
-#        known=config["ref"]["known-variants"]
-#    output:
-#        recal_table="results_dna/recal/{sample}-{unit}-{condition}.grp"
-##        bam=protected("results_dna/recal/{sample}-{unit}-{condition}.bam")
-#    params:
-#        extra = ""
-##        extra="{}".format(config["params"]["GATK_HC"]["BaseRecalibrator"])
-#    log:
-#        "logs/gatk/bqsr/{sample}-{unit}-{condition}.log"
-#    wrapper:
-#        "0.60.0/bio/gatk/baserecalibrator"
-        
-#rule gatk_applybqsr:
-#    input:
-#        bam=get_recal_input(),
-#        ref=config["ref"]["genome"],
-#        dict=config["ref"]["genome-dict"]+ ".dict",
-#        recal_table="results_dna/recal/{sample}-{unit}-{condition}.grp"
-#    output:
-#        bam="results_dna/recal/{sample}-{unit}-{condition}.bam"
-#    log:
-#        "logs/gatk/gatk_applybqsr/{sample}-{unit}-{condition}.log"
-#    params:
-#        extra="",  # optional
-#        java_opts="", # optional
-#    wrapper:
-#        "0.63.0/bio/gatk/applybqsr"
-        
-
 
 
 rule call_variants: 
@@ -127,7 +73,6 @@ rule call_variants:
         bam=get_sample_bams_a,
         bai=config["ref"]["genome"]+ ".fai",
         ref=config["ref"]["genome"],
-#        known=config["ref"]["known-variants"],
         regions=[]
     output:
         gvcf=protected("results_dna/called/{sample}-{unit}-{condition}.g.vcf.gz")
@@ -218,29 +163,6 @@ rule hard_filter_calls:
         "0.27.1/bio/gatk/variantfiltration"
 
 
-#rule recalibrate_calls:
-#    input:
-#        vcf="results_dna/filtered/all.{vartype}.vcf.gz",
-#        ref=config["ref"]["genome"]
-#    output:
-#        vcf="results_dna/filtered/all.{vartype}.recalibrated.vcf.gz",
-#        tranches="results_dna/filtered/all.{vartype}.tranches"
-#    params:
-#        extra = ""
-#        extra="{}".format(config["params"]["GATK_HC"]["VariantRecalibrator"])
-#        filters=get_filter
-#        mode = "BOTH",
-#        resources={"hapmap": {"known": False, "training": True, "truth": True, "prior": 15.0},
-#                   "omni":   {"known": False, "training": True, "truth": False, "prior": 12.0},
-#                   "g1k":   {"known": False, "training": True, "truth": False, "prior": 10.0},
-#                   "dbsnp":  {"known": True, "training": False, "truth": False, "prior": 2.0}},
-#        annotation=["QD", "FisherStrand"]
-#    log:
-#        "logs/gatk/variantrecalibrator/{vartype}.log"
-#    wrapper:
-#        "0.27.1/bio/gatk/variantrecalibrator"
-
-
 rule merge_calls:
     input:
         vcf=expand("results_dna/filtered/all.{vartype}.{filtertype}.vcf.gz",
@@ -254,4 +176,3 @@ rule merge_calls:
         "logs/picard/merge-filtered.log"
     wrapper:
         "0.27.1/bio/picard/mergevcfs"
-#        "0.79.0/bio/picard/mergevcfs"

@@ -15,19 +15,12 @@ samples = pd.read_table(config["samples"]).set_index("sample", drop=False)
 units = pd.read_table(config["units"], dtype=str).set_index(["sample", "unit", "condition"], drop=False)
 units.index = units.index.set_levels([i.astype(str) for i in units.index.levels])  # enforce str in index
 
-#contigs = pd.read_table(config["ref"]["genome"] + ".fai",
-#                        header=None, usecols=[0], squeeze=True, dtype=str)
-
-#def get_contigs():
-#    with checkpoints.genome_faidx.get().output[0].open() as fai:
-#        return pd.read_table(fai, header=None, usecols=[0], squeeze=True, dtype=str)                        
 
 ##### Wildcard constraints ######
 wildcard_constraints:
     vartype="snvs|indels",
     sample="|".join(samples.index),
     unit="|".join(units["unit"]),
-#    contig="|".join(contigs),
     condition = "|".join(units["condition"])
     
 #### Helper functions #####
@@ -101,7 +94,6 @@ def get_read_group_gem3(wildcards):
     
 def get_sample_bams(wildcards):
     """Get all aligned reads of given sample."""
-#    return expand("results_dna/mapped/{sample}-{unit}-{condition}.sorted.bam",
     return expand("results_dna/recal/{sample}-{unit}-{condition}.bam",
                   sample=wildcards.sample,
                   unit=units.loc[wildcards.sample].unit,
@@ -109,7 +101,6 @@ def get_sample_bams(wildcards):
                  
 def get_sample_bams_a(wildcards):
     """Get all aligned reads of given sample."""
-#    return expand("results_dna/mapped/{sample}-{unit}-{condition}.sorted.bam",
     return expand("results_dna/recal/{sample}-{unit}-{condition}.bam",
                   sample=wildcards.sample,
                   unit=wildcards.unit,
@@ -119,17 +110,12 @@ def get_sample_bams_a(wildcards):
 def get_sample_bais(wildcards):
     """Get all aligned reads of given sample."""
     return expand("results_dna/mapped/{sample}-{unit}-{condition}.sorted.bam.bai",
-#    return expand("results_dna/recal/{sample}-{unit}-{condition}.bam.bai",
                   sample=wildcards.sample,
                   unit=wildcards.unit,
                   condition=units.loc[wildcards.sample, wildcards.unit].condition)
-#                  condition=["normal", "tumor"])
-#                  unit=units.loc[wildcards.sample].unit,
-#                  condition=units.loc[wildcards.sample, wildcards.unit].condition)
 
 def get_indelrealign_input(wildcards):
     """Get all aligned reads of given sample."""
-#    return expand("results_dna/mapped/{sample}-{unit}-{condition}.sorted.bam",
     return expand("results_dna/realign/{sample}-{unit}-{condition}.intervals",
                   sample=wildcards.sample,
                   unit=units.loc[wildcards.sample].unit,
@@ -137,7 +123,6 @@ def get_indelrealign_input(wildcards):
                   
 def get_recal_bcf_input(wildcards):
     """Get all aligned reads of given sample."""
-#    return expand("results_dna/mapped/{sample}-{unit}-{condition}.sorted.bam",
     return expand("results_dna/realign/{sample}-{unit}-{condition}.bam",
                   sample=wildcards.sample,
                   unit=units.loc[wildcards.sample].unit,

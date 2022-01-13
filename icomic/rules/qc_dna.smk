@@ -10,11 +10,3 @@ rule fastqc:
     wrapper:
         "0.31.1/bio/fastqc"
         
-
-#rule multiqc:
-#    input:
-#        get_fastq_data(path = "results_dna/qc/fastqc/")
-#    output:
-#        "results_dna/qc/multiqc.html"
-#    wrapper:
-#        "0.31.1/bio/multiqc"

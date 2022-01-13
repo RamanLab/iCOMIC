@@ -5,9 +5,6 @@ rule fasta_index:
         config["ref"]["genome"]+ ".fai",
     wrapper:
         "0.31.1/bio/samtools/faidx"
-#        dict = config["ref"]["genome"].split('.')[0] + '.dict'
-#    shell:
-#        "samtools faidx {input} > {output.fai} &&  java -jar /data/anjana/./picard/picard.jar CreateSequenceDictionary R={input} O={output.dict}"
 
 rule create_dict:
     input:

@@ -1,11 +1,4 @@
 
-#def gem3_cmd():
-#    n = len(snakemake.input.sample)
-#    assert n == 1 or n == 2, "input->sample must have 1 (single-end) or 2 (paired-end) elements."
-#    if n == 1:
-#        return(("gem-mapper -I {params.index} -i {input.sample} -q offset-64 -o {output} -m 3 -e 0 -s 0"))
-#    else:
-#        return(("gem-mapper -I {params.index} -i {input.sample} -q offset-64 -o {output} -m 3 -e 0 -s 0 -p -E 0.30"))
 
 rule gem3:
     input:
@@ -58,7 +51,6 @@ rule samtools_index:
     output:
         "{prefix}.bam.bai"
     wrapper:
-#        "0.27.1/bio/samtools/index"
         "0.35.0/bio/samtools/index"
 
 rule samtools_stats:
@@ -69,7 +61,6 @@ rule samtools_stats:
     log:
         "logs/samtools-stats/{sample}-{unit}-{condition}.log"
     wrapper:
-#        "0.27.1/bio/samtools/stats"
         "0.38.0/bio/samtools/stats"
 
 rule replace_rg:
@@ -81,7 +72,6 @@ rule replace_rg:
         "logs/picard/replace_rg/{sample}-{unit}-{condition}.log"
     params:
         "VALIDATION_STRINGENCY=SILENT SO=coordinate RGLB=lib1 RGPL=illumina RGPU={sample}-{unit}-{condition} RGSM={sample}-{unit}-{condition}"
-#        "VALIDATION_STRINGENCY=SILENT SO=coordinate RGLB=lib1 RGPL=illumina RGPU={sample}-{unit}-{condition} RGSM={sample}-{unit}-{condition}"
     wrapper:
         "0.35.0/bio/picard/addorreplacereadgroups"
 
@@ -100,29 +90,9 @@ rule multiqc:
                u=units.itertuples()),
         "results_dna/bcftools_stats/all.txt",
         get_multiqc_data(),
-#        get_fastq_data(path = "results_dna/qc/fastqc/")
     output:
         report("results_dna/multiqc/multiqc.html", caption="../report/multiqc.rst", category="Quality control")
     log:
         "logs/multiqc.log"
-#    conda:
-#        "../envs/multiqc.yaml"
-#    shell:
-#        "multiqc --force -o os.path.dirname({output[0]}) -n os.path.basename({output[0]}) set(os.path.dirname{input} {log}"
     wrapper:
         "0.35.0/bio/multiqc"
-#        "0.31.1/bio/multiqc"
-#        "0.65.0/bio/multiqc"
-#        "0.17.0/bio/multiqc"
-#        "0.27.1/bio/multiqc"
-        
-
-#rule gem3_pe:
-#    input:
-#        sample=expand("trimmed/{sample}-{unit}.{group}.fastq.gz", group=[1, 2], sample = samples.index, unit=units.index)
-#    output:
-#        "gem3/mapped/{sample}-{unit}.sorted.bam"
-#    params:
-#        index= "gem3/index"
-#    shell:
-#        "gem-mapper -I {params.index} -i {input.sample} -q offset-64 -o {output} -m 3 -e 0 -s 0 -p -E 0.30"

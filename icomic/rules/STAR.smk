@@ -3,8 +3,6 @@ rule star:
         reads=get_fastq
     output:
         "results/aligner_results/{sample}_{condition}_Rep{rep}/Aligned.out.sam"
-#        "results/aligner_results/STAR/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
-#        "results/aligner_results/{sample}_{condition}_Rep{rep}/ReadsPerGene.out.tab" #output is automatically creating with the param
     message:
         "------aligning with STAR....wait.."
     log:
@@ -27,10 +25,7 @@ rule star:
             raise RuntimeError(
                 "Reads parameter must contain at least 1 and at most 2" " input files."
             )      
-#        shell("STAR {params.extra} --runMode alignReads --runThreadN {threads} --genomeDir {params.index} --readFilesIn {input_flags} --outFileNamePrefix {params.prefix} --sjdbGTFfile {params.annotate} --outSAMtype BAM SortedByCoordinate --quantMode GeneCounts" )
         shell("STAR {params.extra} --runMode alignReads --runThreadN {threads} --genomeDir {params.index} --readFilesIn {input_flags} --outFileNamePrefix {params.prefix} --sjdbGTFfile {params.annotate} --outStd Log {log}--quantMode GeneCounts" )
-#    wrapper:
-#        "0.65.0/bio/star/align"
 
 rule create_bams:
     input:
@@ -44,14 +39,12 @@ rule create_bams:
 
 rule samtools_stats:
     input:
-#        "results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam"
         "results/aligner_results/{sample}_{condition}_Rep{rep}.bam"
     output:
         "results/aligner_results/STAR/samtools-stats/{sample}_{condition}_Rep{rep}.txt"
     log:
         "logs_rna/samtools-stats/STAR/{sample}_{condition}_Rep{rep}.logs"
     wrapper:
-#        "0.27.1/bio/samtools/stats"
         "0.38.0/bio/samtools/stats"
 
 rule multiqc:
@@ -62,5 +55,4 @@ rule multiqc:
     log:
         "logs_rna/multiqc.log"
     wrapper:
-#        "0.27.1/bio/multiqc"
         "0.38.0/bio/multiqc"

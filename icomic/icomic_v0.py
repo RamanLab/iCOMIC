@@ -1245,27 +1245,6 @@ class Ui_MainWindow(object):
         }
         
         
-        ####set all tabs disabled###
-# =============================================================================
-#         self.DNAtabWidget.setTabEnabled(1, False)
-#         self.DNAtabWidget.setTabEnabled(2, False)
-#         self.DNAtabWidget.setTabEnabled(3, False)
-#         self.DNAtabWidget.setTabEnabled(4, False)
-#         self.DNAtabWidget.setTabEnabled(5, False)
-#         
-#         self.RNAtabWidget.setTabEnabled(1, False)
-#         self.RNAtabWidget.setTabEnabled(2, False)
-#         self.RNAtabWidget.setTabEnabled(3, False)
-#         self.RNAtabWidget.setTabEnabled(4, False)
-#         self.RNAtabWidget.setTabEnabled(5, False)
-# =============================================================================
-
-        
-        
-
-
-
-
 
 ############
 
@@ -1331,8 +1310,7 @@ class Ui_MainWindow(object):
         self.QCNoradioButton.setToolTip(_translate("MainWindow", "Disables Quality Control Processing"))
         self.QCNoradioButton.setText(_translate("MainWindow", "No"))
         self.InputParamslabel.setText(_translate("MainWindow", "Input Parameters:"))
-#        self.fastQClabel.setText(_translate("MainWindow", "fastQC"))
-#        self.QClineEdit.setText(_translate("MainWindow", " --threads 1 --quiet "))
+
         self.Cutadaptlabel.setText(_translate("MainWindow", "Cutadapt"))
         self.CutadaptlineEdit.setText(_translate("MainWindow", "-q 20"))
 
@@ -1350,18 +1328,15 @@ class Ui_MainWindow(object):
         self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.QC_dna), QtGui.QIcon('./icons/qc.svg'))
         
         
-#        self.DNAtabWidget.setIconSize(QtCore.QSize(20, 20))
         ## End ##
-#        self.AlignerlabelDNA.setText(_translate("MainWindow", "Aligner"))
-#        self.AlignercomboBoxDNA.setStyleSheet("background-color: #578446")
+
         self.AlignercomboBoxDNA.setItemText(0, _translate("MainWindow", "BWA_MEM"))
         self.AlignercomboBoxDNA.setItemText(1, _translate("MainWindow", "GEM3"))
         self.AlignercomboBoxDNA.setItemText(2, _translate("MainWindow", "Bowtie2"))
-#        self.AlignercomboBoxDNA.setItemText(3, _translate("MainWindow", "None"))
-
+# 
         self.AnnotatorcomboBoxDNA.setItemText(0, _translate("MainWindow", "SnpEff"))
         self.AnnotatorcomboBoxDNA.setItemText(1, _translate("MainWindow", "Annovar"))
-#        self.AnnotatorcomboBoxDNA.setItemText(2, _translate("MainWindow", "None"))
+
         self.nextbuttontoolDNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
         self.nextbuttontoolDNA.setStyleSheet("background-color: #704214")
         self.nextbuttontoolDNA.setIconSize(QtCore.QSize(35, 35))
@@ -1373,14 +1348,11 @@ class Ui_MainWindow(object):
         self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.Tool_dna), QtGui.QIcon('./icons/tools.svg'))
         
         ## Add Index ##
-#        self.InputIndexlabel_dna.setText(_translate("MainWindow", "Input Indexes for DNA-Seq analysis"))
-#        self.BWAIndexlabel.setText(_translate("MainWindow", "Index for " + self.AlignercomboBoxDNA.currentText()))
+
         self.BWAIndexlineEdit.setToolTip(_translate("MainWindow", "Input the path of the Index for " + self.AlignercomboBoxDNA.currentText()))
         self.BWAIndexpushButton.setToolTip(_translate("MainWindow", "Click this to select one of the already available index or for a custom index"))
-#        self.BWAIndexpushButton.setText(_translate("MainWindow", "Browse"))
         self.BWAIndexpushButton.setIcon(QtGui.QIcon("./icons/browse.png"))
         self.BWAIndexpushButton.setIconSize(QtCore.QSize(22, 22))
-#        self.BWAIndexpushButton.setStyleSheet("background-color: #aeaeae")
         self.BWAIndexpushButton.setToolTip("Browse Index File")
         self.OrLabel_dna.setText(_translate("MainWindow", "Or"))
 
@@ -1395,7 +1367,7 @@ class Ui_MainWindow(object):
          ## Add run DNA##
         self.DNAtabWidget.setTabText(self.DNAtabWidget.indexOf(self.run_dna), _translate("MainWindow", " Run "))
         self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.run_dna), QtGui.QIcon('./icons/run1.svg'))
-#        self.DNAtabWidget.setStyleSheet(self.DNAtabWidget.indexOf(self.input_dna), ("background-color: #EBF6F5"))
+
         self.DNAtabWidget.setIconSize(QtCore.QSize(22, 22))
         self.nextbuttonrunDNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
         self.nextbuttonrunDNA.setStyleSheet("background-color: #704214")
@@ -1407,14 +1379,13 @@ class Ui_MainWindow(object):
         ##Add Result DNA##
         self.DNAtabWidget.setTabText(self.DNAtabWidget.indexOf(self.result_dna), _translate("MainWindow", " Results "))
         self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.result_dna), QtGui.QIcon('./icons/results.svg'))
-#        self.DNAtabWidget.setStyleSheet(self.DNAtabWidget.indexOf(self.input_dna), ("background-color: #EBF6F5"))
+
         self.DNAtabWidget.setIconSize(QtCore.QSize(22, 22))
         ##End##
         
         ## Add run RNA##
         self.RNAtabWidget.setTabText(self.RNAtabWidget.indexOf(self.run_rna), _translate("MainWindow", " Run "))
         self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.run_rna), QtGui.QIcon('./icons/run1.svg'))
-#        self.RNAtabWidget.setStyleSheet(self.RNAtabWidget.indexOf(self.input_rna), ("background-color: #EBF6F5"))
         self.RNAtabWidget.setIconSize(QtCore.QSize(22, 22))
         self.nextbuttonrunRNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
         self.nextbuttonrunRNA.setStyleSheet("background-color: #704214")
@@ -1426,7 +1397,6 @@ class Ui_MainWindow(object):
         ##Add Result RNA##
         self.RNAtabWidget.setTabText(self.RNAtabWidget.indexOf(self.result_rna), _translate("MainWindow", " Results "))
         self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.result_rna), QtGui.QIcon('./icons/results.svg'))
-#        self.RNAtabWidget.setStyleSheet(self.RNAtabWidget.indexOf(self.input_rna), ("background-color: #EBF6F5"))
         self.RNAtabWidget.setIconSize(QtCore.QSize(22, 22))
         ##End##        
         
@@ -1440,18 +1410,14 @@ class Ui_MainWindow(object):
         
 
         self.RunLabel.setText(_translate("MainWindow", "Run"))
-#        self.ResultsLabel.setText(_translate("MainWindow", "Unlock"))
         font_label = QtGui.QFont()
         font_label.setPointSize(15)
         font_label.setBold(True)
         self.RunLabel.setFont(font_label)
-#        self.ResultsLabel.setFont(font_label)         
         
        
         self.RunLabel_dna.setFont(font_label)
-#        self.ResultsLabel_dna.setFont(font_label)
         self.RunLabel_dna.setText(_translate("MainWindow", "Run"))
-#        self.ResultsLabel_dna.setText(_translate("MainWindow", "Unlock"))        
         
 
 
@@ -1463,9 +1429,7 @@ class Ui_MainWindow(object):
 
         ## Make Input as first tab ##
         self.SampleOrlabel_rna.setText(_translate("MainWindow", "Or"))
-#        self.SamplesYesradioButton_rna.setToolTip(_translate("MainWindow", "Files should be in specified format"))
         self.SamplesYesradioButton_rna.setText(_translate("MainWindow", "Upload from Folder"))
-#        self.SamplesNoradioButton_rna.setToolTip(_translate("MainWindow", "Tables should contain all the information"))
         self.SamplesNoradioButton_rna.setText(_translate("MainWindow", "Upload from Table"))
 
         self.SampleFolderlabel.setText(_translate("MainWindow", "Samples Folder"))
@@ -1476,29 +1440,21 @@ class Ui_MainWindow(object):
         
         self.FastaFilelabel.setText(_translate("MainWindow", "Fasta File"))
         self.AnnotatedFilelabelRNA.setText(_translate("MainWindow", "Annotated File"))
-#        self.TranscriptFilelabel.setText(_translate("MainWindow", "Transcript File"))
         
-#        self.FastaBrowseButton.setText(_translate("MainWindow", "Browse"))
         self.SampletableBrowseButton.setIcon(QtGui.QIcon("./icons/browse.png"))
         self.SampletableBrowseButton.setIconSize(QtCore.QSize(22, 22))
         self.SampletableBrowseButton.setToolTip("Browse Samples Table")
         
         self.FastaBrowseButton.setIcon(QtGui.QIcon("./icons/browse.png"))
         self.FastaBrowseButton.setIconSize(QtCore.QSize(22, 22))
-#        self.FastaBrowseButton.setStyleSheet("background-color: #aeaeae")
         self.FastaBrowseButton.setToolTip("Browse Fasta File")
-#        self.AnnotatedBrowserButtonRNA.setText(_translate("MainWindow", "Browse"))
         self.AnnotatedBrowserButtonRNA.setIcon(QtGui.QIcon("./icons/browse.png"))
         self.AnnotatedBrowserButtonRNA.setIconSize(QtCore.QSize(22, 22))
         self.AnnotatedBrowserButtonRNA.setToolTip("Browse Annotated File")
 
         self.CorelabelRNA.setText(_translate("MainWindow", "Maximum threads"))
         self.CorelineEditRNA.setText(_translate("MainWindow", "10"))
-#        self.SampleFolderBrowseButton.setText(_translate("MainWindow", "Browse"))
-        
-#        self.SampleFolderBrowseButton.setStyleSheet("background-color: #aeaeae")
-        
-        
+       
 
         self.nextbuttoninputRNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
         self.nextbuttoninputRNA.setStyleSheet("background-color: #704214")
@@ -1538,17 +1494,12 @@ class Ui_MainWindow(object):
 
         self.AlignercomboBoxRNA.setItemText(0, _translate("MainWindow", "HISAT2"))
         self.AlignercomboBoxRNA.setItemText(1, _translate("MainWindow", "STAR"))
-#        self.AlignercomboBoxRNA.setItemText(2, _translate("MainWindow", "salmon"))
-#        self.AlignercomboBoxRNA.setItemText(3, _translate("MainWindow", "None"))
 
         self.EMcomboBoxRNA.setItemText(0, _translate("MainWindow", "StringTie"))
         self.EMcomboBoxRNA.setItemText(1, _translate("MainWindow", "HTSeq"))
-#        self.EMcomboBoxRNA.setItemText(2, _translate("MainWindow", "salmon"))
-#        self.EMcomboBoxRNA.setItemText(3, _translate("MainWindow", "None"))
 
         self.DEcomboBoxRNA.setItemText(0, _translate("MainWindow", "ballgown"))
         self.DEcomboBoxRNA.setItemText(1, _translate("MainWindow", "DESeq2"))
-#        self.DEcomboBoxRNA.setItemText(2, _translate("MainWindow", "None"))
         self.nextbuttontoolRNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
         self.nextbuttontoolRNA.setStyleSheet("background-color: #704214")
         self.nextbuttontoolRNA.setIconSize(QtCore.QSize(35, 35))
@@ -1556,17 +1507,12 @@ class Ui_MainWindow(object):
         self.previousbuttontoolRNA.setStyleSheet("background-color: #704214")
         self.previousbuttontoolRNA.setIconSize(QtCore.QSize(35, 35))
         self.RNAtabWidget.setTabText(self.RNAtabWidget.indexOf(self.Tool_rna), _translate("MainWindow", " Tools Selection "))
-#        self.Tool_rna.setStyleSheet("background-image: url(mainwind8.png);")
         self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.Tool_rna), QtGui.QIcon('./icons/tools.svg'))
         ## Add Index ##
-#        self.InputIndexlabel.setText(_translate("MainWindow", "Input Indexes for RNA-Seq analysis"))
-#        self.StarIndexlabel.setText(_translate("MainWindow", "Index for " + self.AlignercomboBoxRNA.currentText()))
         self.StarIndexlineEdit.setToolTip(_translate("MainWindow", "Input the path of the Index for" + self.AlignercomboBoxRNA.currentText()))
         self.StarIndexpushButton.setToolTip(_translate("MainWindow", "Click this to select one of the pre-installed index or for a custom index"))
-#        self.StarIndexpushButton.setText(_translate("MainWindow", "Browse"))
         self.StarIndexpushButton.setIcon(QtGui.QIcon("./icons/browse.png"))
         self.StarIndexpushButton.setIconSize(QtCore.QSize(22, 22))
-#        self.StarIndexpushButton.setStyleSheet("background-color: #aeaeae")
         self.StarIndexpushButton.setToolTip("Browse Index File")
         self.OrLabel_rna.setText(_translate("MainWindow", "Or"))
 
@@ -1617,7 +1563,6 @@ class Ui_MainWindow(object):
         self.runctagpushButton.setText(_translate("MainWindow", "cTaG"))
         self.runctagpushButton.setIcon(QtGui.QIcon("./icons/run1.svg"))
         self.runctagpushButton.setText(_translate("MainWindow", "  Run cTaG"))
-#        self.runctagpushButton.setStyleSheet("background-color: #704214")
         self.runctagpushButton.setIconSize(QtCore.QSize (22, 22))        
         
         self.resultctagpushButton.setText(_translate("MainWindow", "cTAG"))
@@ -1663,7 +1608,6 @@ class Ui_MainWindow(object):
         self.runnbpushButton.setText(_translate("MainWindow", "NBDriver"))
         self.runnbpushButton.setIcon(QtGui.QIcon("./icons/run1.svg"))
         self.runnbpushButton.setText(_translate("MainWindow", "  Run NBDriver"))
-#        self.runctagpushButton.setStyleSheet("background-color: #704214")
         self.runnbpushButton.setIconSize(QtCore.QSize (22, 22))        
         
         self.resultnbpushButton.setText(_translate("MainWindow", "NBDriver"))
@@ -1674,11 +1618,8 @@ class Ui_MainWindow(object):
         
 
         self.menuFile.setTitle(_translate("MainWindow", "File"))
-#        self.menuFile.setIcon(QtGui.QIcon("./icons/file.svg"))
         self.menuOption.setTitle(_translate("MainWindow", "Option"))
-#        self.menuOption.setIcon(QtGui.QIcon("./icons/option.svg"))
         self.menuHelp.setTitle(_translate("MainWindow", "Help"))
-#        self.menuHelp.setIcon(QtGui.QIcon("./icons/help.svg"))
         self.actionQuit.setText(_translate("MainWindow", "Quit"))
         self.actionAbout.setText(_translate("MainWindow", "About"))
         self.actionQuick_Start.setText(_translate("MainWindow", "Quick Start"))
@@ -1691,27 +1632,16 @@ class Ui_MainWindow(object):
         self.nextbuttonqcDNA.clicked.connect(self.on_clicked_nextbuttonqcDNA)
         self.nextbuttontoolDNA.clicked.connect(self.on_clicked_nextbuttonparamsDNA)
         self.nextbuttontoolDNA.clicked.connect(self.on_clicked_nextbuttontoolDNA)
-#        self.nextbuttonindexDNA.clicked.connect(self.on_clicked_nextbuttonindexDNA)
-#        self.nextbuttonparamsDNA.clicked.connect(self.on_clicked_nextbuttonparamsDNA)
         self.previousbuttonqcDNA.clicked.connect(self.on_clicked_previousbuttonqcDNA)
         self.previousbuttontoolDNA.clicked.connect(self.on_clicked_previousbuttontoolDNA)
         self.previousbuttonrunRNA.clicked.connect(self.on_clicked_previousbuttonrunDNA)
-#        self.previousbuttonresultDNA.clicked.connect(self.on_clicked_previousbuttonrunDNA)
-#        self.previousbuttonindexDNA.clicked.connect(self.on_clicked_previousbuttonindexDNA)
-#        self.previousbuttonparamsDNA.clicked.connect(self.on_clicked_previousbuttonparamsDNA)
         self.nextbuttoninputRNA.clicked.connect(self.on_clicked_nextbuttoninputRNA)
         self.nextbuttonqcRNA.clicked.connect(self.on_clicked_nextbuttonqcRNA)
         self.nextbuttontoolRNA.clicked.connect(self.on_clicked_nextbuttonparamsRNA)
         self.nextbuttontoolRNA.clicked.connect(self.on_clicked_nextbuttontoolRNA)
-#        self.nextbuttonindexRNA.clicked.connect(self.on_clicked_nextbuttonindexRNA)
         self.previousbuttonqcRNA.clicked.connect(self.on_clicked_previousbuttonqcRNA)
         self.previousbuttontoolRNA.clicked.connect(self.on_clicked_previousbuttontoolRNA)
-#        self.previousbuttonindexRNA.clicked.connect(self.on_clicked_previousbuttonindexRNA)
-#        self.previousbuttonparamsRNA.clicked.connect(self.on_clicked_previousbuttonparamsRNA)
         
-#        self.ResultsButton.clicked.connect(self.on_clicked_ResultsButton)
-        
-#        self.SamplesYesradioButton.toggled.connect(self.on_check_SamplesYes_dna)
         self.SamplesNoradioButton.toggled.connect(self.on_check_SamplesNo_dna)
         self.SamplesNoradioButton_rna.toggled.connect(self.on_check_SamplesNo_rna)
         self.QCresults.clicked.connect(self.show_qc_textbox)
@@ -1722,8 +1652,6 @@ class Ui_MainWindow(object):
         self.QCresults_rna.clicked.connect(self.show_qc_textbox)
         self.QCresults_rna.clicked.connect(self.show_qc_results_rna)
         
-#        self.QCYesradioButton.toggled.connect(self.on_check_QC_dna)
-#        self.QCYesradioButton_rna.toggled.connect(self.on_check_QC_rna)
         self.aligner_add_dna.clicked.connect(self.advanced_aligner)
         self.vc_add_dna.clicked.connect(self.advanced_vc)
         self.annotator_add_dna.clicked.connect(self.advanced_annotator)
@@ -1757,9 +1685,7 @@ class Ui_MainWindow(object):
 
         ##data_browse##
         self.SamplesBrowseButtonDNA.clicked.connect(self.browse_data_samples)
-#        self.SamplesBrowseButtonDNA.toggled.connect(self.toggle_samples)
         self.UnitsBrowseButtonDNA.clicked.connect(self.browse_data_units)
-#        self.UnitsBrowseButtonDNA.toggled.connect(self.toggle_units)
         self.RefGenomeBrowseButtonDNA.clicked.connect(self.browse_data_ref)
         self.RefVariantpushButton.clicked.connect(self.browse_data_kv)
         ##Enable browse button for index##
@@ -1770,9 +1696,7 @@ class Ui_MainWindow(object):
         self.SampletableBrowseButton.clicked.connect(self.browse_data_sampletable)
         self.FastaBrowseButton.clicked.connect(self.browse_data_fasta)
         self.AnnotatedBrowserButtonRNA.clicked.connect(self.browse_data_annotated)
-#        self.TranscriptBrowseButton.clicked.connect(self.browse_data_transcript)
         self.SampleFolderBrowseButton.clicked.connect(self.browse_samples_folder)
-#        self.CreateConfigpushButtonDNA.clicked.connect(self.create_config_dna)
         ##Run_QC##
 
         self.RunQCpushButton.clicked.connect(self.run_qc_textbox)
@@ -1782,12 +1706,10 @@ class Ui_MainWindow(object):
         self.RunQCpushButton_rna.clicked.connect(self.run_qc_rna)
         
         ##Add additional parameters##
-#        self.CreateConfigpushButtonDNA.clicked.connect(self.add_params_dna)
         ##Run_indexing##
 
         self.RunIndexdnapushButton.clicked.connect(self.run_index_text)
         self.RunIndexdnapushButton.clicked.connect(self.run_index_dna)
-#        self.RunIndexrnapushButton.clicked.connect(self.run_index_rna_textbox)
         self.RunIndexrnapushButton.clicked.connect(self.run_index_text)
         self.RunIndexrnapushButton.clicked.connect(self.run_index_rna)
         ##Run_main##
@@ -1804,25 +1726,9 @@ class Ui_MainWindow(object):
         
         
         ##show dag##
-#        self.DAGButton.clicked.connect(self.show_dag)
         ##menu_popups##
         self.actionAbout_2.triggered.connect(self.about)
         self.actionQuick_Start.triggered.connect(self.quick_start)
-#==============================================================================
-#         
-#         self.SampleslineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/benchmark_data/samples")
-#         self.RefGenomelineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/hg38.fa")
-#         self.RefVariantlineEditDNA.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/GRCh37_knownvcf.vcf.gz")
-#         self.SampleFolderLineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/samples")
-# #        self.SampletablelineEdit.setText("")
-#         self.FastalineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/hg38.chr22.fa")
-#         self.AnnotatedlineEditRNA.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/chr22_refGene.gtf")
-# #        self.TranscriptlineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/Test/Demo_rna/gencode.v29.transcripts.fa")
-#         self.BWAIndexlineEdit.setText("/data/Priyanka/other_pipelines/iCOMIC/ref/hg38.fa")
-# #        self.SampleFolderLineEdit.setText(_translate("MainWindow", "/data/Priyanka/other_pipelines/iCOMIC"))
-#==============================================================================
-
-        
 
 # =============================================================================
     def on_click_nextresults(self):
@@ -1842,28 +1748,6 @@ class Ui_MainWindow(object):
         self.result_dialog.show()
         
     def on_click_run_nbdriver(self):
-#        run = open((os.getcwd()+"/NBDriver_ICOMIC/run.sh"), 'w')
-#        run = open('./NBDriver_ICOMIC/run.sh', 'w')
-#        run.write('#!/bin/bash \n')
-#        run.write('name="vcf1" \n')
-#        run.write('REF_GENOME_PATH="./NBDriver_ICOMIC/hg19.fa" \n')
-#        run.write('VCF_FILE_PATH="' + self.vcflineEdit.text() + '"\n')
-#        run.write('VCF_FILE_PATH+="$name.vcf" \n')
-#        run.write('BED_FILE_PATH="./NBDriver_ICOMIC/bed/" \n')
-#        run.write('BED_FILE_PATH+="$name.bed" \n')
-#        run.write('echo "Extracting neighborhood sequences for the given set of mutations..." \n')
-#        run.write('./NBDriver_ICOMIC/extract_nbd.R $VCF_FILE_PATH \n')
-#        run.write('echo "Done" \n')
-#        run.write('echo "Preparing data for the pre-trained machine learning model" \n')
-#        run.write('bedtools getfasta -fi $REF_GENOME_PATH -bed $BED_FILE_PATH -fo snv_nbd.fa \n')
-#        run.write('sed -n 2~2p NBDriver_ICOMIC/snv_nbd.fa > NBDriver_ICOMIC/snv_nbd_extract.fa \n')
-#        run.write('./NBDriver_ICOMIC/prepare_nbdriver.R NBDriver_ICOMIC/edited_vcf.txt NBDriver_ICOMIC/snv_nbd_extract.fa \n')
-#        run.write('echo "Done" \n')
-#        run.write('echo "Obtaining predictions" \n')
-#        run.write('python -W ignore NBDriver_ICOMIC/NBDriver_ICOMIC.py ./NBDriver_ICOMIC/input_data_nbdriver.txt \n')
-#        run.write('echo "Done! The predictions are in the dataframe NBDriver_Predictions.csv" \n')
-#        run.close()
-#        time.sleep(0.1)
         subprocess.run([(os.getcwd()+"/NBDriver_ICOMIC/run.sh")])
         
     def on_click_result_nbdriver(self):
@@ -1942,7 +1826,6 @@ class Ui_MainWindow(object):
         color  = QtGui.QColor(233, 10, 150)
         self.aligner_groupbox = QGroupBox("Aligner")
         self.vlayout= QtWidgets.QVBoxLayout()
-#        self.vlayout.setSpacing
         self.hlayout0_aligner = QtWidgets.QHBoxLayout()
         font_info = QtGui.QFont()
         font_info.setPointSize(8.5)
@@ -1957,25 +1840,20 @@ class Ui_MainWindow(object):
         self.AlignercomboBoxDNA = QtWidgets.QComboBox()
         self.AlignercomboBoxDNA.move(20, 10)
         self.AlignercomboBoxDNA.setSizeAdjustPolicy(QtWidgets.QComboBox.AdjustToContents)
-#        self.AlignercomboBoxDNA.setIconSize(QtCore.QSize(16, 16))
         self.AlignercomboBoxDNA.setObjectName("AlignercomboBoxDNA")
         self.AlignercomboBoxDNA.addItem("")
         self.AlignercomboBoxDNA.addItem("")
         self.AlignercomboBoxDNA.addItem("")
-#        self.AlignercomboBoxDNA.addItem("")
         self.hlayout0_aligner.addWidget(self.AlignercomboBoxDNA)
         self.hlayout0_aligner.addStretch(0)
         self.vlayout.addItem(self.hlayout0_aligner)
         self.hlayout1_aligner = QtWidgets.QHBoxLayout()
         self.hlayout1_aligner.setSpacing(10)
         self.BWAIndexlabel = QtWidgets.QLabel()
-#        self.BWAIndexlabel.setGeometry(QtCore.QRect(10, 90, 141, 17))
         self.BWAIndexlabel.setObjectName("BWAIndexlabel")
         self.BWAIndexlineEdit = QtWidgets.QLineEdit()
-#        self.BWAIndexlineEdit.setGeometry(QtCore.QRect(170, 90, 331, 23))
         self.BWAIndexlineEdit.setObjectName("BWAIndexlineEdit")
         self.BWAIndexpushButton = QtWidgets.QPushButton()
-#        self.BWAIndexpushButton.setGeometry(QtCore.QRect(600, 90, 30, 25))
         self.BWAIndexpushButton.setObjectName("BWAIndexpushButton")
         
         self.hlayout1_aligner.addWidget(self.BWAIndexlabel)
@@ -2016,15 +1894,12 @@ class Ui_MainWindow(object):
         self.hlayout0_pb = QtWidgets.QHBoxLayout()
         self.hlayout0_pb.setGeometry(QtCore.QRect(10, 230, 665, 17))
         self.progressBar_sub2_dna = QtWidgets.QProgressBar()
-#        self.progressBar_sub2_dna.setGeometry(QtCore.QRect(10, 230, 665, 17))
         self.progressBar_sub2_dna.setProperty("value", 0)
         self.progressBar_sub2_dna.setObjectName("progressBar_sub2_dna")
         self.hlayout0_pb.addWidget(self.progressBar_sub2_dna)
         self.vlayout.addItem(self.hlayout0_pb)
-#        self.horizontalLayout_4.addWidget(self.RunIndexdnaButtonErroricon)
 
         
-#        self.hlayout2 = QtWidgets.QHBoxLayout()
         
         self.param1_label_dna_1 = QtWidgets.QLabel()
         self.param1_label_dna_1.setGeometry(QtCore.QRect(20, 40, 91, 18))
@@ -2107,7 +1982,6 @@ class Ui_MainWindow(object):
     def create_vc_groupbox(self):
         self.vc_groupbox = QGroupBox("Variant caller")
         self.vlayout_vc= QtWidgets.QVBoxLayout()
-#        self.vlayout.setSpacing
         self.hlayout0_vc = QtWidgets.QHBoxLayout()
         
         font_info = QtGui.QFont()
@@ -2206,7 +2080,6 @@ class Ui_MainWindow(object):
         self.AnnotatorWarningtext.setGeometry(QtCore.QRect(90, 0, 331, 22))
         self.AnnotatorWarningtext.setObjectName("AnnotatorWarningtext")
         self.AnnotatorWarningtext.setStyleSheet("color: orange")
-#        self.AnnotatorWarningtext.setFont(font_label)
         self.AnnotatorWarningtext.setText("Choose Annovar if proceeding for cTaG or NBDriver")
         self.hlayout1_warning_annotator.addWidget(self.AnnotatorWarningtext, 0, alignment=QtCore.Qt.AlignCenter)
         self.vlayout_annotator.addItem(self.hlayout1_warning_annotator)
@@ -2232,12 +2105,8 @@ class Ui_MainWindow(object):
         
         self.hlayout1_annotator = QtWidgets.QHBoxLayout()
         self.RefNamelabelDNA = QtWidgets.QLabel()
-#        self.RefNamelabelDNA.setGeometry(QtCore.QRect(50, 150, 294, 17))
         self.RefNamelabelDNA.setObjectName("RefNamelabelDNA")
         self.RefNamecomboBoxDNA = QtWidgets.QComboBox()
-#        self.RefNamecomboBoxDNA.setGeometry(QtCore.QRect(345, 150, 215, 23))
-#        self.RefNamecomboBoxDNA.setStyleSheet ("background-color: #578446")
-#        self.RefNamecomboBoxDNA.setIconSize(QtCore.QSize(16, 16))
         self.RefNamecomboBoxDNA.setObjectName("RefNamecomboBoxDNA")
         self.RefNamecomboBoxDNA.addItem("hg38")
         self.RefNamecomboBoxDNA.addItem("GRCh38.86")
@@ -2246,7 +2115,6 @@ class Ui_MainWindow(object):
         self.hlayout1_annotator.addWidget(self.RefNamelabelDNA)
         self.hlayout1_annotator.addWidget(self.RefNamecomboBoxDNA)
         self.vlayout_annotator.addItem(self.hlayout1_annotator)
-#        self.RefNamecomboBoxDNA.addItem("hg38")
         
         
         self.param3_label_dna_1 = QtWidgets.QLabel()
@@ -2317,23 +2185,19 @@ class Ui_MainWindow(object):
         
     def create_group_next(self):
         self.next_groupbox = QGroupBox()
-#        self.next_groupbox.setFlat(True)
         self.vlayout_next= QtWidgets.QVBoxLayout()
         self.nextbuttontoolDNA = QtWidgets.QPushButton()
         self.nextbuttontoolDNA.setGeometry(QtCore.QRect(635, 400, 45, 45))
-#        self.nextbuttontoolDNA.move(635, 500)
         self.nextbuttontoolDNA.setObjectName("nextbuttontoolDNA")
         ###
         self.previousbuttontoolDNA = QtWidgets.QPushButton()
         self.previousbuttontoolDNA.setGeometry(QtCore.QRect(10, 400, 45, 45))
-#        self.previousbuttontoolDNA.move(10, 500)
         self.previousbuttontoolDNA.setObjectName("previousbuttontoolDNA")
         
         self.hbox_next = QtWidgets.QHBoxLayout()
         self.hbox_next.addWidget(self.previousbuttontoolDNA, 0, alignment=QtCore.Qt.AlignLeft)
         self.hbox_next.addWidget(self.nextbuttontoolDNA, 0, alignment=QtCore.Qt.AlignRight)
         
-#        self.hbox_next.addStretch()
         self.vlayout_next.addItem(self.hbox_next)
         self.next_groupbox.setLayout(self.vlayout_next)
         
@@ -2343,7 +2207,6 @@ class Ui_MainWindow(object):
         color  = QtGui.QColor(233, 10, 150)
         self.aligner_groupbox_rna = QGroupBox("Aligner")
         self.vlayout_rna= QtWidgets.QVBoxLayout()
-#        self.vlayout.setSpacing
         self.hlayout0_aligner_rna = QtWidgets.QHBoxLayout()
         
         font_info = QtGui.QFont()
@@ -2359,24 +2222,18 @@ class Ui_MainWindow(object):
         self.AlignercomboBoxRNA = QtWidgets.QComboBox()
         self.AlignercomboBoxRNA.move(20, 10)
         self.AlignercomboBoxRNA.setSizeAdjustPolicy(QtWidgets.QComboBox.AdjustToContents)
-#        self.AlignercomboBoxDNA.setIconSize(QtCore.QSize(16, 16))
         self.AlignercomboBoxRNA.setObjectName("AlignercomboBoxRNA")
         self.AlignercomboBoxRNA.addItem("")
         self.AlignercomboBoxRNA.addItem("")
-#        self.AlignercomboBoxRNA.addItem("")
-#        self.AlignercomboBoxRNA.addItem("")
         self.hlayout0_aligner_rna.addWidget(self.AlignercomboBoxRNA)
         self.hlayout0_aligner_rna.addStretch(0)
         self.vlayout_rna.addItem(self.hlayout0_aligner_rna)
         self.hlayout1_aligner_rna = QtWidgets.QHBoxLayout()
         self.hlayout1_aligner_rna.setSpacing(10)
         self.StarIndexlabel = QtWidgets.QLabel()
-#        self.BWAIndexlabel.setGeometry(QtCore.QRect(10, 90, 141, 17))
         self.StarIndexlabel.setObjectName("StarIndexlabel")
         self.StarIndexlineEdit = QtWidgets.QLineEdit()
-#        self.BWAIndexlineEdit.setGeometry(QtCore.QRect(170, 90, 331, 23))
         self.StarIndexpushButton = QtWidgets.QPushButton()
-#        self.StarIndexpushButton.setGeometry(QtCore.QRect(600, 90, 30, 25))
         self.StarIndexpushButton.setObjectName("StarIndexpushButton")
         
         self.hlayout1_aligner_rna.addWidget(self.StarIndexlabel)
@@ -2409,7 +2266,6 @@ class Ui_MainWindow(object):
         self.RunIndexrnaButtonErroricon.setToolTip("Check and Run Index Again!")
         self.RunIndexrnaButtonErroricon.setFont(font_label)
         self.RunIndexrnaButtonErroricon.setIcon(QtGui.QIcon("./icons/warning.svg"))
-#        self.horizontalLayout_4.addWidget(self.RunIndexrnaButtonErroricon)
         self.RunIndexrnaButtonErroricon.hide()
         self.hlayout0_runindex_rna.addWidget(self.RunIndexrnaButtonErroricon, 0, alignment=QtCore.Qt.AlignCenter)
         self.vlayout_rna.addItem(self.hlayout0_runindex_rna)
@@ -2421,10 +2277,6 @@ class Ui_MainWindow(object):
         self.progressBar_sub2_rna.setObjectName("progressBar_sub2_rna")
         self.hlayout0_pb_rna.addWidget(self.progressBar_sub2_rna)
         self.vlayout_rna.addItem(self.hlayout0_pb_rna)
-#        self.horizontalLayout_4.addWidget(self.RunIndexdnaButtonErroricon)
-
-        
-#        self.hlayout2 = QtWidgets.QHBoxLayout()
         
         self.param1_label_rna_1 = QtWidgets.QLabel()
         self.param1_label_rna_1.setGeometry(QtCore.QRect(20, 40, 91, 18))
@@ -2507,7 +2359,6 @@ class Ui_MainWindow(object):
     def create_em_groupbox(self):
         self.em_groupbox = QGroupBox("Expression Modeller")
         self.vlayout_em= QtWidgets.QVBoxLayout()
-#        self.vlayout.setSpacing
         self.hlayout0_em = QtWidgets.QHBoxLayout()
         
         font_info = QtGui.QFont()
@@ -2524,8 +2375,6 @@ class Ui_MainWindow(object):
         self.EMcomboBoxRNA.setObjectName("EMcomboBoxRNA")
         self.EMcomboBoxRNA.addItem("")
         self.EMcomboBoxRNA.addItem("")
-#        self.EMcomboBoxRNA.addItem("")
-#        self.EMcomboBoxRNA.addItem("")
         self.hlayout0_em.addWidget(self.EMcomboBoxRNA)
         self.hlayout0_em.addStretch(0)
         self.vlayout_em.addItem(self.hlayout0_em)
@@ -2617,7 +2466,6 @@ class Ui_MainWindow(object):
         self.DEcomboBoxRNA.setObjectName("DEcomboBoxRNA")
         self.DEcomboBoxRNA.addItem("")
         self.DEcomboBoxRNA.addItem("")
-#        self.DEcomboBoxRNA.addItem("")
         self.hlayout0_de.addWidget(self.DEcomboBoxRNA)
         self.hlayout0_de.addStretch(0)
         self.vlayout_de.addItem(self.hlayout0_de)
@@ -2693,23 +2541,19 @@ class Ui_MainWindow(object):
         
     def create_group_next_rna(self):
         self.next_groupbox_rna = QGroupBox()
-#        self.next_groupbox.setFlat(True)
         self.vlayout_next_rna= QtWidgets.QVBoxLayout()
         self.nextbuttontoolRNA = QtWidgets.QPushButton()
         self.nextbuttontoolRNA.setGeometry(QtCore.QRect(635, 400, 45, 45))
-#        self.nextbuttontoolDNA.move(635, 500)
         self.nextbuttontoolRNA.setObjectName("nextbuttontoolRNA")
         ###
         self.previousbuttontoolRNA = QtWidgets.QPushButton()
         self.previousbuttontoolRNA.setGeometry(QtCore.QRect(10, 400, 45, 45))
-#        self.previousbuttontoolDNA.move(10, 500)
         self.previousbuttontoolRNA.setObjectName("previousbuttontoolRNA")
         
         self.hbox_next_rna = QtWidgets.QHBoxLayout()
         self.hbox_next_rna.addWidget(self.previousbuttontoolRNA, 0, alignment=QtCore.Qt.AlignLeft)
         self.hbox_next_rna.addWidget(self.nextbuttontoolRNA, 0, alignment=QtCore.Qt.AlignRight)
         
-#        self.hbox_next.addStretch()
         self.vlayout_next_rna.addItem(self.hbox_next_rna)
         self.next_groupbox_rna.setLayout(self.vlayout_next_rna)
         
@@ -2760,7 +2604,6 @@ class Ui_MainWindow(object):
         self.additional_str['New Value'] = self.additional_str['New Value'].astype('str')
         self.additional_str = self.additional_str.reset_index()
         self.snakefile_dict_str = dict()
-#        self.new_values_str=[]
         for j in self.adv_dialog.label_list_str:
             if j.isChecked() == True:
                 self.new_values_str.append("TRUE")
@@ -2801,17 +2644,11 @@ class Ui_MainWindow(object):
                 self.SamplesErrortextDNA.setText("Input Samples folder path!")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
-# =============================================================================
-#                 print(self.DNAtabWidget.currentIndex())
-#                 print("Input Samples table!")
-# =============================================================================
             elif not os.path.exists(self.SampleslineEditDNA.text()):
-#                print("File doesn't exist! Check the path!")
                 self.SamplesErrortextDNA.show()
                 self.SamplesErrortextDNA.setText("File doesn't exist! Check the path!")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
-#                print(self.DNAtabWidget.currentIndex())
             else:
                 inputfile = fileinput.input("check_for_correct_filename_check.py", inplace = 1)
                 for l in inputfile:
@@ -2824,20 +2661,11 @@ class Ui_MainWindow(object):
                 if os.path.exists('name_check.txt'):
                     self.DNAtabWidget.setCurrentIndex(0)
                     self.DNAtabWidget.setTabEnabled(1, False)
-#                    print(self.DNAtabWidget.currentIndex())
                     with open('name_check.txt') as errorcheck:
                         content = errorcheck.readline()
-#                        print(content)
-#                    print(content.rstrip())
                     self.SamplesErrortextDNA.show()
                     self.SamplesErrortextDNA.setText(content.rstrip())
                 else:
-#                    print("ok")
-# =============================================================================
-#                     self.DNAtabWidget.setCurrentIndex(1)
-#                     self.DNAtabWidget.setTabEnabled(1, True)
-# =============================================================================
-#                    print(self.DNAtabWidget.currentIndex())
                     file = fileinput.input("write_tsv.py", inplace = 1)
                     for l in file:
                         if "test_dir =" in l:
@@ -2854,10 +2682,6 @@ class Ui_MainWindow(object):
                         Row_list.append(my_list)
                     if ['tumor'] in Row_list:
                         self.VCcomboBoxDNA.setItemText(0, "Mutect2")
-#                        self.VCcomboBoxDNA.addItem("")
-#                        self.VCcomboBoxDNA.setItemText(1, "MuSE")
-#                        self.VCcomboBoxDNA.addItem("")
-#                        self.VCcomboBoxDNA.setItemText(2, "VarScan")
 
                     else:
                         self.VCcomboBoxDNA.addItem("")
@@ -2869,19 +2693,16 @@ class Ui_MainWindow(object):
                         
                     
             if self.RefGenomelineEditDNA.text() == '':
-#                print("Input reference genome file!")
                 self.RefGenomeErrortextDNA.show()
                 self.RefGenomeErrortextDNA.setText("Input reference genome file!")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif not os.path.exists(self.RefGenomelineEditDNA.text()):
-#                print("File doesn't exist! Check the path!")
                 self.RefGenomeErrortextDNA.show()
                 self.RefGenomeErrortextDNA.setText("File doesn't exist! Check the path!")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif os.path.splitext(self.RefGenomelineEditDNA.text())[-1] != ".fa":
-#                print("File should have extension '.fa'")
                 self.RefGenomeErrortextDNA.show()
                 self.RefGenomeErrortextDNA.setText("File should have extension '.fa'")
                 self.DNAtabWidget.setCurrentIndex(0)
@@ -2889,25 +2710,21 @@ class Ui_MainWindow(object):
 
              
             if self.RefVariantlineEditDNA.text()== '':
-#                print("Input reference known variants file!")
                 self.RefVariantErrortextDNA.show()
                 self.RefVariantErrortextDNA.setText("Input reference known variants file!")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif not os.path.exists(self.RefVariantlineEditDNA.text()):
-#                print("File doesn't exist! Check the path!")
                 self.RefVariantErrortextDNA.show()
                 self.RefVariantErrortextDNA.setText("File doesn't exist! Check the path!")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif os.path.splitext(self.RefVariantlineEditDNA.text())[-1] != ".gz":
-#                print("File should have extension '.gz'")
                 self.RefVariantErrortextDNA.show()
                 self.RefVariantErrortextDNA.setText("File should have extension '.gz'")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif (self.RefVariantlineEditDNA.text()).split(".")[-2] != "vcf":
-#                print("File should have extension '.gz'")
                 self.RefVariantErrortextDNA.show()
                 self.RefVariantErrortextDNA.setText("File should be compressed 'vcf'")
                 self.DNAtabWidget.setCurrentIndex(0)
@@ -2918,13 +2735,11 @@ class Ui_MainWindow(object):
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif not self.CorelineEditDNA.text().isnumeric():
-#                print("File doesn't exist! Check the path!")
                 self.CoreErrortextDNA.show()
                 self.CoreErrortextDNA.setText("Number of threads should be an integer")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif (os.path.splitext(self.RefGenomelineEditDNA.text())[-1] == ".fa" and not os.path.exists('name_check.txt') and os.path.splitext(self.RefVariantlineEditDNA.text())[-1] == ".gz" and (self.RefVariantlineEditDNA.text().split(".")[-2]) == 'vcf' and self.CorelineEditDNA.text().isnumeric()):
-#                print("ok")
                 self.SamplesErrortextDNA.hide()
                 self.UnitsErrortextDNA.hide()
                 self.RefGenomeErrortextDNA.hide()
@@ -2933,22 +2748,18 @@ class Ui_MainWindow(object):
                 self.DNAtabWidget.setTabEnabled(1, True)
                 self.textBrowser.setTextColor(self._colors['blue'])
                 self.textBrowser.append("Click on the 'View Quality control Results' button to view the FastQC report \n")
-#                process=subprocess.Popen(["snakemake", "--unlock"])
         else:
             if self.UnitslineEditDNA.text() == '':
                 self.UnitsErrortextDNA.show()
                 self.UnitsErrortextDNA.setText("Input Units table!")
-#                print("Input Units table!")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif not os.path.exists(self.UnitslineEditDNA.text()):
                 self.UnitsErrortextDNA.show()
                 self.UnitsErrortextDNA.setText("File doesn't exist! Check the path!")
-#                print("File doesn't exist! Check the path!")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif os.path.splitext(self.UnitslineEditDNA.text())[-1] != ".tsv":
-#                print("File should have extension '.tsv'")
                 self.UnitsErrortextDNA.show()
                 self.UnitsErrortextDNA.setText("File should have extension '.tsv'")
                 self.DNAtabWidget.setCurrentIndex(0)
@@ -2971,10 +2782,6 @@ class Ui_MainWindow(object):
                         Row_list.append(my_list)
                     if ['tumor'] in Row_list:
                         self.VCcomboBoxDNA.setItemText(0, "Mutect2")
-#                        self.VCcomboBoxDNA.addItem("")
-#                        self.VCcomboBoxDNA.setItemText(1, "MuSE")
-#                        self.VCcomboBoxDNA.addItem("")
-#                        self.VCcomboBoxDNA.setItemText(2, "VarScan")
 
                     else:
                         self.VCcomboBoxDNA.addItem("")
@@ -2982,47 +2789,38 @@ class Ui_MainWindow(object):
                         self.VCcomboBoxDNA.setItemText(0, "GATK_HC")
                         self.VCcomboBoxDNA.setItemText(1, "bcftools_call")
                         self.VCcomboBoxDNA.setItemText(2, "freebayes")
-#                        self.VCcomboBoxDNA.removeItem(3)
             if self.RefGenomelineEditDNA.text() == '':
-#                print("Input Units table!")
                 self.RefGenomeErrortextDNA.show()
                 self.RefGenomeErrortextDNA.setText("Input reference genome file!")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif not os.path.exists(self.RefGenomelineEditDNA.text()):
-#                print("File doesn't exist! Check the path!")
                 self.RefGenomeErrortextDNA.show()
                 self.RefGenomeErrortextDNA.setText("File doesn't exist! Check the path!")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif os.path.splitext(self.RefGenomelineEditDNA.text())[-1] != ".fa":
-#                print("File should have extension '.fa'")
                 self.RefGenomeErrortextDNA.show()
                 self.RefGenomeErrortextDNA.setText("File should have extension '.fa'")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
 
-#                print("ok")
             if self.RefVariantlineEditDNA.text()== '':
-#                print("Input Units table!")
                 self.RefVariantErrortextDNA.show()
                 self.RefVariantErrortextDNA.setText("Input reference known variants file!")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif not os.path.exists(self.RefVariantlineEditDNA.text()):
-#                print("File doesn't exist! Check the path!")
                 self.RefVariantErrortextDNA.show()
                 self.RefVariantErrortextDNA.setText("File doesn't exist! Check the path!")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif os.path.splitext(self.RefVariantlineEditDNA.text())[-1] != ".gz":
-#                print("File should have extension '.gz'")
                 self.RefVariantErrortextDNA.show()
                 self.RefVariantErrortextDNA.setText("File should have extension '.gz'")
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif (self.RefVariantlineEditDNA.text()).split(".")[-2] != "vcf":
-#                print("File should have extension '.gz'")
                 self.RefVariantErrortextDNA.show()
                 self.RefVariantErrortextDNA.setText("File should be compressed 'vcf'")
                 self.DNAtabWidget.setCurrentIndex(0)
@@ -3033,7 +2831,6 @@ class Ui_MainWindow(object):
                 self.DNAtabWidget.setCurrentIndex(0)
                 self.DNAtabWidget.setTabEnabled(1, False)
             elif not self.CorelineEditDNA.text().isnumeric():
-#                print("File doesn't exist! Check the path!")
                 self.CoreErrortextDNA.show()
                 self.CoreErrortextDNA.setText("Number of threads should be an integer")
                 self.DNAtabWidget.setCurrentIndex(0)
@@ -3047,9 +2844,6 @@ class Ui_MainWindow(object):
                 self.DNAtabWidget.setTabEnabled(1, True)
                 self.textBrowser.setTextColor(self._colors['blue'])
                 self.textBrowser.append("Click on the 'View Quality control Results' button to view the FastQC report \n")
-#                subprocess.run(["snakemake", "--unlock"])
-#                print("ok")    
-    
 
                 
     def param_display(self):
@@ -3060,10 +2854,8 @@ class Ui_MainWindow(object):
 
         dataframe = pd.read_csv(path_aligner, header=0) # specifying that the table has column names
         essential = dataframe[dataframe["Essential"] == "yes"]
-#        print(essential.iloc[1, 2])
         
         number_of_essential = len(essential) # returns number of essential parameters
-#        print(number_of_essential)
         label_array_param1 = [self.param1_label_dna_1, self.param1_label_dna_2, self.param1_label_dna_3, self.param1_label_dna_4, self.param1_label_dna_5, self.param1_label_dna_6]
         line_edit_array_param1 = [self.param1_lineEdit_dna_1,self.param1_lineEdit_dna_2, self.param1_lineEdit_dna_3, self.param1_lineEdit_dna_4, self.param1_lineEdit_dna_5, self.param1_lineEdit_dna_6]
         for i, j, k in zip(range(number_of_essential), label_array_param1, line_edit_array_param1): 
@@ -3076,10 +2868,8 @@ class Ui_MainWindow(object):
             
         dataframe_vc = pd.read_csv(path_vc, header=0) # specifying that the table has column names
         essential_vc = dataframe_vc[dataframe_vc["Essential"] == "yes"]
-#        print(essential.iloc[1, 2])
         
         number_of_essential_vc = len(essential_vc) # returns number of essential parameters
-#        print(number_of_essential)
         label_array_param2 = [self.param2_label_dna_1, self.param2_label_dna_2, self.param2_label_dna_3, self.param2_label_dna_4, self.param2_label_dna_5, self.param2_label_dna_6]
         line_edit_array_param2 = [self.param2_lineEdit_dna_1,self.param2_lineEdit_dna_2, self.param2_lineEdit_dna_3, self.param2_lineEdit_dna_4, self.param2_lineEdit_dna_5, self.param2_lineEdit_dna_6]
         for i, j, k in zip(range(number_of_essential_vc), label_array_param2, line_edit_array_param2): 
@@ -3090,10 +2880,8 @@ class Ui_MainWindow(object):
             
         dataframe_annotator = pd.read_csv(path_annotator, header=0) # specifying that the table has column names
         essential_annotator = dataframe_annotator[dataframe_annotator["Essential"] == "yes"]
-#        print(essential.iloc[1, 2])
         
         number_of_essential_annotator = len(essential_annotator) # returns number of essential parameters
-#        print(number_of_essential)
         label_array_param3 = [self.param3_label_dna_1, self.param3_label_dna_2, self.param3_label_dna_3, self.param3_label_dna_4, self.param3_label_dna_5, self.param3_label_dna_6]
         line_edit_array_param3 = [self.param3_lineEdit_dna_1,self.param3_lineEdit_dna_2, self.param3_lineEdit_dna_3, self.param3_lineEdit_dna_4, self.param3_lineEdit_dna_5, self.param3_lineEdit_dna_6]
         for i, j, k in zip(range(number_of_essential_annotator), label_array_param3, line_edit_array_param3): 
@@ -3111,31 +2899,21 @@ class Ui_MainWindow(object):
     def on_clicked_nextbuttonqcDNA(self):
         self.param_display()
         if os.path.exists("results_dna/qc"):
-#            print("yes")
             self.DNAtabWidget.setCurrentIndex(2)
             self.DNAtabWidget.setTabEnabled(2, True)
         else:
-#            print("no")
             self.qc_warning = showQCDialog()
-#            if self.qc_warning.initUI== QMessageBox.Yes:
             if self.qc_warning.returnValue==QMessageBox.Yes:
                 self.DNAtabWidget.setCurrentIndex(2)
                 self.DNAtabWidget.setTabEnabled(2, True)
-#                print('Yes clicked')
                                          
             if self.qc_warning.returnValue== QMessageBox.Cancel:
-#                print('not')
                 self.DNAtabWidget.setCurrentIndex(1)
                 self.DNAtabWidget.setTabEnabled(2, False)
-#        self.Tool_dna.setEnabled(True)
         self.DNAtabWidget.setTabEnabled(2, True)
-#        subprocess.run(["snakemake", "--unlock"])
     def on_clicked_nextbuttontoolDNA(self):
-#        _translate = QtCore.QCoreApplication.translate
-#        self.on_clicked_nextbuttonparamsDNA()
         self.index_warning()
         self.DNAtabWidget.setCurrentIndex(3)
-#        self.Index_dna.setEnabled(True)
         self.DNAtabWidget.setTabEnabled(3, True)
         
         self.create_config_dna()
@@ -3187,19 +2965,15 @@ class Ui_MainWindow(object):
         
     def on_clicked_previousbuttonqcDNA(self):
         self.DNAtabWidget.setCurrentIndex(0)
-#        self.input_dna.setEnabled(True)
         self.DNAtabWidget.setTabEnabled(0, True)
     def on_clicked_previousbuttontoolDNA(self):
         self.DNAtabWidget.setCurrentIndex(1)
-#        self.QC_dna.setEnabled(True)
         self.DNAtabWidget.setTabEnabled(1, True)
     def on_clicked_previousbuttonindexDNA(self):
         self.DNAtabWidget.setCurrentIndex(2)
-#        self.Tool_dna.setEnabled(True)
         self.DNAtabWidget.setTabEnabled(2, True)
     def on_clicked_previousbuttonparamsDNA(self):
         self.DNAtabWidget.setCurrentIndex(3)       
-#        self.Index_dna.setEnabled(True)
         self.DNAtabWidget.setTabEnabled(3, True)
         
     def on_clicked_previousbuttonrunDNA(self):
@@ -3255,11 +3029,7 @@ class Ui_MainWindow(object):
                     for index, rows in unitsdf.iterrows():
                         my_list =[rows.condition]
                         Row_list.append(my_list)
-# =============================================================================
-#                 else:
-#                     self.RNAtabWidget.setCurrentIndex(1)
-#                     self.RNAtabWidget.setTabEnabled(1, True)
-# =============================================================================
+
             if self.FastalineEdit.text() == '':
                 self.FastaErrortextRNA.show()
                 self.FastaErrortextRNA.setText("Input Fasta file!")
@@ -3275,11 +3045,7 @@ class Ui_MainWindow(object):
                 self.FastaErrortextRNA.setText("File should have extension '.fa'")
                 self.RNAtabWidget.setCurrentIndex(0)
                 self.RNAtabWidget.setTabEnabled(1, False)
-# =============================================================================
-#             else:
-#                 self.RNAtabWidget.setCurrentIndex(1)
-#                 self.RNAtabWidget.setTabEnabled(1, True)
-# =============================================================================
+
             if self.AnnotatedlineEditRNA.text()== '':
                 self.AnnotatedErrortextRNA.show()
                 self.AnnotatedErrortextRNA.setText("Input Annotated file!")
@@ -3307,22 +3073,15 @@ class Ui_MainWindow(object):
                 self.CoreErrortextRNA.setText("Number of threads should be an integer")
                 self.RNAtabWidget.setCurrentIndex(0)
                 self.RNAtabWidget.setTabEnabled(1, False)
-#            elif (os.path.splitext(self.FastalineEdit.text())[-1] == ".fa" and not os.path.exists('name_check.txt') and os.path.splitext(self.AnnotatedlineEditRNA.text())[-1] == ".gtf" and os.path.splitext(self.TranscriptlineEdit.text())[-1] == ".fa" and self.CorelineEditRNA.text().isnumeric()):
             elif (os.path.splitext(self.FastalineEdit.text())[-1] == ".fa" and not os.path.exists('name_check.txt') and os.path.splitext(self.AnnotatedlineEditRNA.text())[-1] == ".gtf" and self.CorelineEditRNA.text().isnumeric()):    
-#                print("ok")
                 self.FastaErrortextRNA.hide()
                 self.SampleFolderErrortextRNA.hide()
                 self.AnnotatedErrortextRNA.hide()
-#                self.TranscriptErrortextRNA.hide()
                 self.RNAtabWidget.setCurrentIndex(1)
                 self.RNAtabWidget.setTabEnabled(1, True)
                 self.textBrowser.setTextColor(self._colors['blue'])
                 self.textBrowser.append("Click on the 'View Quality control Results' button below to view the FastQC report \n")
-# =============================================================================
-#             else:
-#                 self.RNAtabWidget.setCurrentIndex(1)
-#                 self.RNAtabWidget.setTabEnabled(1, True)
-# =============================================================================
+
         else:
             if self.SampleFolderLineEdit.text() == '':
                 self.SampleFolderErrortextRNA.show()
@@ -3366,10 +3125,7 @@ class Ui_MainWindow(object):
                         
                     else:
                         pass
-# =============================================================================
-#                 self.RNAtabWidget.setCurrentIndex(1)
-#                 self.RNAtabWidget.setTabEnabled(1, True)
-# =============================================================================
+
             if self.FastalineEdit.text() == '':
                 self.FastaErrortextRNA.show()
                 self.FastaErrortextRNA.setText("Input Fasta file!")
@@ -3385,11 +3141,7 @@ class Ui_MainWindow(object):
                 self.FastaErrortextRNA.setText("File should have extension '.fa'")
                 self.RNAtabWidget.setCurrentIndex(0)
                 self.RNAtabWidget.setTabEnabled(1, False)
-# =============================================================================
-#             else:
-#                 self.RNAtabWidget.setCurrentIndex(1)
-#                 self.RNAtabWidget.setTabEnabled(1, True)
-# =============================================================================
+
             if self.AnnotatedlineEditRNA.text()== '':
                 self.AnnotatedErrortextRNA.show()
                 self.AnnotatedErrortextRNA.setText("Input Annotated file!")
@@ -3417,14 +3169,11 @@ class Ui_MainWindow(object):
                 self.CoreErrortextRNA.setText("Number of threads should be an integer")
                 self.RNAtabWidget.setCurrentIndex(0)
                 self.RNAtabWidget.setTabEnabled(1, False)
-#            elif (os.path.splitext(self.FastalineEdit.text())[-1] == ".fa" and list(unitsdf) == list_tsv_col  and not os.path.exists('name_check.txt') and not os.path.exists('rename_check.txt') and os.path.splitext(self.AnnotatedlineEditRNA.text())[-1] == ".gtf" and os.path.splitext(self.TranscriptlineEdit.text())[-1] == ".fa" and self.CorelineEditDNA.text().isnumeric()):
             elif (os.path.splitext(self.FastalineEdit.text())[-1] == ".fa" and list(unitsdf) == list_tsv_col  and not os.path.exists('name_check.txt') and not os.path.exists('rename_check.txt') and os.path.splitext(self.AnnotatedlineEditRNA.text())[-1] == ".gtf" and self.CorelineEditDNA.text().isnumeric()):
-#                print("ok")
                 self.FastaErrortextRNA.hide()
                 self.SampleFolderErrortextRNA.hide()
                 self.SampletableErrortextRNA.hide()
                 self.AnnotatedErrortextRNA.hide()
-#                self.TranscriptErrortextRNA.hide()
                 self.RNAtabWidget.setCurrentIndex(1)
                 self.RNAtabWidget.setTabEnabled(1, True)
                 self.textBrowser.setTextColor(self._colors['blue'])
@@ -3434,37 +3183,28 @@ class Ui_MainWindow(object):
     def on_clicked_nextbuttonqcRNA(self):
         self.param_display_rna()
         if os.path.exists("results/fastqc"):
-#            print("yes")
             self.RNAtabWidget.setCurrentIndex(2)
             self.RNAtabWidget.setTabEnabled(2, True)
         else:
-#            print("no")
             self.qc_warning = showQCDialog()
-#            if self.qc_warning.initUI== QMessageBox.Yes:
             if self.qc_warning.returnValue==QMessageBox.Yes:
                 self.RNAtabWidget.setCurrentIndex(2)
                 self.RNAtabWidget.setTabEnabled(2, True)
-#                print('Yes clicked')
                                          
             if self.qc_warning.returnValue== QMessageBox.Cancel:
-#                print('not')
                 self.RNAtabWidget.setCurrentIndex(1)
                 self.RNAtabWidget.setTabEnabled(2, False)
                 
         self.RNAtabWidget.setTabEnabled(2, True)
     def on_clicked_nextbuttontoolRNA(self):
-#        _translate = QtCore.QCoreApplication.translate
         self.index_warning_rna()
         self.create_snakefile_rna()
         self.create_config_rna()
         self.textBrowser.setTextColor(self._colors['blue'])
         self.textBrowser.append("Click on the 'Run' button below to start your analysis \n")
         
-#        self.on_clicked_nextbuttonparamsRNA()
         self.RNAtabWidget.setCurrentIndex(3)
-#        self.Index_rna.setEnabled(True)
         self.RNAtabWidget.setTabEnabled(3, True)
-#        self.StarIndexlabel.setText(_translate("MainWindow", "kjhjg"))
         
     def param_display_rna(self):
         _translate = QtCore.QCoreApplication.translate
@@ -3476,10 +3216,8 @@ class Ui_MainWindow(object):
 
         dataframe = pd.read_csv(path_aligner_rna, header=0) # specifying that the table has column names
         essential = dataframe[dataframe["Essential"] == "yes"]
-#        print(essential.iloc[1, 2])
         
         number_of_essential = len(essential) # returns number of essential parameters
-#        print(number_of_essential)
         label_array_param1 = [self.param1_label_rna_1, self.param1_label_rna_2, self.param1_label_rna_3, self.param1_label_rna_4, self.param1_label_rna_5, self.param1_label_rna_6]
         line_edit_array_param1 = [self.param1_lineEdit_rna_1,self.param1_lineEdit_rna_2, self.param1_lineEdit_rna_3, self.param1_lineEdit_rna_4, self.param1_lineEdit_rna_5, self.param1_lineEdit_rna_6]
         for i, j, k in zip(range(number_of_essential), label_array_param1, line_edit_array_param1): 
@@ -3490,10 +3228,8 @@ class Ui_MainWindow(object):
             
         dataframe_em = pd.read_csv(path_em, header=0) # specifying that the table has column names
         essential_em = dataframe_em[dataframe_em["Essential"] == "yes"]
-#        print(essential.iloc[1, 2])
         
         number_of_essential_em = len(essential_em) # returns number of essential parameters
-#        print(number_of_essential)
         label_array_param2 = [self.param2_label_rna_1, self.param2_label_rna_2, self.param2_label_rna_3, self.param2_label_rna_4, self.param2_label_rna_5, self.param2_label_rna_6]
         line_edit_array_param2 = [self.param2_lineEdit_rna_1,self.param2_lineEdit_rna_2, self.param2_lineEdit_rna_3, self.param2_lineEdit_rna_4, self.param2_lineEdit_rna_5, self.param2_lineEdit_rna_6]
         for i, j, k in zip(range(number_of_essential_em), label_array_param2, line_edit_array_param2): 
@@ -3504,10 +3240,8 @@ class Ui_MainWindow(object):
             
         dataframe_de = pd.read_csv(path_de, header=0) # specifying that the table has column names
         essential_de = dataframe_de[dataframe_de["Essential"] == "yes"]
-#        print(essential.iloc[1, 2])
         
         number_of_essential_de = len(essential_de) # returns number of essential parameters
-#        print(number_of_essential)
         label_array_param3 = [self.param3_label_rna_1, self.param3_label_rna_2, self.param3_label_rna_3, self.param3_label_rna_4, self.param3_label_rna_5, self.param3_label_rna_6]
         line_edit_array_param3 = [self.param3_lineEdit_rna_1,self.param3_lineEdit_rna_2, self.param3_lineEdit_rna_3, self.param3_lineEdit_rna_4, self.param3_lineEdit_rna_5, self.param3_lineEdit_rna_6]
         for i, j, k in zip(range(number_of_essential_de), label_array_param3, line_edit_array_param3): 
@@ -3560,19 +3294,15 @@ class Ui_MainWindow(object):
             de_params.close()
     def on_clicked_previousbuttonqcRNA(self):
         self.RNAtabWidget.setCurrentIndex(0)
-#        self.input_rna.setEnabled(True)
         self.RNAtabWidget.setTabEnabled(6, True)
     def on_clicked_previousbuttontoolRNA(self):
         self.RNAtabWidget.setCurrentIndex(1)
-#        self.QC_rna.setEnabled(True)
         self.RNAtabWidget.setTabEnabled(1, True)
     def on_clicked_previousbuttonindexRNA(self):
         self.RNAtabWidget.setCurrentIndex(2)
-#        self.Tool_rna.setEnabled(True)
         self.RNAtabWidget.setTabEnabled(2, True)
     def on_clicked_previousbuttonparamsRNA(self):
         self.RNAtabWidget.setCurrentIndex(3)
-#        self.Index_rna.setEnabled(True)
         self.RNAtabWidget.setTabEnabled(3, True)
         
     def on_clicked_previousbuttonrunRNA(self):
@@ -3592,7 +3322,6 @@ class Ui_MainWindow(object):
                 svg_filename = self.AlignercomboBoxDNA.currentText() + self.VCcomboBoxDNA.currentText() + self.AnnotatorcomboBoxDNA.currentText() + ".svg"
             else:
                 svg_filename = self.AlignercomboBoxRNA.currentText() + self.EMcomboBoxRNA.currentText() + self.DEcomboBoxRNA.currentText() + ".svg"
-#        self.textBrowser.insertPlainText("Please find your DAG in your working Directory... \n\n")
         if os.path.exists(svg_filename):
             self.diag = SVGDialog(svg_filename)
             self.diag.show()
@@ -3841,39 +3570,23 @@ class Ui_MainWindow(object):
 
     def on_check_QC_dna(self,is_toggle):
         if is_toggle:
-#            self.QClineEdit.setEnabled(True)
             self.InputParamslabel.setEnabled(True)
             self.Cutadaptlabel.setEnabled(True)
             self.CutadaptlineEdit.setEnabled(True)
-# =============================================================================
-#             self.CreateSnakefilepushButton.setEnabled(True)
-#             self.CreateConfigfilepushButton.setEnabled(True)
-# =============================================================================
             self.RunQCpushButton.setEnabled(True)
         else:
-#            self.QClineEdit.setEnabled(False)
             self.InputParamslabel.setEnabled(False)
             self.Cutadaptlabel.setEnabled(False)
             self.CutadaptlineEdit.setEnabled(False)
-# =============================================================================
-#             self.CreateSnakefilepushButton.setEnabled(False)
-#             self.CreateConfigfilepushButton.setEnabled(False)
-# =============================================================================
             self.RunQCpushButton.setEnabled(False)
 
     def on_check_QC_rna(self,is_toggle):
         if is_toggle:
-#            self.QClineEdit_rna.setEnabled(True)
             self.InputParamslabel_rna.setEnabled(True)
             self.Cutadaptlabel_rna.setEnabled(True)            
             self.CutadaptlineEdit_rna.setEnabled(True)
-# =============================================================================
-#             self.CreateSnakefilepushButton_rna.setEnabled(True)
-#             self.CreateConfigfilepushButton_rna.setEnabled(True)
-# =============================================================================
             self.RunQCpushButton_rna.setEnabled(True)
         else:
-#            self.QClineEdit_rna.setEnabled(False)
             self.InputParamslabel_rna.setEnabled(False)
             self.Cutadaptlabel_rna.setEnabled(False)
             self.CutadaptlineEdit_rna.setEnabled(False)
@@ -3902,7 +3615,6 @@ class Ui_MainWindow(object):
     def browse_data_annotated(self):
         self.AnnotatedErrortextRNA.hide()
         data_path_annotated, _ =QtWidgets.QFileDialog.getOpenFileName(None,'Open File',r"",'*.gtf *.gtf.gz')
-        #print(data_path)
         self.AnnotatedlineEditRNA.setText(data_path_annotated)
         with open('data_path_annotated.pickle', 'wb') as handle:
             pickle.dump(data_path_annotated,handle,protocol=pickle.HIGHEST_PROTOCOL)
@@ -3954,18 +3666,14 @@ class Ui_MainWindow(object):
         self.RefVariantErrortextDNA.hide()
         data_path_kv, _ =QtWidgets.QFileDialog.getOpenFileName(None,'Open File',r"",'*.gz')
         self.RefVariantlineEditDNA.setText(data_path_kv)
-#        print("  name: " + self.RefNamelineEdit.text + "\n")
         with open('data_path_kv.pickle', 'wb') as handle:
             pickle.dump(data_path_kv,handle,protocol=pickle.HIGHEST_PROTOCOL)
 
     def browse_bwaindex_dna(self):
         self.BWAIndexErrortext.hide()
         self._set_color(self._colors['blue'].name(),pb =self.progressBar_sub2_dna)
-#        self._set_color(self._colors['blue'].name(),pb =self.progressBar)
         data_path_bwadna, _ =QtWidgets.QFileDialog.getOpenFileName(None,'Open File')
-#        data_path_bwadna, _ =QtWidgets.QFileDialog.getOpenFileName(None,'Open File',r"",'*.fa', '*.gem')
         self.BWAIndexlineEdit.setText(data_path_bwadna)
-#        print("  name: " + self.RefNamelineEdit.text + "\n")
         with open('data_path_bwadna.pickle', 'wb') as handle:
             pickle.dump(data_path_bwadna,handle,protocol=pickle.HIGHEST_PROTOCOL)
 
@@ -3985,7 +3693,6 @@ class Ui_MainWindow(object):
     def browse_star_rna(self):
         self.StarIndexErrortext.hide()
         self._set_color(self._colors['blue'].name(),pb =self.progressBar_sub2_rna)
-#        self._set_color(self._colors['blue'].name(),pb =self.progressBar)
         my_dir_star = QtWidgets.QFileDialog.getExistingDirectory(
         None,
         "Open a folder")
@@ -4005,10 +3712,6 @@ class Ui_MainWindow(object):
             QProgressBar::chunk {{
                 background: {};
                 }}""".format(color))
-# =============================================================================
-#     def _set_pb_color(self, color, pb):
-#         self._set_color(self, color, pb = self.progressBar)
-# =============================================================================
     def _set_pb_color_sub(self, color, pb):
         self._set_color(self, color, pb )
     def _set_pb2_color_dna(self, color):
@@ -4022,7 +3725,6 @@ class Ui_MainWindow(object):
         time.sleep(2)
         files = glob.glob('.snakemake/log/*.log')
         filename_=max(files , key = os.path.getctime)
-#        print(filename_)
         f = open(filename_, 'r')
         while True:
             line = ''
@@ -4030,76 +3732,35 @@ class Ui_MainWindow(object):
                 tail = f.readline()
                 if tail == '':
                     break
-#                    print('empty')
-#                    time.sleep(0.1)          # avoid busy waiting
-                    # f.seek(0, io.SEEK_CUR) # appears to be unneccessary
-#                    pass
-#                    continue
                 line += tail
-#                line.rstrip("\n")
                 self.textBrowser.append(line)
-#                self.textBrowser.insertPlainText(line)
-#                print(line)
-#                                self.textBrowser_PythonShellTab.insertPlainText(line)
                 if '%' in line:
                     self.textBrowser.setTextColor(self._colors['black'])
                     per = line.split('(', 1)[1].split(')')[0]
                     percent = per[:-1]
                     sub_pb.setValue(initial_sub + int(percent)/sub_pb_frac)
-#                    main_pb.setValue(initial_main + int(percent))
                 elif 'Error: Directory cannot be locked' in line:
-#                    print(line) 
                     self._set_color(self._colors['red'].name(),pb =sub_pb)
-#                    self._set_color(self._colors['red'].name(), pb = main_pb)
                     self.textBrowser.setTextColor(self._colors['red'])
                     self.textBrowser.append(line)
                     break
                     subprocess.run(["snakemake", "--unlock"])
-# =============================================================================
-#                     self.ResultsButton.setEnabled(True)
-#                     self.ResultsButtonErroricon.show()
-#                     self.ResultsButtonErroricon.setToolTip("Directory locked! Click unlock and then run!")
-# =============================================================================
-                    
-# =============================================================================
-#                     self._set_color(self._colors['red'].name(),pb =sub_pb)
-#                     self._set_color(self._colors['red'].name(), pb = self.progressBar)
-#                     self.textBrowser.setTextColor(self._colors['red'])
-# =============================================================================
+
                 elif 'CalledProcessError' in line:
                     self._set_color(self._colors['red'].name(),pb =sub_pb)
-#                    self._set_color(self._colors['red'].name(), pb = main_pb)
                     self.textBrowser.setTextColor(self._colors['red'])
-# =============================================================================
-#                     self._set_color(self._colors['red'].name(),pb =sub_pb)
-#                     self._set_color(self._colors['red'].name(), pb = self.progressBar)
-#                     self.textBrowser.setTextColor(self._colors['red'])
-# =============================================================================
-# =============================================================================
-#                     error_icon.show()
-#                     self.RunButton.setEnabled(False)
-#                     self.RunLabel.setEnabled(False)
-#                     error_icon.setToolTip("Error in parameters! Check the parameters click finish and then run")
-# =============================================================================
                     break
                 elif 'WorkflowError' in line:
                     self._set_color(self._colors['red'].name(),pb =sub_pb)
-#                    self._set_color(self._colors['red'].name(), pb = main_pb)
                     self.textBrowser.setTextColor(self._colors['red'])
-# =============================================================================
-#                     error_icon.show()
-#                     error_icon.setToolTip("Workflow error!")
-# =============================================================================
                     break
                 elif 'Error' in line:
                     self._set_color(self._colors['red'].name(),pb =sub_pb)
-#                    self._set_color(self._colors['red'].name(), pb = main_pb)
                     self.textBrowser.setTextColor(self._colors['red'])
                     break
                 elif 'Missing' in line:
                     print(line)
                     self._set_color(self._colors['red'].name(),pb =sub_pb)
-#                    self._set_color(self._colors['red'].name(), pb = main_pb)
                     self.textBrowser.setTextColor(self._colors['red'])
                     error_icon.show()
                     error_icon.setToolTip("Missing input file! Check the inputs")
@@ -4107,68 +3768,31 @@ class Ui_MainWindow(object):
                 elif '(100%) done' in line:
                     self.textBrowser.setTextColor(self._colors['black'])
                     sub_pb.setValue(initial_sub + 100/sub_pb_frac)
-#                    main_pb.setValue(initial_main + 100)
-#                    self.DAGButton.setEnabled(True)
-# =============================================================================
-#                             if os.path.exists("results_dna/qc/fastqc_after"):
-#                                 for file in os.listdir("results_dna/qc/fastqc_after"):
-#                                     if file.endswith(".html"):
-#                                         filename = os.path.join("results_dna/qc/fastqc_after", file)
-#                                         webbrowser.get('google-chrome').open(filename, new=0, autoraise=True)  # open in new tab
-#                             else:
-#                                 continue
-# =============================================================================
                 elif 'Nothing to be done' in line:
                     self.textBrowser.setTextColor(self._colors['black'])
                     sub_pb.setValue(initial_sub + 100/sub_pb_frac)
                     break
-#                    main_pb.setValue(initial_main + 100)
-#                    self.DAGButton.setEnabled(True)
                 else:
                     pass
-# =============================================================================
-#                             if os.path.exists("results_dna/qc/fastqc_after"):
-#                                 for file in os.listdir("results_dna/qc/fastqc_after"):
-#                                     if file.endswith(".html"):
-#                                         filename = os.path.join("results_dna/qc/fastqc_after", file)
-#                                         webbrowser.get('google-chrome').open(filename, new=0, autoraise=True)  # open in new tab
-#                             else:
-#                                 continue
-# =============================================================================
-# =============================================================================
-#             if line != "":
-#                 self.textBrowser.insertPlainText(line)
-#             else:
-#                 break
-# =============================================================================
             if ('Complete log' in line):
                 break
             elif 'Missing' in line:
                 self._set_color(self._colors['red'].name(),pb =sub_pb)
-#                self._set_color(self._colors['red'].name(), pb = main_pb)
                 break
             elif 'Exiting' in line:
                 self._set_color(self._colors['red'].name(),pb =sub_pb)
-#                self._set_color(self._colors['red'].name(), pb = main_pb)
                 break
             
-                
-
     def show_qc_textbox(self):
         subprocess.run(["snakemake", "--unlock", "-j", "1"])
         self.textBrowser.setTextColor(self._colors['black'])
         self.textBrowser.append("QC Results being generated. Please wait! \n")
 
     def show_qc_results(self):
-#        self.spinner.
-
         self.progressBar_sub1_dna.setValue(1)
-#        self.progressBar.setValue(1)
         self.textBrowser.setTextColor(self._colors['black'])
-#        self.textBrowser.append("QC Results being generated. Please wait! \n")
         self.nextbuttonqcDNA.setEnabled(True)
         self._set_color(self._colors['blue'].name(),pb =self.progressBar_sub1_dna)
-#        self._set_color(self._colors['blue'].name(),pb =self.progressBar)
         conf = open('config.yaml', 'w')
         conf.write('samples: samples.tsv \n')
         conf.write('units: '+ self.UnitslineEditDNA.text() + '\n'+'ref: \n')
@@ -4180,7 +3804,6 @@ class Ui_MainWindow(object):
         time.sleep(0.1)
 
         
-#        self.textBrowser.insertPlainText("Snakefile created for Quality Check!! \nPlease refer to the file: Snakefile in your working directory. \n\n")
         snake = open('Snakefile', "w")
         snake.write('include: "rules/common_dna.smk"\n')
         snake.write('rule all:\n')
@@ -4195,13 +3818,10 @@ class Ui_MainWindow(object):
         
         def func_qc():
             subprocess.run(["snakemake", "--use-conda", "--cores", self.CorelineEditDNA.text()])
-#            process1 = subprocess.Popen(["snakemake", "--use-conda", "&&", "snakemake", "--use-conda" ], shell =True,  stdout=subprocess.PIPE)
-#            output1 = process1.communicate()
             
         def multi_qc():
             subprocess.run(["snakemake", "--use-conda", "-s", "Snakefile_multiqc", "--cores", self.CorelineEditDNA.text()])
-#            print("started func1")
-#            self.progressBar.setValue(1)
+
         self.textBrowser.setTextColor(self._colors['black'])
         p1 = Process(target=func_qc)
         p1.start()
@@ -4229,28 +3849,17 @@ class Ui_MainWindow(object):
 
     def show_qc_results_rna(self):
         self.progressBar_sub1_rna.setValue(1)
-#        self.progressBar.setValue(1)
         self.nextbuttonqcRNA.setEnabled(True)
         self._set_color(self._colors['blue'].name(),pb =self.progressBar_sub1_rna)
-#        self._set_color(self._colors['blue'].name(),pb =self.progressBar)
         self.textBrowser.setTextColor(self._colors['black'])
         self.textBrowser.append("QC Results being generated. Please wait! \n")
         time.sleep(0.1)
         conf = open('config.yaml', 'w')
         conf.write('units: units.tsv \n')
         conf.write('ref: \n')
-#        if self.AlignercomboBoxRNA.currentText() == 'hisat2':
-#            conf.write('  index-'+self.AlignercomboBoxRNA.currentText() + ': ' + self.StarIndexlineEdit.text() + '/hisat2-index \n')
-#        elif self.AlignercomboBoxRNA.currentText() == 'bowtie2':
-#            conf.write('  index-'+ self.AlignercomboBoxRNA.currentText() + ': ' + self.StarIndexlineEdit.text() + '/bowtie2-index \n')
-#        else:
-#            conf.write('  index-'+ self.AlignercomboBoxRNA.currentText() + ': ' + self.StarIndexlineEdit.text() + '\n')
         conf.write('  annotation: '+ self.AnnotatedlineEditRNA.text() + '\n')
         conf.write('  fasta: '+self.FastalineEdit.text() + '\n')
-#        conf.write('  transcript: '+self.TranscriptlineEdit.text() + '\n')
         conf.write('params: \n')
-#        conf.write("  fastqc: '" + self.QClineEdit_rna.text() + "' \n")
-#        conf.write("  cutadapt: '" + self.CutadaptlineEdit_rna.text() + "' \n")
         conf.write("sample: " + self.SampleFolderLineEdit.text() + "\n")
         conf.write('threads: ' + self.CorelineEditRNA.text() + '\n')
         conf.close()
@@ -4261,8 +3870,6 @@ class Ui_MainWindow(object):
         snakef.write('include: "rules/common_rna.smk"\n')
         snakef.write('rule all:\n')
         snakef.write('  input:\n')
-#        snakef.write("    expand('results/fastqc/{sample}_{condition}_Rep{rep}_R1_fastqc.zip', sample=samples, condition=type, rep=reps),\n")
-#        snakef.write("    expand('results/fastqc/{sample}_{condition}_Rep{rep}_R2_fastqc.zip', sample=samples, condition=type, rep=reps),\n")
         snakef.write("    expand('results/fastqc/{sample}_{condition}_Rep{rep}.html', sample=samples, condition=type, rep=reps),\n")
         snakef.write("    expand('results/fastqc/{sample}_{condition}_Rep{rep}.zip', sample=samples, condition=type, rep=reps),\n")
         snakef.write('include: "rules/qc_rna.smk"\n')
@@ -4273,14 +3880,9 @@ class Ui_MainWindow(object):
         def func_qc():
             process1 = subprocess.Popen(["snakemake", "--use-conda", "--cores", self.CorelineEditRNA.text()], shell =True,  stdout=subprocess.PIPE)
             output1 = process1.communicate()
-            
-#            print("started func1")
-#            self.progressBar.setValue(1)
+
         def multi_qc():
             subprocess.run(["snakemake", "--use-conda", "-s", "Snakefile_multiqc_rna", "--cores", self.CorelineEditRNA.text()])
-#            print("started func1")
-#            self.progressBar.setValue(1)
-#        self.textBrowser.append("Running Quality Check!! \n\n")
         self.textBrowser.setTextColor(self._colors['black'])
         p1 = Process(target=func_qc)
         p1.start()
@@ -4314,9 +3916,7 @@ class Ui_MainWindow(object):
          
     def run_qc_dna(self, line):
         self.progressBar_sub1_dna.setValue(51)
-#        self.progressBar.setValue(26)
         self._set_color(self._colors['blue'].name(),pb =self.progressBar_sub1_dna)
-#        self._set_color(self._colors['blue'].name(),pb =self.progressBar)
         self.textBrowser.setTextColor(self._colors['black'])
         self.textBrowser.append("Config file created for Quality Check!! \nPlease refer to the file: config.yaml in your working directory. \n\n")
         conf = open('config.yaml', 'w')
@@ -4329,10 +3929,7 @@ class Ui_MainWindow(object):
         conf.write("processing: \n")
         conf.write("  remove-duplicates: true\n")
         conf.write('threads: ' + self.CorelineEditDNA.text() + '\n')
-#        conf.write('index: \n')
-#        conf.write('  '+ self.AlignercomboBoxDNA.currentText() + ': ' + self.BWAIndexlineEdit.text() + '\n')
         conf.write('params: \n')
-#        conf.write("  fastqc: '" + self.QClineEdit.text() + "' \n")
         conf.write("  cutadapt: '" + self.CutadaptlineEdit.text() + "' \n")
         conf.close()
         
@@ -4343,12 +3940,8 @@ class Ui_MainWindow(object):
         snake.write('include: "rules/common_dna.smk"\n')
         snake.write('rule all:\n')
         snake.write('  input:\n')
-#        snake.write('    expand("results_dna/qc/fastqc/{u.sample}-{u.unit}.html", u = units.itertuples()),\n')
-#        snake.write('    expand("results_dna/qc/fastqc/{u.sample}-{u.unit}.zip", u = units.itertuples()),\n')
-#        snake.write('    expand("results_dna/trimmed/{u.sample}-{u.unit}-{u.condition}.qc.txt", u = units.itertuples()),\n')
         snake.write('    expand("results_dna/trimmed/fastqc_after/{u.sample}-{u.unit}-{u.condition}.aftertrim.html", u = units.itertuples()),\n')
         snake.write('    expand("results_dna/trimmed/fastqc_after/{u.sample}-{u.unit}-{u.condition}.aftertrim.zip", u = units.itertuples()) \n')
-#        snake.write('\ninclude: "rules/qc_dna.smk"\n')
         snake.write('include: "rules/cutadapt_dna.smk"\n')
         snake.write('include: "rules/fastqc_after_dna.smk"\n')
         snake.close()
@@ -4358,16 +3951,9 @@ class Ui_MainWindow(object):
         def func1():
             
             process1 = subprocess.run(["snakemake", "--use-conda", "--cores", self.CorelineEditDNA.text()])
-#            output1 = process1.communicate()
-#            print("started func1")
-#            self.progressBar.setValue(1)
-#        self.textBrowser.setTextColor(self._colors['black'])
-#        self.textBrowser.append("Running Quality Check!! \n\n")
         p1 = Process(target=func1)
-#        QtWidgets.QApplication.instance().processEvents()
         p1.start()
         p2 = Process(target=self.func_pb_update( sub_pb=self.progressBar_sub1_dna, sub_pb_frac=4, initial_sub = 50, initial_main=0, error_icon=self.RunQCButtonErroricon))
-#        QtWidgets.QApplication.instance().processEvents()
         p2.start()
         
         def multi_qc():
@@ -4400,26 +3986,16 @@ class Ui_MainWindow(object):
 
     def run_qc_rna(self, line):
         self.progressBar_sub1_rna.setValue(51)
-#        self.progressBar.setValue(26)
         self._set_color(self._colors['blue'].name(),pb =self.progressBar_sub1_rna)
-#        self._set_color(self._colors['blue'].name(),pb =self.progressBar)
         self.textBrowser.setTextColor(self._colors['black'])
         self.textBrowser.append("Config file created for Quality Check!! \nPlease refer to the file: config.yaml in your working directory. \n\n")
         conf = open('config.yaml', 'w')
         conf.write('units: units.tsv \n')
         conf.write('ref: \n')
-#        if self.AlignercomboBoxRNA.currentText() == 'hisat2':
-#            conf.write('  index-'+self.AlignercomboBoxRNA.currentText() + ': ' + self.StarIndexlineEdit.text() + '/hisat2-index \n')
-#        elif self.AlignercomboBoxRNA.currentText() == 'bowtie2':
-#            conf.write('  index-'+ self.AlignercomboBoxRNA.currentText() + ': ' + self.StarIndexlineEdit.text() + '/bowtie2-index \n')
-#        else:
-#            conf.write('  index-'+ self.AlignercomboBoxRNA.currentText() + ': ' + self.StarIndexlineEdit.text() + '\n')
         conf.write('  annotation: '+ self.AnnotatedlineEditRNA.text() + '\n')
         conf.write('  fasta: '+self.FastalineEdit.text() + '\n')
-#        conf.write('  transcript: '+self.TranscriptlineEdit.text() + '\n')
         conf.write('threads: ' + self.CorelineEditRNA.text() + '\n')
         conf.write('params: \n')
-#        conf.write("  fastqc: '" + self.QClineEdit_rna.text() + "' \n")
         conf.write("  cutadapt: '" + self.CutadaptlineEdit_rna.text() + "' \n")
         conf.write("sample: " + self.SampleFolderLineEdit.text() + "\n")
         conf.close()
@@ -4430,17 +4006,8 @@ class Ui_MainWindow(object):
         snakef.write('include: "rules/common_rna.smk"\n')
         snakef.write('rule all:\n')
         snakef.write('  input:\n')
-#        snakef.write("    expand('results/fastqc/{sample}_{condition}_Rep{rep}_R1_fastqc.zip', sample=samples, condition=type, rep=reps),\n")
-#        snakef.write("    expand('results/fastqc/{sample}_{condition}_Rep{rep}_R2_fastqc.zip', sample=samples, condition=type, rep=reps),\n")
-#        snakef.write("    expand('results/cutadapt/{sample}_{condition}_Rep{rep}_cutadapt_R1.fastq', sample=samples, condition=type, rep=reps),\n")
-#        snakef.write("    expand('results/cutadapt/{sample}_{condition}_Rep{rep}_cutadapt_R2.fastq', sample=samples, condition=type, rep=reps),\n")
-#        snakef.write("    expand('results/summary_stats/{sample}_{condition}_Rep{rep}_cutadapt_summary.txt', sample=samples, condition=type, rep=reps),\n")
-#        snakef.write("    expand('results/fastqc_after/{sample}_{condition}_Rep{rep}_cutadapt_R1_fastqc.zip', sample=samples, condition=type, rep=reps),\n")
-#        snakef.write("    expand('results/cutadapt/{sample}_{condition}_Rep{rep}.fastq', sample=samples, condition=type, rep=reps),\n")
-#        snakef.write("    expand('results/cutadapt/{sample}_{condition}_Rep{rep}.qc.txt', sample=samples, condition=type, rep=reps),\n")
         snakef.write("    expand('results/cutadapt/fastqc_after/{sample}_{condition}_Rep{rep}.aftertrim.html', sample=samples, condition=type, rep=reps),\n")
         snakef.write("    expand('results/cutadapt/fastqc_after/{sample}_{condition}_Rep{rep}.aftertrim.zip', sample=samples, condition=type, rep=reps),\n")
-#        snakef.write('include: "rules/qc_rna.smk"\n')
         snakef.write('include: "rules/cutadapt_rna.smk"\n')
         snakef.write('include: "rules/fastqc_after_rna.smk"\n')
         snakef.close()
@@ -4449,8 +4016,6 @@ class Ui_MainWindow(object):
             
             process2 = subprocess.run(["snakemake", "--use-conda", "--cores", self.CorelineEditRNA.text()])
             output2 = process2.communicate()
-#            print("started func1")
-#            self.progressBar.setValue(1)
         
         p1 = Process(target=func_qc_rna)
         p1.start()
@@ -4485,9 +4050,7 @@ class Ui_MainWindow(object):
         
     def run_index_dna(self):
         self.progressBar_sub2_dna.setValue(1)
-#        self.progressBar.setValue(51)
         self._set_color(self._colors['blue'].name(),pb =self.progressBar_sub2_dna)
-#        self._set_color(self._colors['blue'].name(),pb =self.progressBar)
         conf = open('config.yaml', 'w')
         conf.write('samples: ./samples.tsv \n')
         conf.write('units: '+ self.UnitslineEditDNA.text() + '\n'+'ref: \n')
@@ -4500,10 +4063,7 @@ class Ui_MainWindow(object):
         conf.write("processing: \n")
         conf.write("  remove-duplicates: true\n")
         conf.write("threads: " + self.CorelineEditDNA.text() + "\n")
-#        conf.write('index: \n')
-#        conf.write('  '+ self.AlignercomboBoxDNA.currentText() + ': ' + self.BWAIndexlineEdit.text() + '\n')
         conf.write('params: \n')
-#        conf.write("  fastqc: '" + self.QClineEdit.text() + "' \n")
         conf.write("  cutadapt: '" + self.CutadaptlineEdit.text() + "' \n")
         conf.close()
         time.sleep(0.1)
@@ -4514,11 +4074,6 @@ class Ui_MainWindow(object):
         snakef.write('include: "rules/common_dna.smk"\n')
         snakef.write('rule all:\n')
         snakef.write('  input:\n')
-# =============================================================================
-#         if self.AlignercomboBoxDNA.currentText() == "BWA_MEM":
-#             snakef.write("    'results_dna/index/BWA_MEM/' +config['ref']['genome-name'] + '.fai'")
-#         else:
-# =============================================================================
         for line in rule:
             if self.AlignercomboBoxDNA.currentText() in line:
                 snakef.write(line)
@@ -4528,19 +4083,10 @@ class Ui_MainWindow(object):
         snakef.write('\ninclude: "rules/' + self.AlignercomboBoxDNA.currentText() + '_index.smk" \n')
         snakef.close()
         time.sleep(0.1)
-#        self.textBrowser.insertPlainText("Creating Index for "+self.AlignercomboBoxDNA.currentText()+ "!! \n\n")
-# =============================================================================
-#         subprocess.run(["snakemake", "--use-conda", "--unlock", "-s", "Snakefile_index"])
-#         subprocess.run(["snakemake", "--use-conda", "-s", "Snakefile_index"])
-# =============================================================================
+
         def func_index_dna():
             
             process3 = subprocess.run(["snakemake", "--use-conda", "-s", "Snakefile", "--cores", self.CorelineEditDNA.text()])
-#            output3 = process3.communicate()
-#            print("started func1")
-#            self.progressBar.setValue(1)
-            
-        
         p1 = Process(target=func_index_dna)
         p1.start()
         p2 = Process(target=self.func_pb_update( sub_pb=self.progressBar_sub2_dna, sub_pb_frac=1, initial_sub = 0, initial_main=0, error_icon=self.RunIndexdnaButtonErroricon))
@@ -4558,31 +4104,19 @@ class Ui_MainWindow(object):
             self.textBrowser.append("Index created in results_dna/index/" +self.AlignercomboBoxDNA.currentText() +"/ !! \n\n")
         else:
             pass
-    
-
         
     def run_index_rna(self):
         self.progressBar_sub2_dna.setValue(1)
-#        self.progressBar.setValue(51)
         self._set_color(self._colors['blue'].name(),pb =self.progressBar_sub2_dna)
-#        self._set_color(self._colors['blue'].name(),pb =self.progressBar)
         self.textBrowser.setTextColor(self._colors['black'])
         self.textBrowser.append("Config file created for generating index!! \nPlease refer to the file: config.yaml in your working directory. \n\n")
         conf = open('config.yaml', 'w')
         conf.write('units: units.tsv \n')
         conf.write('ref: \n')
-#        if self.AlignercomboBoxRNA.currentText() == 'hisat2':
-#            conf.write('  index-'+self.AlignercomboBoxRNA.currentText() + ': ' + self.StarIndexlineEdit.text() + '/hisat2-index \n')
-#        elif self.AlignercomboBoxRNA.currentText() == 'bowtie2':
-#            conf.write('  index-'+ self.AlignercomboBoxRNA.currentText() + ': ' + self.StarIndexlineEdit.text() + '/bowtie2-index \n')
-#        else:
-#            conf.write('  index-'+ self.AlignercomboBoxRNA.currentText() + ': ' + self.StarIndexlineEdit.text() + '\n')
         conf.write('  annotation: '+ self.AnnotatedlineEditRNA.text() + '\n')
         conf.write('  fasta: '+self.FastalineEdit.text() + '\n')
-#        conf.write('  transcript: '+self.TranscriptlineEdit.text() + '\n')
         conf.write('threads: ' + self.CorelineEditRNA.text() + '\n')
         conf.write('params: \n')
-#        conf.write("  fastqc: '" + self.QClineEdit_rna.text() + "' \n")
         conf.write("  cutadapt: '" + self.CutadaptlineEdit_rna.text() + "' \n")
         conf.write("sample: " + self.SampleFolderLineEdit.text() + "\n")
         conf.close()
@@ -4605,7 +4139,6 @@ class Ui_MainWindow(object):
         time.sleep(0.1)
         def func_index_rna():
             
-#            process4 = subprocess.Popen(["snakemake", "--use-conda", "-s", "Snakefile"], shell =True,  stdout=subprocess.PIPE)
             process4 = subprocess.run(["snakemake", "--use-conda", "-s", "Snakefile", "--cores", self.CorelineEditDNA.text()])
             output4 = process4.communicate()
         self.textBrowser.setTextColor(self._colors['black'])
@@ -4614,11 +4147,6 @@ class Ui_MainWindow(object):
         p1.start()
         p2 = Process(target=self.func_pb_update( sub_pb=self.progressBar_sub2_rna, sub_pb_frac=1, initial_sub = 0, initial_main=0, error_icon=self.RunIndexrnaButtonErroricon))
         p2.start()
-#        self.textBrowser.insertPlainText("Creating Index for "+self.AlignercomboBoxRNA.currentText()+ "!! \n\n")
-# =============================================================================
-#         subprocess.run(["snakemake", "--use-conda", "--unlock", "-s", "Snakefile_index"])
-#         subprocess.run(["snakemake", "--use-conda", "-s", "Snakefile_index"])
-# =============================================================================
         self.StarIndexlineEdit.setText(os.getcwd()+"/results/index/"+self.AlignercomboBoxRNA.currentText())
         if self.progressBar_sub2_dna.value() == 100:
             self.textBrowser.setTextColor(self._colors['black'])
@@ -4642,8 +4170,6 @@ class Ui_MainWindow(object):
         conf.write('threads: ' + self.CorelineEditDNA.text() + '\n')
         conf.write('params: \n')
         conf.write("  cutadapt: '" + self.CutadaptlineEdit.text() + "' \n")
-#        conf.write('  ' + self.AlignercomboBoxDNA.currentText() + ": '" + self.Additional1lineEditDNA.text() +"' \n")
-#        conf.write("  bcftools_call: '" +self.Additional1lineEditDNA.text() +"' \n" )
         aligner_params = open("aligner_params.txt", 'r').read().replace('\n', '')
         conf.write("  " + aligner_params + '\n')
         vc_params = open("vc_params.txt", 'r').read().replace('\n', '')
@@ -4654,7 +4180,6 @@ class Ui_MainWindow(object):
         conf.write("  picard: \n")
         conf.write("    MarkDuplicates: REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT \n")
         conf.write("filtering:\n")
-#        conf.write("  vqsr: true\n")
         conf.write("  vqsr: false\n")
         conf.write("  hard:\n")
         conf.write("    snvs:\n")
@@ -4669,24 +4194,16 @@ class Ui_MainWindow(object):
     def create_snakefile_dna(self):
         snake = open('Snakefile', "w")
         snake.write('include: "rules/common_dna.smk"\n')
-#        snake.write('include: "rules/cutadapt_dna.smk"\n')
         snake.write('rule all:\n')
         snake.write('  input:\n')
-#        snake.write('    expand("results_dna/trimmed/{u.sample}-{u.unit}.fastq.gz", u = units.itertuples()),\n')
         snake.write('    expand("results_dna/mapped/{u.sample}-{u.unit}-{u.condition}.sorted.bam", u = units.itertuples()),\n')
-#        snake.write('    expand("results_dna/dedup/{u.sample}-{u.unit}-{u.condition}.sorted.bam.bai", u = units.itertuples()),\n')
         snake.write('    expand("results_dna/dedup/{u.sample}-{u.unit}-{u.condition}.bam", u = units.itertuples()),\n')
-#        snake.write('    expand("results_dna/qc/dedup/{u.sample}-{u.unit}.metrics.txt", u = units.itertuples()),\n')
-#        snake.write('    expand("results_dna/recal/{u.sample}-{u.unit}.bam", u = units.itertuples()),\n')
-#        snake.write('    "results_dna/qc/multiqc.html",\n')
-#        snake.write('    "results_dna/merged/all.vcf.gz", \n')
         snake.write('    "results_dna/filtered/all.vcf.gz",\n')
         snake.write('    "results_dna/multiqc/multiqc.html",\n')
         snake.write('    config["ref"]["genome-dict"]+ ".dict",\n')
         snake.write('    config["ref"]["genome"]+ ".fai",\n')
         snake.write('\ninclude: "rules/' + self.AlignercomboBoxDNA.currentText() + '.smk" \n')
         snake.write('include: "rules/' + self.VCcomboBoxDNA.currentText() + '.smk" \n')
-#        snake.write('include: "rules/bqsr.smk"\n')
         snake.write('include: "rules/' + self.AnnotatorcomboBoxDNA.currentText() + '.smk" \n')
         snake.close()
         self.textBrowser.setTextColor(self._colors['black'])
@@ -4707,7 +4224,6 @@ class Ui_MainWindow(object):
             contents = fd.readlines()
             if self.AnnotatorcomboBoxDNA.currentText() == 'Annovar':
                 self.RefNamelabelDNA.setText("Reference name (as in Annovar database)")
-#                contents.insert(8, '    "results_dna/annovar/all.hg19_multianno.vcf", \n')  # new_string should end in a newline
                 contents.insert(7, '    "results_dna/filtered/all.avinput",\n')
                 contents.insert(10, '    "results_dna/annotated/all." + config["ref"]["name"] + "_multianno.vcf", \n')
                 fd.seek(0)  # readlines consumes the iterator, so we need to start over
@@ -4730,7 +4246,6 @@ class Ui_MainWindow(object):
             conf.write('  index-'+ self.AlignercomboBoxRNA.currentText() + ': ' + self.StarIndexlineEdit.text() + '\n')
         conf.write('  annotation: '+ self.AnnotatedlineEditRNA.text() + '\n')
         conf.write('  fasta: '+self.FastalineEdit.text() + '\n')
-#        conf.write('  transcript: '+self.TranscriptlineEdit.text() + '\n')
         conf.write('threads: ' + self.CorelineEditRNA.text() + '\n')
         conf.write('params: \n')
         conf.write("  cutadapt: '" + self.CutadaptlineEdit_rna.text() + "' \n")
@@ -4750,22 +4265,14 @@ class Ui_MainWindow(object):
     def create_snakefile_rna(self):
         snakef = open('Snakefile', 'w')
         snakef.write('include: "rules/common_rna.smk"\n')
-#        snakef.write('include: "rules/cutadapt_rna.smk"\n')
         snakef.write('rule all:\n')
         snakef.write('  input:\n')
-#        snakef.write("    expand('results/cutadapt/{sample}_{condition}_Rep{rep}_cutadapt_R1.fastq', sample=samples, condition=type, rep=reps),\n")
-#        snakef.write("    expand('results/cutadapt/{sample}_{condition}_Rep{rep}_cutadapt_R2.fastq', sample=samples, condition=type, rep=reps),\n")
         if self.AlignercomboBoxRNA.currentText() == 'HISAT2':
-#            snakef.write("    expand('results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.sam', sample=samples, condition=type, rep=reps),\n")
-#            snakef.write("    expand('results/aligner_results/hisat2/{sample}_{condition}_Rep{rep}.bam', sample=samples, condition=type, rep=reps),\n")
             snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}.sam', sample=samples, condition=type, rep=reps),\n")
             snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}.bam', sample=samples, condition=type, rep=reps),\n")
         elif self.AlignercomboBoxRNA.currentText() == 'STAR':
-#            snakef.write("    expand('results/aligner_results/star/{sample}_{condition}_Rep{rep}/Aligned.sortedByCoord.out.bam', sample=samples, condition=type, rep=reps),\n")
-#            snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}/ReadsPerGene.out.tab', sample=samples, condition=type, rep=reps),\n")
             snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}/Aligned.out.sam', sample=samples, condition=type, rep=reps),\n")
             snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}.bam', sample=samples, condition=type, rep=reps),\n")
-#            snakef.write("    expand('results/aligner_results/{sample}_{condition}_Rep{rep}/ReadsPerGene.out.tab', sample=samples, condition=type, rep=reps),\n")
         if self.EMcomboBoxRNA.currentText() == 'StringTie':
             snakef.write("    expand('results/em_results/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_transcript.gtf', sample=samples, condition=type, rep=reps),\n")
             snakef.write("    expand('results/em_results/{sample}_{condition}_Rep{rep}/{sample}_{condition}_Rep{rep}_gene_abundances.tsv', sample=samples, condition=type, rep=reps),\n")
@@ -4793,12 +4300,8 @@ class Ui_MainWindow(object):
             else:
                 svg_filename = self.AlignercomboBoxRNA.currentText() + self.EMcomboBoxRNA.currentText() + self.DEcomboBoxRNA.currentText() + ".svg"
         print(svg_filename)
-#        subprocess.run(["snakemake", "--rulegraph",  "|", "dot", "-Tsvg", "-o", svg_filename], shell =True,  stdout=subprocess.PIPE)
         subprocess.run(["snakemake", "--rulegraph",  "|", "dot", "-Tsvg", "-o", '"'+ svg_filename+ '"'], shell =True,  stdout=subprocess.PIPE)
 
-# =============================================================================
-#
-# =============================================================================
 
     def about(self):
         url = 'icomic.readthedocs.io'
@@ -4808,10 +4311,9 @@ class Ui_MainWindow(object):
             Online documentation on <a href="http://%(url)s">%(url)s</a>
             <br>
             <br>
-            Authors:  Priyanka Maripuri,  Anjana A S , Keerthika M , Saisruthi A 
+            Authors:  Anjana Anilkumar Sithara, Devi Priyanka Maripuri, Keerthika Moorthy, Sai Sruthi Amirtha Ganesh, Philge Philip, Shayantan Banerjee, Malvika Sudhakar, Karthik Raman  
             """ % {"url": url})
         widget.setWindowTitle("iCOMIC")
-        #widget.setStandardButtons(QW.QMessageBox.Ok)
         retval = widget.exec_()
         if retval == QtWidgets.QMessageBox.Ok:
             widget.close()
@@ -4836,11 +4338,7 @@ class Ui_MainWindow(object):
         self.progressBar_dna.setValue(1)
         
         def func_run_action():
-#            process5 = subprocess.run(["snakemake", "--use-conda"])
             process5 = subprocess.run(["snakemake", "--use-conda", "-j", self.CorelineEditDNA.text()])
-#            output5 = process5.communicate()
-#            print("started func1")
-#            self.progressBar.setValue(1)
             
     
         p1 = Process(target=func_run_action)
@@ -4861,18 +4359,13 @@ class Ui_MainWindow(object):
         self.progressBar.setValue(1)
         self._set_color(self._colors['blue'].name(),pb =self.progressBar)
         def func_run_action():
-#            process5 = subprocess.Popen(["snakemake", "--use-conda"], shell =True,  stdout=subprocess.PIPE)
             process5 = subprocess.run(["snakemake", "--use-conda", "--cores", self.CorelineEditDNA.text()])
-#            output5 = process5.communicate()
-#            print("started func1")
-#            self.progressBar.setValue(1)
-            
+           
     
         p1 = Process(target=func_run_action)
         p1.start()
         p2 = Process(target=self.func_pb_update( sub_pb=self.progressBar, sub_pb_frac=1, initial_sub = 0, initial_main=0, error_icon=self.RunButtonErroricon))
         p2.start()
-#        self.run_action()
         if self.progressBar.value() == 100:
             self._set_color(self._colors['green'].name(),pb =self.progressBar)
             self.nextbuttonrunRNA.setEnabled(True)
@@ -5072,18 +4565,12 @@ class AdvancedDialog(QtWidgets.QDialog):
             formLayout.addRow(self.label_list_float[x], self.line_edit_list_float[x])
         for p in range(num_add_str_param):
             label_name = str(add_str_param.iloc[p, 2])
-#            self.radio_true = QtWidgets.QCheckBox(label_name)
             self.label_name = QtWidgets.QLabel(label_name)
             self.label_list_str.append(self.label_name)
             default_value = str(add_str_param.iloc[p, 4])
             self.line_edit = QtWidgets.QLineEdit(default_value)
             self.line_edit_list_str.append(self.line_edit)
             formLayout.addRow(self.label_list_str[p], self.line_edit_list_str[p])
-#            if str(add_str_param.iloc[p, 4]) == "TRUE":
-#                self.radio_true.setChecked(True)
-#            else:
-#                self.radio_true.setChecked(False)
-#            self.label_list_str.append(self.radio_true)
             formLayout.addRow(self.label_list_str[p])
         for z in range(num_add_na_param):
             radio_name = str(add_na_param.iloc[z, 2])
@@ -5120,7 +4607,6 @@ class AdvancedDialog_old(QtWidgets.QDialog):
         self.button = QtWidgets.QDialogButtonBox(self)
         self.button.setStandardButtons(QtWidgets.QDialogButtonBox.Ok)
         self.button.move(450,510)
-#        self.check_list = []
         self.label_list = []
         self.line_edit_list = []
         for x in range(number_of_additional):
@@ -5138,7 +4624,6 @@ class AdvancedDialog_old(QtWidgets.QDialog):
         scroll.setFixedHeight(450)
         layout = QtWidgets.QVBoxLayout(self)
         layout.addWidget(scroll)
-#        self.show()
 class showQCDialog():
     def __init__(self):
         super().__init__()
@@ -5152,7 +4637,6 @@ class showQCDialog():
         msgBox.setText("Are you sure you want to proceed without Quality control of your data?")
         msgBox.setWindowTitle("WARNING")
         msgBox.resize(200,64)
-#        msgBox.move(50, 50) 
         msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
 
         self.returnValue = msgBox.exec()
@@ -5167,7 +4651,6 @@ class ResultsDialog(QtWidgets.QMainWindow):
         self.setGeometry(300, 300, 350, 300)
         self.setWindowTitle(os.path.basename(path))
         self.show()
-        #        f = open('results_dna/called/TCRBOA-1.vcf', 'r')
         if os.path.splitext(path)[-1] == ".gz":
             with gzip.open(path, 'rb') as f:
                 data = f.read()
@@ -5206,14 +4689,8 @@ class ResultsDialog_old(QtWidgets.QMainWindow):
 
 
 def main():
-#if __name__ == "__main__":
-#    p1 = Process(target=func1)
-#    p1.start()
-#    p2 = Process(target=func2)
-#    p2.start()
     
     app = QtWidgets.QApplication(sys.argv)
-#    app.setStyle("breeze")
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
