@@ -44,5 +44,5 @@ rule cutadapt:
     log:
         "logs_rna/cutadapt_se/{sample}_{condition}_Rep{rep}.log"
     wrapper:
-        "0.35.0/bio/cutadapt/se"        
+        "0.17.4/bio/cutadapt/se"        
         
