@@ -3,7 +3,10 @@ rule multiqc:
         get_fastq_data(path = "results/fastqc/")
     output:
         "results/fastqc/multiqc.html"
+    params:
+        dir= "results/fastqc/",
+        name= "multiqc.html"
     log:
         "logs/fastqc/multiqc.log"
-    wrapper:
-        "0.35.0/bio/multiqc"
+    shell:
+        "multiqc --force {input} -o {params.dir} -n {params.name}"

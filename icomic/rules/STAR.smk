@@ -54,5 +54,10 @@ rule multiqc:
         report("results/multiqc/multiqc.html", caption="../report/multiqc.rst", category="Quality control")
     log:
         "logs_rna/multiqc.log"
-    wrapper:
-        "0.38.0/bio/multiqc"
+    params:
+        dir= "results/multiqc/",
+        name= "multiqc.html"
+    shell:
+        "multiqc --force {input} -o {params.dir} -n {params.name}"
+#    wrapper:
+#        "0.38.0/bio/multiqc"
