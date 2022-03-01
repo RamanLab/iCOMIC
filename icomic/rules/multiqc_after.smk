@@ -5,7 +5,7 @@ rule multiqc:
         "results_dna/qc/multiqc_after.html"
     params:
         dir= "results_dna/qc/",
-        name= "multiqc.html"
+        name= "multiqc_after.html"
     log:
         "logs/qc/fastqc_after/multiqc.log"
     shell:

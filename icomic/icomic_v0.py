@@ -1244,7 +1244,22 @@ class Ui_MainWindow(object):
             'black': QtGui.QColor(0,0,0),
         }
         
-        
+        ####set all tabs disabled###
+# =============================================================================
+        self.DNAtabWidget.setTabEnabled(1, False)
+        self.DNAtabWidget.setTabEnabled(2, False)
+        self.DNAtabWidget.setTabEnabled(3, False)
+        self.DNAtabWidget.setTabEnabled(4, False)
+        self.DNAtabWidget.setTabEnabled(5, False)
+         
+        self.RNAtabWidget.setTabEnabled(1, False)
+        self.RNAtabWidget.setTabEnabled(2, False)
+        self.RNAtabWidget.setTabEnabled(3, False)
+        self.RNAtabWidget.setTabEnabled(4, False)
+        self.RNAtabWidget.setTabEnabled(5, False)
+# =============================================================================
+
+                
 
 ############
 
