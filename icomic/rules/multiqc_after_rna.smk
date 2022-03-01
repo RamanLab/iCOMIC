@@ -5,7 +5,7 @@ rule multiqc:
         "results/cutadapt/fastqc_after/multiqc_after.html"
     params:
         dir= "results/cutadapt/fastqc_after/",
-        name= "multiqc.html"
+        name= "multiqc_after.html"
     log:
         "logs/fastqc_after/multiqc.log"
     shell:
