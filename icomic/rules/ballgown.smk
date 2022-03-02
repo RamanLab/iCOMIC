@@ -4,5 +4,7 @@ rule ballgown:
     output: "results/de_results/SigDE.txt"
     params: expand("{sample}", sample=samples),
             expand("{rep}", rep=reps)
+    conda:
+    	"../envs/ballgown.yaml"
     script:
         "../scripts/ballgown.R"

@@ -17,11 +17,25 @@ rule create_dict:
         "logs/picard/create_dict.log"
     params:
         extra=""  # optional: extra arguments for picard.
-    wrapper:
-        "0.63.0/bio/picard/createsequencedictionary"
+    shell:
+        "picard CreateSequenceDictionary R={input} O={output}"
         
 
+rule replace_rg:
+    input:
+        "results_dna/dedup/{sample}-{unit}-{condition}.bam"
+    output:
+        "results_dna/dedup_rgadded/{sample}-{unit}-{condition}.bam"
+    log:
+        "logs/picard/replace_rg/{sample}-{unit}-{condition}.log"
+    params:
+        "VALIDATION_STRINGENCY=SILENT SO=coordinate RGLB=lib1 RGPL=illumina RGPU={sample}-{unit}-{condition} RGSM={sample}-{unit}-{condition}"
+    wrapper:
+        "0.35.0/bio/picard/addorreplacereadgroups"
         
+
+
+
 rule recalibrate_base_qualities:
     input:
         bam=get_recal_input_rgadded(),
@@ -53,16 +67,40 @@ rule freebayes:
     threads: config["threads"]
     wrapper:
         "0.36.0/bio/freebayes"
+        
+rule bgzip:
+    input:
+        "{prefix}.vcf",
+    output:
+        "{prefix}.vcf.gz",
+    params:
+        extra="", # optional
+    threads: 1
+    shell:
+        "bgzip {input} > {output} && tabix {output}"
+    
     
 rule merge_variants:
     input:
-        vcf=expand("results_dna/called/{u.sample}-{u.unit}-{u.condition}.vcf", u=units.itertuples())
+        vcf=expand("results_dna/called/{u.sample}-{u.unit}-{u.condition}.vcf.gz", u=units.itertuples())
     output:
         vcf="results_dna/merged/all.vcf.gz"
     log:
+        "logs/bcftools/merge-genotyped.log"
+    shell:
+    	"bcftools merge --merge all {input.vcf} -O v > {output.vcf}  2> {log}"
+
+rule merge_variants_err:
+    input:
+        vcf=expand("results_dna/called/{u.sample}-{u.unit}-{u.condition}.vcf.gz", u=units.itertuples())
+    output:
+        vcf="results_dna_err/merged/all.vcf.gz"
+    log:
         "logs/picard/merge-genotyped.log"
+#    shell:
+#    	"picard MergeVcfs  INPUT={input.vcf} OUTPUT={output.vcf}  2> {log}"
     wrapper:
-        "0.30.0/bio/picard/mergevcfs"
+        "0.27.1/bio/picard/mergevcfs"
 
 
 rule filter_vcfs:

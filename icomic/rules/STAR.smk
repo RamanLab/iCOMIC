@@ -59,5 +59,4 @@ rule multiqc:
         name= "multiqc.html"
     shell:
         "multiqc --force {input} -o {params.dir} -n {params.name}"
-#    wrapper:
-#        "0.38.0/bio/multiqc"
+

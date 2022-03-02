@@ -1,8 +1,15 @@
 
 
+def get_fastq_gem3(wildcards):
+    """Get fastq files of given sample-unit."""
+    return units.loc[(wildcards.sample, wildcards.unit, wildcards.condition), ["fq1", "fq2"]].dropna()
+    if len(fastqs) == 2:
+        return {"r1": fastqs.fq1, "r2": fastqs.fq2}
+    return {"r1": fastqs.fq1}
+
 rule gem3:
     input:
-        sample=get_fastq
+        sample=get_fastq_gem3
     output:
         "results_dna/mapped/{sample}-{unit}-{condition}.bam"
     params:
@@ -63,17 +70,17 @@ rule samtools_stats:
     wrapper:
         "0.38.0/bio/samtools/stats"
 
-rule replace_rg:
-    input:
-        "results_dna/dedup/{sample}-{unit}-{condition}.bam"
-    output:
-        "results_dna/dedup_rgadded/{sample}-{unit}-{condition}.bam"
-    log:
-        "logs/picard/replace_rg/{sample}-{unit}-{condition}.log"
-    params:
-        "VALIDATION_STRINGENCY=SILENT SO=coordinate RGLB=lib1 RGPL=illumina RGPU={sample}-{unit}-{condition} RGSM={sample}-{unit}-{condition}"
-    wrapper:
-        "0.35.0/bio/picard/addorreplacereadgroups"
+#rule replace_rg_gem:
+#    input:
+#        "results_dna/dedup/{sample}-{unit}-{condition}.bam"
+#    output:
+#        "results_dna/dedup_rgadded/{sample}-{unit}-{condition}.bam"
+#    log:
+#        "logs/picard/replace_rg/{sample}-{unit}-{condition}.log"
+#    params:
+#        "VALIDATION_STRINGENCY=SILENT SO=coordinate RGLB=lib1 RGPL=illumina RGPU={sample}-#{unit}-{condition} RGSM={sample}-{unit}-{condition}"
+#    wrapper:
+#        "0.35.0/bio/picard/addorreplacereadgroups"
 
 rule bcf_stat:
     input:

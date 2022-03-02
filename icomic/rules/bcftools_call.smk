@@ -1,7 +1,20 @@
-        
+
+rule replace_rg:
+    input:
+        "results_dna/dedup/{sample}-{unit}-{condition}.bam"
+    output:
+        "results_dna/dedup_rgadded/{sample}-{unit}-{condition}.bam"
+    log:
+        "logs/picard/replace_rg/{sample}-{unit}-{condition}.log"
+    params:
+        "VALIDATION_STRINGENCY=SILENT SO=coordinate RGLB=lib1 RGPL=illumina RGPU={sample}-{unit}-{condition} RGSM={sample}-{unit}-{condition}"
+    wrapper:
+        "0.35.0/bio/picard/addorreplacereadgroups"
+
+      
 rule recalibrate_base_qualities:
     input:
-        bam=get_recal_input(),
+        bam=get_recal_input_rgadded(),
         bai=get_recal_input(bai=True),
         ref=config["ref"]["genome"],
         known=config["ref"]["known-variants"]
@@ -51,15 +64,27 @@ rule bcf_to_vcf:
         "bcftools view {input} -o {output}"
     
         
+rule bgzip:
+    input:
+        "{prefix}.vcf",
+    output:
+        "{prefix}.vcf.gz",
+    params:
+        extra="", # optional
+    threads: 1
+    shell:
+        "bgzip {input} > {output} && tabix {output}"
+    
+    
 rule merge_variants:
     input:
-        vcf=expand("results_dna/called/{u.sample}-{u.unit}-{u.condition}.vcf", u=units.itertuples())
+        vcf=expand("results_dna/called/{u.sample}-{u.unit}-{u.condition}.vcf.gz", u=units.itertuples())
     output:
         vcf="results_dna/merged/all.vcf.gz"
     log:
-        "logs/picard/merge-genotyped.log"
-    wrapper:
-        "0.35.0/bio/picard/mergevcfs"
+        "logs/bcftools/merge-genotyped.log"
+    shell:
+    	"bcftools merge --merge all {input.vcf} -O v > {output.vcf}  2> {log}"
         
 rule filter_vcfs:
     input:

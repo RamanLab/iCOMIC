@@ -1,0 +1,11 @@
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - bioconductor-ballgown=2.24.0
+  - r-calibrate 
+  - r-stringr
+  - r-kernsmooth
+  - r-pheatmap
+  - r-ggplot2
+  - r-ggrepel

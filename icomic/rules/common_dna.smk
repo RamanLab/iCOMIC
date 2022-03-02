@@ -113,6 +113,15 @@ def get_sample_bais(wildcards):
                   sample=wildcards.sample,
                   unit=wildcards.unit,
                   condition=units.loc[wildcards.sample, wildcards.unit].condition)
+                  
+
+def get_sample_bais_rg(wildcards):
+    """Get all aligned reads of given sample."""
+    return expand("results_dna/dedup_rgadded/_{sample}-{unit}-{condition}.sorted.bam.bai",
+                  sample=wildcards.sample,
+                  unit=wildcards.unit,
+                  condition=units.loc[wildcards.sample, wildcards.unit].condition)                  
+
 
 def get_indelrealign_input(wildcards):
     """Get all aligned reads of given sample."""
@@ -141,7 +150,7 @@ def get_sample_bams_normal_old(wildcards):
                       
 def get_sample_bams_normal(wildcards):
     """Get all aligned normal reads of given sample."""
-    return expand("results_dna/mapped/{sample}-{unit}-normal.sorted.bam",
+    return expand("results_dna/dedup_rgadded/_{sample}-{unit}-normal.sorted.bam",
                   sample=wildcards.sample,
                   unit=wildcards.unit)
       
@@ -157,7 +166,7 @@ def get_sample_bams_tumor_old(wildcards):
 
 def get_sample_bams_tumor(wildcards):
     """Get all aligned reads of given sample."""
-    return expand("results_dna/mapped/{sample}-{unit}-tumor.sorted.bam",
+    return expand("results_dna/dedup_rgadded/_{sample}-{unit}-tumor.sorted.bam",
                   sample=wildcards.sample,
                   unit=wildcards.unit)
 

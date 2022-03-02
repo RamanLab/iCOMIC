@@ -11,13 +11,57 @@ contigs = pd.read_table(config["ref"]["genome"] + ".fai",
                         header=None, usecols=[0], squeeze=True, dtype=str)
 contig="|".join(contigs)
 
+rule replace_rg_normal:
+    input:
+        "results_dna/dedup/{sample}-{unit}-normal.bam"
+    output:
+        "results_dna/dedup_rgadded/{sample}-{unit}-normal.bam"
+    log:
+        "logs/picard/replace_rg/{sample}-{unit}-normal.log"
+    params:
+        "VALIDATION_STRINGENCY=SILENT SO=coordinate RGLB=lib1 RGPL=illumina RGPU={sample}-{unit}-normal RGSM={sample}-{unit}-normal"
+    wrapper:
+        "0.35.0/bio/picard/addorreplacereadgroups"
+        
+rule replace_rg_tumor:
+    input:
+        "results_dna/dedup/{sample}-{unit}-tumor.bam"
+    output:
+        "results_dna/dedup_rgadded/{sample}-{unit}-tumor.bam"
+    log:
+        "logs/picard/replace_rg/{sample}-{unit}-tumor.log"
+    params:
+        "VALIDATION_STRINGENCY=SILENT SO=coordinate RGLB=lib1 RGPL=illumina RGPU={sample}-{unit}-tumor RGSM={sample}-{unit}-tumor"
+    wrapper:
+        "0.35.0/bio/picard/addorreplacereadgroups"
+        
+rule samtools_sort_rg:
+    input:
+        "results_dna/dedup_rgadded/{sample}-{unit}-{condition}.bam"
+    output:
+        "results_dna/dedup_rgadded/_{sample}-{unit}-{condition}.sorted.bam"
+    params:
+        "-m 4G"
+    wrapper:
+        "0.36.0/bio/samtools/sort"
+        
+        
+rule samtools_index_rg:
+    input:
+        "results_dna/dedup_rgadded/{sample}-{unit}-{condition}.sorted.bam"
+    output:
+        "results_dna/dedup_rgadded/_{sample}-{unit}-{condition}.sorted.bam.bai"
+    wrapper:
+        "0.35.0/bio/samtools/index"
+
+
 rule mutect2_call:
     input:
         ref=config["ref"]["genome"],
         # you can have a list of samples here
         tumor=get_sample_bams_tumor,
         normal=get_sample_bams_normal,
-        bai = get_sample_bais
+        bai = get_sample_bais_rg
     output:
         vcf="results_dna/called/{sample}-{unit}.vcf"  # either .vcf or .bcf
     params:

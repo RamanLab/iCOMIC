@@ -13,7 +13,6 @@ rule hisat2:
     params:
       extra = ""
     threads: config["threads"]
-#    extra = config["params"]["HISAT2"]
     run:
         reads = input.reads
         if isinstance(reads, str):
@@ -23,9 +22,8 @@ rule hisat2:
         elif len(reads) == 2:
             input_flags = "-1 {0} -2 {1}".format(*reads)
         else:
-            raise RuntimeError(
-                "Reads parameter must contain at least 1 and at most 2" " input files."
-            )
+            raise RuntimeError("Reads parameter must contain at least 1 and at most 2" " input files.")
+            
         shell("hisat2  {params.extra} -p {threads}  -x {input.idx} {input_flags} --dta -S {output.sam}")
     
 rule create_bams:
@@ -60,7 +58,5 @@ rule multiqc:
         name= "multiqc.html"
     shell:
         "multiqc --force {input} -o {params.dir} -n {params.name}"
-    wrapper:
-        "0.38.0/bio/multiqc"
 
 
