@@ -1,0 +1,11 @@
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - bioconductor-deseq2=1.32.0
+  - r-readr
+  - r-stringr
+  - r-kernsmooth
+  - r-pheatmap
+  - r-ggplot2
+  - r-ggrepel

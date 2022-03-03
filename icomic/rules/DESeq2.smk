@@ -8,6 +8,8 @@ rule deseq2:
             expand("{rep}", rep=reps)
 #            extra=config['params']['DESeq2']
 #            expand("{condition}", condition=type)
+    conda:
+    	"../envs/deseq2.yaml"
     script:
         "../scripts/deseq2.R"
 
