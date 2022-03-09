@@ -39,13 +39,13 @@ import pickle
 import sys
 
 
-
+module_dir=os.path.dirname(__file__)
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("iCOMIC Pipeline")
         MainWindow.resize(725, 746)
         MainWindow.setFixedSize(725, 746)
-        MainWindow.setStyleSheet("background-image: url(mainwindow.);")
+        MainWindow.setStyleSheet("background-image: url(os.path.join(module_dir,'./mainwindow.png'));")
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -66,7 +66,7 @@ class Ui_MainWindow(object):
         self.DNAtabWidget = QtWidgets.QTabWidget(self.DNAseq)
         self.DNAtabWidget.setGeometry(QtCore.QRect(0, 0, 695, 507))
         self.DNAtabWidget.setObjectName("DNAtabWidget")
-        self.DNAtabWidget.setStyleSheet("background-image: url(dnatab.png);")
+        self.DNAtabWidget.setStyleSheet("background-image: url(os.path.join(module_dir,'./dnatab.png'));")
         
 
         ### Test Run Button Grey ###
@@ -131,7 +131,7 @@ class Ui_MainWindow(object):
         self.UnitsErroriconDNA.setToolTip("Input Units file!")
         self.UnitsErroriconDNA.setFont(font_label)
         self.UnitsErroriconDNA.hide()
-        self.UnitsErroriconDNA.setIcon(QtGui.QIcon("./icons/warning.svg"))
+        self.UnitsErroriconDNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/warning.svg')))
         self.RefGenomelabelDNA = QtWidgets.QLabel(self.input_dna)
         self.RefGenomelabelDNA.setGeometry(QtCore.QRect(20, 270, 125, 17))
         self.RefGenomelabelDNA.setObjectName("RefGenomelabelDNA")
@@ -187,7 +187,7 @@ class Ui_MainWindow(object):
         self.SampleFileinfoicon_dna.setGeometry(QtCore.QRect(120, 153, 20, 20))
         self.SampleFileinfoicon_dna.setToolTip("Browse for the folder containing all the relevant sample files.\n The filenames for all the fastq input data are required to be in the following format.\n (sample_name)_(condition(tumor/normal))_Rep(replicate_number)_R(1 /2 {1 for read1 and 2 for read2}).fastq.\n Example:hcc1395_normal_Rep1_R1.fastq")
         self.SampleFileinfoicon_dna.setFont(font_info)
-        self.SampleFileinfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.SampleFileinfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.SampleFileinfoicon_dna.setIconSize(QtCore.QSize(13, 13))
         
         self.UnitsFileinfoicon_dna = QtWidgets.QPushButton(self.input_dna)
@@ -195,7 +195,7 @@ class Ui_MainWindow(object):
         self.UnitsFileinfoicon_dna.setGeometry(QtCore.QRect(116, 209, 20, 20))
         self.UnitsFileinfoicon_dna.setToolTip("Browse for the tab separated text file containing the sample information. \n The table is required to be formatted as follows.\n The column names should take the order: Sample, Unit, Condition, fq1, fq2.\n (Sample- Sample name, Unit- Number of replications, \n Condition- normal/ tumor/ leave blank if the condition is not specified, \n fq1 - Path of Read 1,fq2 - Path of Read 2/ leave blank for single-end reads).\n An example table has been provided for your reference")
         self.UnitsFileinfoicon_dna.setFont(font_info)
-        self.UnitsFileinfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.UnitsFileinfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.UnitsFileinfoicon_dna.setIconSize(QtCore.QSize(13, 13))
         
         self.RefGenomeinfoicon_dna = QtWidgets.QPushButton(self.input_dna)
@@ -203,7 +203,7 @@ class Ui_MainWindow(object):
         self.RefGenomeinfoicon_dna.setGeometry(QtCore.QRect(142, 270, 20, 20))
         self.RefGenomeinfoicon_dna.setToolTip("A reference genome is a digital nucleic acid database \n assembled to be a representative example of a species’ set of genes.\n It allows for fast alignment of sequences as it is less computationally intensive \n to align sequences to a known sequence map rather than to assemble it piece by piece.\n For this field, specify the path to the pre-downloaded reference genome fastq file")
         self.RefGenomeinfoicon_dna.setFont(font_info)
-        self.RefGenomeinfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.RefGenomeinfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.RefGenomeinfoicon_dna.setIconSize(QtCore.QSize(13, 13))  
         
         self.RefVariantinfoicon_dna = QtWidgets.QPushButton(self.input_dna)
@@ -211,7 +211,7 @@ class Ui_MainWindow(object):
         self.RefVariantinfoicon_dna.setGeometry(QtCore.QRect(177, 329, 20, 20))
         self.RefVariantinfoicon_dna.setToolTip("A vcf file specifying the known variant locations")
         self.RefVariantinfoicon_dna.setFont(font_info)
-        self.RefVariantinfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.RefVariantinfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.RefVariantinfoicon_dna.setIconSize(QtCore.QSize(13, 13))         
         
         self.SamplesYesradioinfoicon_dna = QtWidgets.QPushButton(self.input_dna)
@@ -219,7 +219,7 @@ class Ui_MainWindow(object):
         self.SamplesYesradioinfoicon_dna.setGeometry(QtCore.QRect(210, 32, 20, 20))
         self.SamplesYesradioinfoicon_dna.setToolTip("Specify the path to the folder containing all the relevant sample files.\n The filenames for all the fastq input data are required to be in the following format.\n (sample_name)_(condition(tumor/normal))_Rep(replicate_number)_R(1 /2 {1 for read1 and 2 for read2}).fastq. \nExample:hcc1395_normal_Rep1_R1.fastq.")
         self.SamplesYesradioinfoicon_dna.setFont(font_info)
-        self.SamplesYesradioinfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.SamplesYesradioinfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.SamplesYesradioinfoicon_dna.setIconSize(QtCore.QSize(13, 13))       
         
         
@@ -228,7 +228,7 @@ class Ui_MainWindow(object):
         self.SamplesNoradioinfoicon_dna.setGeometry(QtCore.QRect(210, 90, 20, 20))
         self.SamplesNoradioinfoicon_dna.setToolTip("Specify the tab-delimited text file containing the sample information.\n The table is required to be formatted as follows.\n The column names should take the order: Sample, Unit, Condition, fq1, fq2. \n(Sample- Sample name, Unit- Number of replications, Condition- normal/ tumor/ leave blank if the condition is not specified,\n fq1 - Path of Read 1,fq2 - Path of Read 2/ leave blank for single-end reads).\n An example table has been provided for your reference")
         self.SamplesNoradioinfoicon_dna.setFont(font_info)
-        self.SamplesNoradioinfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.SamplesNoradioinfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.SamplesNoradioinfoicon_dna.setIconSize(QtCore.QSize(13, 13))
 
 
@@ -237,7 +237,7 @@ class Ui_MainWindow(object):
         self.coreinfoicon_dna.setGeometry(QtCore.QRect(140, 390, 20, 20))
         self.coreinfoicon_dna.setToolTip("Input the number of threads to run")
         self.coreinfoicon_dna.setFont(font_info)
-        self.coreinfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.coreinfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.coreinfoicon_dna.setIconSize(QtCore.QSize(13, 13))               
         
         self.DNAtabWidget.addTab(self.input_dna, "")
@@ -255,7 +255,7 @@ class Ui_MainWindow(object):
         self.QCresultsButtonErroricon.setGeometry(QtCore.QRect(186, 32, 20, 20))
         self.QCresultsButtonErroricon.setToolTip("Check and Run View Quality control Results Again!")
         self.QCresultsButtonErroricon.setFont(font_label)
-        self.QCresultsButtonErroricon.setIcon(QtGui.QIcon("./icons/warning.svg"))
+        self.QCresultsButtonErroricon.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/warning.svg')))
         self.QCresultsButtonErroricon.hide()
         self.QClabel = QtWidgets.QLabel(self.QC_dna)
         self.QClabel.setGeometry(QtCore.QRect(10, 85, 151, 21))
@@ -302,7 +302,7 @@ class Ui_MainWindow(object):
         self.RunQCButtonErroricon.setGeometry(QtCore.QRect(500, 277, 20, 20))
         self.RunQCButtonErroricon.setToolTip("Check and Run Trimming Again!")
         self.RunQCButtonErroricon.setFont(font_label)
-        self.RunQCButtonErroricon.setIcon(QtGui.QIcon("./icons/warning.svg"))
+        self.RunQCButtonErroricon.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/warning.svg')))
 #        self.horizontalLayout_4.addWidget(self.RunQCButtonErroricon)
         self.RunQCButtonErroricon.hide()
         self.InputParamslabel.setEnabled(False)
@@ -335,7 +335,7 @@ class Ui_MainWindow(object):
         self.QCresultsinfoicon_dna.setGeometry(QtCore.QRect(166, 33, 20, 20))
         self.QCresultsinfoicon_dna.setToolTip("Generates a MultiQC report consisting of statistical metrics\n aggregated from FastQC for each sample input file.\n If the results obtained are satisfactory, you may move onto the next tab.\n If not, proceed to trim the reads to improve the quality of your data")
         self.QCresultsinfoicon_dna.setFont(font_info)
-        self.QCresultsinfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.QCresultsinfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.QCresultsinfoicon_dna.setIconSize(QtCore.QSize(13, 13))          
         
         self.QClabelinfoicon_dna = QtWidgets.QPushButton(self.QC_dna)
@@ -343,7 +343,7 @@ class Ui_MainWindow(object):
         self.QClabelinfoicon_dna.setGeometry(QtCore.QRect(131, 87, 20, 20))
         self.QClabelinfoicon_dna.setToolTip("Selecting 'Yes' will remove the adapter sequences from your data thereby improving data quality.\n 'No' can be selected if you are satisfied with the data quality")
         self.QClabelinfoicon_dna.setFont(font_info)
-        self.QClabelinfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.QClabelinfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.QClabelinfoicon_dna.setIconSize(QtCore.QSize(13, 13))          
         
         self.Cutadaptlabelinfoicon_dna = QtWidgets.QPushButton(self.QC_dna)
@@ -351,7 +351,7 @@ class Ui_MainWindow(object):
         self.Cutadaptlabelinfoicon_dna.setGeometry(QtCore.QRect(70, 199, 20, 20))
         self.Cutadaptlabelinfoicon_dna.setToolTip("Please input the necessary parameters for the tool cutadapt.\n It may include the adapter sequences.\n Refer https://cutadapt.readthedocs.io/en/stable/guide.html#adapter-types for details")
         self.Cutadaptlabelinfoicon_dna.setFont(font_info)
-        self.Cutadaptlabelinfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.Cutadaptlabelinfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.Cutadaptlabelinfoicon_dna.setIconSize(QtCore.QSize(13, 13))    
         
         self.RunQCpushButtoninfoicon_dna = QtWidgets.QPushButton(self.QC_dna)
@@ -359,7 +359,7 @@ class Ui_MainWindow(object):
         self.RunQCpushButtoninfoicon_dna.setGeometry(QtCore.QRect(480, 277, 20, 20))
         self.RunQCpushButtoninfoicon_dna.setToolTip("Please choose yes to trim your reads if the input sequences are of poor quality.\n You may proceed to the next section if your reads are good enough for alignment")
         self.RunQCpushButtoninfoicon_dna.setFont(font_info)
-        self.RunQCpushButtoninfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.RunQCpushButtoninfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.RunQCpushButtoninfoicon_dna.setIconSize(QtCore.QSize(13, 13))           
         
         
@@ -411,7 +411,7 @@ class Ui_MainWindow(object):
         self.RunButtonErroricon_dna.setGeometry(QtCore.QRect(420, 172, 30, 30))
         self.RunButtonErroricon_dna.setToolTip("Click Run Button and Run Again!")
         self.RunButtonErroricon_dna.setFont(font_label)
-        self.RunButtonErroricon_dna.setIcon(QtGui.QIcon("./icons/warning.svg"))
+        self.RunButtonErroricon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/warning.svg')))
         self.RunButtonErroricon_dna.hide()            
         
 
@@ -438,7 +438,7 @@ class Ui_MainWindow(object):
         self.RunButtoninfoicon_dna.setGeometry(QtCore.QRect(400, 180, 20, 20))
         self.RunButtoninfoicon_dna.setToolTip("Click to start your analysis")
         self.RunButtoninfoicon_dna.setFont(font_info)
-        self.RunButtoninfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.RunButtoninfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.RunButtoninfoicon_dna.setIconSize(QtCore.QSize(13, 13)) 
         
 
@@ -456,7 +456,7 @@ class Ui_MainWindow(object):
         font_resulttab.setPointSize(16)
         self.pushbutton_result1_dna=QtWidgets.QPushButton(self.result_dna)
         self.pushbutton_result1_dna.setText("    Run statistics")
-        self.pushbutton_result1_dna.setIcon(QtGui.QIcon("./icons/runstatistics.svg"))
+        self.pushbutton_result1_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/runstatistics.svg')))
         self.pushbutton_result1_dna.setIconSize(QtCore.QSize(40, 40))
         self.pushbutton_result1_dna.setFont(font_resulttab)
         self.pushbutton_result1_dna.setStyleSheet("background-color: #704214")
@@ -464,7 +464,7 @@ class Ui_MainWindow(object):
 
         self.pushbutton_result2_dna=QtWidgets.QPushButton(self.result_dna)
         self.pushbutton_result2_dna.setText("    Variants called")
-        self.pushbutton_result2_dna.setIcon(QtGui.QIcon("./icons/document.svg"))
+        self.pushbutton_result2_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/document.svg')))
         self.pushbutton_result2_dna.setIconSize(QtCore.QSize(40, 40))
         self.pushbutton_result2_dna.setFont(font_resulttab)
         self.pushbutton_result2_dna.setStyleSheet("background-color: #704214")
@@ -472,7 +472,7 @@ class Ui_MainWindow(object):
 
         self.pushbutton_result3_dna=QtWidgets.QPushButton(self.result_dna)
         self.pushbutton_result3_dna.setText("Annotated variants")
-        self.pushbutton_result3_dna.setIcon(QtGui.QIcon("./icons/document.svg"))
+        self.pushbutton_result3_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/document.svg')))
         self.pushbutton_result3_dna.setIconSize(QtCore.QSize(40, 40))
         self.pushbutton_result3_dna.setFont(font_resulttab)
         self.pushbutton_result3_dna.setStyleSheet("background-color: #704214")
@@ -513,7 +513,7 @@ class Ui_MainWindow(object):
         font_next.setPointSize(12)
         self.nextbuttonresult = QtWidgets.QPushButton(self.result_dna)
         self.nextbuttonresult.setGeometry(QtCore.QRect(635, 400, 45, 45))
-        self.nextbuttonresult.setIcon(QtGui.QIcon("./icons/arrow.svg"))
+        self.nextbuttonresult.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow.svg')))
         self.nextbuttonresult.setStyleSheet("background-color: #704214")
 #        self.nextbuttonresult.setFont(font_next)
 #        self.nextbuttonresult.setText("Generate MAF file")
@@ -524,7 +524,7 @@ class Ui_MainWindow(object):
         self.nbinfoiconradio.setGeometry(QtCore.QRect(450, 347, 20, 20))
         self.nbinfoiconradio.setToolTip("NBDriver predictions has been derived using hg19 reference genome only and \n the input vcf file must be kept inside /NBDriver_ICOMIC/vcf")
         self.nbinfoiconradio.setFont(font_info)
-        self.nbinfoiconradio.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.nbinfoiconradio.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.nbinfoiconradio.setIconSize(QtCore.QSize(13, 13)) 
         
         self.ctagradioButton.setEnabled(False)
@@ -547,7 +547,7 @@ class Ui_MainWindow(object):
         self.RNAtabWidget.setTabBarAutoHide(False)
         self.RNAtabWidget.setObjectName("RNAtabWidget")
 #        self.RNAtabWidget.setStyleSheet("background-color: #F0F9EC")
-        self.RNAtabWidget.setStyleSheet("background-image: url(dnatab.png);")
+        self.RNAtabWidget.setStyleSheet("background-image: url(os.path.join(module_dir,'./dnatab.png'));")
         ## Make Input as first tab ##
         self.input_rna = QtWidgets.QWidget()
         self.input_rna.setObjectName("input_rna")
@@ -662,7 +662,7 @@ class Ui_MainWindow(object):
         self.SampleFolderinfoicon_rna.setGeometry(QtCore.QRect(120, 139, 20, 20))
         self.SampleFolderinfoicon_rna.setToolTip("Browse for the folder containing all the relevant sample files.\n The filenames for all the fastq input data are required to be in the following format.\n (sample_name)_(condition(tumor/normal))_Rep(replicate_number)_R(1 /2 {1 for read1 and 2 for read2}).fastq.\n Example:hcc1395_normal_Rep1_R1.fastq")
         self.SampleFolderinfoicon_rna.setFont(font_info)
-        self.SampleFolderinfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.SampleFolderinfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.SampleFolderinfoicon_rna.setIconSize(QtCore.QSize(13, 13))
         
         self.Sampletableinfoicon_rna = QtWidgets.QPushButton(self.input_rna)
@@ -670,7 +670,7 @@ class Ui_MainWindow(object):
         self.Sampletableinfoicon_rna.setGeometry(QtCore.QRect(116, 190, 20, 20))
         self.Sampletableinfoicon_rna.setToolTip("Browse for the tab separated text file containing the sample information. \n The table is required to be formatted as follows.\n The column names should take the order: Sample, Unit, Condition, fq1, fq2.\n (Sample- Sample name, Unit- Number of replications, \n Condition- normal/ tumor/ leave blank if the condition is not specified, \n fq1 - Path of Read 1,fq2 - Path of Read 2/ leave blank for single-end reads).\n An example table has been provided for your reference")
         self.Sampletableinfoicon_rna.setFont(font_info)
-        self.Sampletableinfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.Sampletableinfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.Sampletableinfoicon_rna.setIconSize(QtCore.QSize(13, 13))
         
         self.FastaFileinfoicon_rna = QtWidgets.QPushButton(self.input_rna)
@@ -678,7 +678,7 @@ class Ui_MainWindow(object):
         self.FastaFileinfoicon_rna.setGeometry(QtCore.QRect(84, 240, 20, 20))
         self.FastaFileinfoicon_rna.setToolTip("A reference genome is a digital nucleic acid database \n assembled to be a representative example of a species’ set of genes.\n It allows for fast alignment of sequences as it is less computationally intensive \n to align sequences to a known sequence map rather than to assemble it piece by piece.\n For this field, specify the path to the pre-downloaded reference genome fastq file")
         self.FastaFileinfoicon_rna.setFont(font_info)
-        self.FastaFileinfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.FastaFileinfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.FastaFileinfoicon_rna.setIconSize(QtCore.QSize(13, 13))  
         
         self.AnnotatedFileinfoicon_rna = QtWidgets.QPushButton(self.input_rna)
@@ -686,7 +686,7 @@ class Ui_MainWindow(object):
         self.AnnotatedFileinfoicon_rna.setGeometry(QtCore.QRect(114, 290, 20, 20))
         self.AnnotatedFileinfoicon_rna.setToolTip("An annotation file is the gene transfer format (GTF) file containing the gene structure information")
         self.AnnotatedFileinfoicon_rna.setFont(font_info)
-        self.AnnotatedFileinfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.AnnotatedFileinfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.AnnotatedFileinfoicon_rna.setIconSize(QtCore.QSize(13, 13)) 
 
 
@@ -696,7 +696,7 @@ class Ui_MainWindow(object):
         self.SamplesYesradioinfoicon_rna.setGeometry(QtCore.QRect(210, 32, 20, 20))
         self.SamplesYesradioinfoicon_rna.setToolTip("Specify the path to the folder containing all the relevant sample files.\n The filenames for all the fastq input data are required to be in the following format.\n (sample_name)_(condition(tumor/normal))_Rep(replicate_number)_R(1 /2 {1 for read1 and 2 for read2}).fastq. \nExample:hcc1395_normal_Rep1_R1.fastq")
         self.SamplesYesradioinfoicon_rna.setFont(font_info)
-        self.SamplesYesradioinfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.SamplesYesradioinfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.SamplesYesradioinfoicon_rna.setIconSize(QtCore.QSize(13, 13))       
         
         
@@ -705,7 +705,7 @@ class Ui_MainWindow(object):
         self.SamplesNoradioinfoicon_rna.setGeometry(QtCore.QRect(210, 90, 20, 20))
         self.SamplesNoradioinfoicon_rna.setToolTip("Specify the tab-delimited text file containing the sample information.\n The table is required to be formatted as follows.\n The column names should take the order: Sample, Unit, Condition, fq1, fq2. \n(Sample- Sample name, Unit- Number of replications, Condition- normal/ tumor/ leave blank if the condition is not specified,\n fq1 - Path of Read 1,fq2 - Path of Read 2/ leave blank for single-end reads).\n An example table has been provided for your reference")
         self.SamplesNoradioinfoicon_rna.setFont(font_info)
-        self.SamplesNoradioinfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.SamplesNoradioinfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.SamplesNoradioinfoicon_rna.setIconSize(QtCore.QSize(13, 13))
         
         self.coreinfoicon_rna = QtWidgets.QPushButton(self.input_rna)
@@ -713,7 +713,7 @@ class Ui_MainWindow(object):
         self.coreinfoicon_rna.setGeometry(QtCore.QRect(140, 340, 20, 20))
         self.coreinfoicon_rna.setToolTip("Input the number of threads to run")
         self.coreinfoicon_rna.setFont(font_info)
-        self.coreinfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.coreinfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.coreinfoicon_rna.setIconSize(QtCore.QSize(13, 13))         
         
         self.RNAtabWidget.addTab(self.input_rna, "")
@@ -731,7 +731,7 @@ class Ui_MainWindow(object):
         self.QCresultsButtonErroricon_rna.setGeometry(QtCore.QRect(186, 32, 20, 20))
         self.QCresultsButtonErroricon_rna.setToolTip("Check and Run View Quality control Results Again!")
         self.QCresultsButtonErroricon_rna.setFont(font_label)
-        self.QCresultsButtonErroricon_rna.setIcon(QtGui.QIcon("./icons/warning.svg"))
+        self.QCresultsButtonErroricon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/warning.svg')))
         self.QCresultsButtonErroricon_rna.hide()
         self.QClabel_rna = QtWidgets.QLabel(self.QC_rna)
         self.QClabel_rna.setGeometry(QtCore.QRect(10, 85, 151, 21))
@@ -782,7 +782,7 @@ class Ui_MainWindow(object):
         self.RunQCButtonErroricon_rna.setGeometry(QtCore.QRect(500, 277, 20, 20))
         self.RunQCButtonErroricon_rna.setToolTip("Check and Run Trimming Again!")
         self.RunQCButtonErroricon_rna.setFont(font_label)
-        self.RunQCButtonErroricon_rna.setIcon(QtGui.QIcon("./icons/warning.svg"))
+        self.RunQCButtonErroricon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/warning.svg')))
 
         self.RunQCButtonErroricon_rna.hide()
         ##QC_Progressbar##
@@ -809,7 +809,7 @@ class Ui_MainWindow(object):
         self.QCresultsinfoicon_rna.setGeometry(QtCore.QRect(166, 33, 20, 20))
         self.QCresultsinfoicon_rna.setToolTip("Generates a MultiQC report consisting of statistical metrics\n aggregated from FastQC for each sample input file.\n If the results obtained are satisfactory, you may move onto the next tab.\n If not, proceed to trim the reads to improve the quality of your data")
         self.QCresultsinfoicon_rna.setFont(font_info)
-        self.QCresultsinfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.QCresultsinfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.QCresultsinfoicon_rna.setIconSize(QtCore.QSize(13, 13))          
         
         self.QClabelinfoicon_rna = QtWidgets.QPushButton(self.QC_rna)
@@ -817,7 +817,7 @@ class Ui_MainWindow(object):
         self.QClabelinfoicon_rna.setGeometry(QtCore.QRect(131, 87, 20, 20))
         self.QClabelinfoicon_rna.setToolTip("Selecting 'Yes' will remove the adapter sequences from your data thereby improving data quality.\n 'No' can be selected if you are satisfied with the data quality")
         self.QClabelinfoicon_rna.setFont(font_info)
-        self.QClabelinfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.QClabelinfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.QClabelinfoicon_rna.setIconSize(QtCore.QSize(13, 13))          
         
         self.Cutadaptlabelinfoicon_rna = QtWidgets.QPushButton(self.QC_rna)
@@ -825,7 +825,7 @@ class Ui_MainWindow(object):
         self.Cutadaptlabelinfoicon_rna.setGeometry(QtCore.QRect(70, 199, 20, 20))
         self.Cutadaptlabelinfoicon_rna.setToolTip("Please input the necessary parameters for the tool cutadapt.\n It may include the adapter sequences.\n Refer https://cutadapt.readthedocs.io/en/stable/guide.html#adapter-types for details")
         self.Cutadaptlabelinfoicon_rna.setFont(font_info)
-        self.Cutadaptlabelinfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.Cutadaptlabelinfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.Cutadaptlabelinfoicon_rna.setIconSize(QtCore.QSize(13, 13))    
         
         self.RunQCpushButtoninfoicon_rna = QtWidgets.QPushButton(self.QC_rna)
@@ -833,14 +833,14 @@ class Ui_MainWindow(object):
         self.RunQCpushButtoninfoicon_rna.setGeometry(QtCore.QRect(480, 277, 20, 20))
         self.RunQCpushButtoninfoicon_rna.setToolTip("Please choose yes to trim your reads if the input sequences are of poor quality.\n You may proceed to the next section if your reads are good enough for alignment")
         self.RunQCpushButtoninfoicon_rna.setFont(font_info)
-        self.RunQCpushButtoninfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.RunQCpushButtoninfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.RunQCpushButtoninfoicon_rna.setIconSize(QtCore.QSize(13, 13))             
         
         self.RNAtabWidget.addTab(self.QC_rna, "")
         ## End ##
         self.Tool_rna = QtWidgets.QWidget()
         self.Tool_rna.setObjectName("Tool_rna")
-        self.Tool_rna.setStyleSheet("background-image: url(toolstab.png);")
+        self.Tool_rna.setStyleSheet("background-image: url(os.path.join(module_dir,'./toolstab.png'));")
         
         self.create_aligner_groupbox_rna()
         self.create_em_groupbox()
@@ -878,7 +878,7 @@ class Ui_MainWindow(object):
         self.RunButtonErroricon.setGeometry(QtCore.QRect(420, 172, 30, 30))
         self.RunButtonErroricon.setToolTip("Click Run Button and Run Again!")
         self.RunButtonErroricon.setFont(font_label)
-        self.RunButtonErroricon.setIcon(QtGui.QIcon("./icons/warning.svg"))
+        self.RunButtonErroricon.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/warning.svg')))
         self.RunButtonErroricon.hide()      
         
         
@@ -906,7 +906,7 @@ class Ui_MainWindow(object):
         self.RunButtoninfoicon_rna.setGeometry(QtCore.QRect(400, 180, 20, 20))
         self.RunButtoninfoicon_rna.setToolTip("Click to start your analysis")
         self.RunButtoninfoicon_rna.setFont(font_info)
-        self.RunButtoninfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.RunButtoninfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.RunButtoninfoicon_rna.setIconSize(QtCore.QSize(13, 13)) 
         
 
@@ -921,7 +921,7 @@ class Ui_MainWindow(object):
 
         self.pushbutton_result1_rna=QtWidgets.QPushButton(self.result_rna)
         self.pushbutton_result1_rna.setText("Run statistics")
-        self.pushbutton_result1_rna.setIcon(QtGui.QIcon("./icons/runstatistics.svg"))
+        self.pushbutton_result1_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/runstatistics.svg')))
         self.pushbutton_result1_rna.setIconSize(QtCore.QSize(40, 40))
         self.pushbutton_result1_rna.setFont(font_resulttab)
         self.pushbutton_result1_rna.setStyleSheet("background-color: #704214")
@@ -929,7 +929,7 @@ class Ui_MainWindow(object):
 
         self.pushbutton_result2_rna=QtWidgets.QPushButton(self.result_rna)
         self.pushbutton_result2_rna.setText("DE Genes")
-        self.pushbutton_result2_rna.setIcon(QtGui.QIcon("./icons/document.svg"))
+        self.pushbutton_result2_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/document.svg')))
         self.pushbutton_result2_rna.setIconSize(QtCore.QSize(40, 40))
         self.pushbutton_result2_rna.setFont(font_resulttab)
         self.pushbutton_result2_rna.setStyleSheet("background-color: #704214")
@@ -937,7 +937,7 @@ class Ui_MainWindow(object):
 
         self.pushbutton_result3_rna=QtWidgets.QPushButton(self.result_rna)
         self.pushbutton_result3_rna.setText("Plots")
-        self.pushbutton_result3_rna.setIcon(QtGui.QIcon("./icons/plots.svg"))
+        self.pushbutton_result3_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/plots.svg')))
         self.pushbutton_result3_rna.setIconSize(QtCore.QSize(40, 40))
         self.pushbutton_result3_rna.setFont(font_resulttab)
         self.pushbutton_result3_rna.setStyleSheet("background-color: #704214")
@@ -958,7 +958,7 @@ class Ui_MainWindow(object):
         self.CTAGtabWidget.setMovable(False)
         self.CTAGtabWidget.setTabBarAutoHide(False)
         self.CTAGtabWidget.setObjectName("CTAGtabWidget")
-        self.CTAGtabWidget.setStyleSheet("background-image: url(dnatab.png);")
+        self.CTAGtabWidget.setStyleSheet("background-image: url(os.path.join(module_dir,'./dnatab.png'));")
         
         self.ctaglabel = QtWidgets.QLabel(self.CTAG)
         self.ctaglabel.setGeometry(QtCore.QRect(15, 25, 400, 20))
@@ -1022,7 +1022,7 @@ class Ui_MainWindow(object):
         self.ctaginfoiconmaf.setGeometry(QtCore.QRect(109, 200, 20, 20))
         self.ctaginfoiconmaf.setToolTip("path to the maf file")
         self.ctaginfoiconmaf.setFont(font_info)
-        self.ctaginfoiconmaf.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.ctaginfoiconmaf.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.ctaginfoiconmaf.setIconSize(QtCore.QSize(13, 13)) 
         
         self.ctaginfoiconparam = QtWidgets.QPushButton(self.CTAG)
@@ -1030,7 +1030,7 @@ class Ui_MainWindow(object):
         self.ctaginfoiconparam.setGeometry(QtCore.QRect(90, 260, 20, 20))
         self.ctaginfoiconparam.setToolTip("enter the parameters --maxmut and --percentile")
         self.ctaginfoiconparam.setFont(font_info)
-        self.ctaginfoiconparam.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.ctaginfoiconparam.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.ctaginfoiconparam.setIconSize(QtCore.QSize(13, 13)) 
         
         self.ctaginfoiconrun = QtWidgets.QPushButton(self.CTAG)
@@ -1038,7 +1038,7 @@ class Ui_MainWindow(object):
         self.ctaginfoiconrun.setGeometry(QtCore.QRect(472, 355, 20, 20))
         self.ctaginfoiconrun.setToolTip("Click Run to run the analysis")
         self.ctaginfoiconrun.setFont(font_info)
-        self.ctaginfoiconrun.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.ctaginfoiconrun.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.ctaginfoiconrun.setIconSize(QtCore.QSize(13, 13)) 
         
         self.ctaginfoiconres = QtWidgets.QPushButton(self.CTAG)
@@ -1046,7 +1046,7 @@ class Ui_MainWindow(object):
         self.ctaginfoiconres.setGeometry(QtCore.QRect(447, 423, 20, 20))
         self.ctaginfoiconres.setToolTip("Click View Results to open the results")
         self.ctaginfoiconres.setFont(font_info)
-        self.ctaginfoiconres.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.ctaginfoiconres.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.ctaginfoiconres.setIconSize(QtCore.QSize(13, 13))
         
         self.PipelinetabWidget.addTab(self.CTAG, "")
@@ -1058,7 +1058,7 @@ class Ui_MainWindow(object):
         self.NBtabWidget.setMovable(False)
         self.NBtabWidget.setTabBarAutoHide(False)
         self.NBtabWidget.setObjectName("NBtabWidget")
-        self.NBtabWidget.setStyleSheet("background-image: url(dnatab.png);")
+        self.NBtabWidget.setStyleSheet("background-image: url(os.path.join(module_dir,'./dnatab.png'));")
         
         self.nblabel = QtWidgets.QLabel(self.NB)
         self.nblabel.setGeometry(QtCore.QRect(15, 25, 400, 20))
@@ -1121,7 +1121,7 @@ class Ui_MainWindow(object):
         self.nbinfoiconvcf.setGeometry(QtCore.QRect(109, 250, 20, 20))
         self.nbinfoiconvcf.setToolTip("path to the vcf file")
         self.nbinfoiconvcf.setFont(font_info)
-        self.nbinfoiconvcf.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.nbinfoiconvcf.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.nbinfoiconvcf.setIconSize(QtCore.QSize(13, 13)) 
         
         self.nbinfoiconrun = QtWidgets.QPushButton(self.NB)
@@ -1129,7 +1129,7 @@ class Ui_MainWindow(object):
         self.nbinfoiconrun.setGeometry(QtCore.QRect(472, 355, 20, 20))
         self.nbinfoiconrun.setToolTip("Click Run to run the analysis")
         self.nbinfoiconrun.setFont(font_info)
-        self.nbinfoiconrun.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.nbinfoiconrun.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.nbinfoiconrun.setIconSize(QtCore.QSize(13, 13)) 
         
         self.nbinfoiconres = QtWidgets.QPushButton(self.NB)
@@ -1137,7 +1137,7 @@ class Ui_MainWindow(object):
         self.nbinfoiconres.setGeometry(QtCore.QRect(447, 423, 20, 20))
         self.nbinfoiconres.setToolTip("Click View Results to open the results")
         self.nbinfoiconres.setFont(font_info)
-        self.nbinfoiconres.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.nbinfoiconres.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.nbinfoiconres.setIconSize(QtCore.QSize(13, 13))
         
         self.PipelinetabWidget.addTab(self.NB, "")
@@ -1148,7 +1148,7 @@ class Ui_MainWindow(object):
         self.ShellTab.setGeometry(QtCore.QRect(10, 550, 701, 151))
         self.ShellTab.setObjectName("ShellTab")
 #        self.ShellTab.setStyleSheet("background-color: #F0F9EC")
-        self.ShellTab.setStyleSheet("background-image: url(shell1.png);")
+        self.ShellTab.setStyleSheet("background-image: url(os.path.join(module_dir,'./shell1.png'));")
         self.SnakemakeOutputTab = QtWidgets.QWidget()
         self.SnakemakeOutputTab.setObjectName("SnakemakeOutputTab")
         self.textBrowser = QtWidgets.QTextBrowser(self.SnakemakeOutputTab)
@@ -1268,7 +1268,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "iCOMIC"))
-        MainWindow.setWindowIcon(QtGui.QIcon("./icons/taskbar1.png"))
+        MainWindow.setWindowIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/taskbar1.png')))
         #self.PipelinetabWidget.setToolTip(_translate("MainWindow", "Performs Quality Control and Creates Mandatory files to run the pipeline"))
         ## Add Input as first tab ##
 #        self.SampleOrlabel.setToolTip(_translate("MainWindow", "This option performs all the Quality Control operations like fastQC, Cutadapt and MultiQC "))
@@ -1278,11 +1278,11 @@ class Ui_MainWindow(object):
 #        self.SamplesNoradioButton.setToolTip(_translate("MainWindow", "Tables should contain all the information"))
         self.SamplesNoradioButton.setText(_translate("MainWindow", "Upload from Table"))
 #        self.UnitsBrowseButtonDNA.setText(_translate("MainWindow", "Browse"))
-        self.UnitsBrowseButtonDNA.setIcon(QtGui.QIcon("./icons/browse.png"))
+        self.UnitsBrowseButtonDNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
         self.UnitsBrowseButtonDNA.setIconSize(QtCore.QSize(22, 22))
         self.UnitsBrowseButtonDNA.setToolTip("Browse Samples Table")
 #        self.RefGenomeBrowseButtonDNA.setText(_translate("MainWindow", "Browse"))
-        self.RefGenomeBrowseButtonDNA.setIcon(QtGui.QIcon("./icons/browse.png"))
+        self.RefGenomeBrowseButtonDNA.setIcon(QtGui.QIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
 #        self.RefGenomeBrowseButtonDNA.setStyleSheet("background-color: #aeaeae")
         self.RefGenomeBrowseButtonDNA.setToolTip("Browse Reference Genome")
         self.RefGenomeBrowseButtonDNA.setIconSize(QtCore.QSize(22, 22))
@@ -1292,23 +1292,23 @@ class Ui_MainWindow(object):
         self.CorelabelDNA.setText(_translate("MainWindow", "Maximum threads"))
         self.CorelineEditDNA.setText(_translate("MainWindow", "10"))
 #        self.SamplesBrowseButtonDNA.setText(_translate("MainWindow", "Browse"))
-        self.SamplesBrowseButtonDNA.setIcon(QtGui.QIcon("./icons/browse.png"))
+        self.SamplesBrowseButtonDNA.setIcon(QtGui.QIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
         self.SamplesBrowseButtonDNA.setIconSize(QtCore.QSize(22, 22))
 #        self.SamplesBrowseButtonDNA.setStyleSheet("background-color: #aeaeae")
         self.SamplesBrowseButtonDNA.setToolTip("Browse Samples Folder")
         self.RefVariantlabelDNA.setText(_translate("MainWindow", "Reference Known Variant"))
 #        self.RefVariantpushButton.setText(_translate("MainWindow", "Browse"))
-        self.RefVariantpushButton.setIcon(QtGui.QIcon("./icons/browse.png"))
+        self.RefVariantpushButton.setIcon(QtGui.QIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
 #        self.RefVariantpushButton.setStyleSheet("background-color: #aeaeae")
         self.RefVariantpushButton.setToolTip("Browse Reference Known Variant")
         self.RefVariantpushButton.setIconSize(QtCore.QSize(22, 22))
         self.RefNamelabelDNA.setText(_translate("MainWindow", "Reference Name (as in SnpEff Database)"))
 
-        self.nextbuttoninputDNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
+        self.nextbuttoninputDNA.setIcon(QtGui.QIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow.svg')))
         self.nextbuttoninputDNA.setIconSize(QtCore.QSize(35, 35))
         self.nextbuttoninputDNA.setStyleSheet("background-color: #704214")
         self.DNAtabWidget.setTabText(self.DNAtabWidget.indexOf(self.input_dna), _translate("MainWindow", " Input Data "))
-        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.input_dna), QtGui.QIcon('./icons/input.svg'))
+        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.input_dna), QtGui.QIcon(os.path.join(module_dir,'./icons/input.svg')))
 #        self.DNAtabWidget.setStyleSheet(self.DNAtabWidget.indexOf(self.input_dna), ("background-color: #EBF6F5"))
         self.DNAtabWidget.setIconSize(QtCore.QSize(22, 22))
         
@@ -1330,17 +1330,17 @@ class Ui_MainWindow(object):
         self.CutadaptlineEdit.setText(_translate("MainWindow", "-q 20"))
 
         self.RunQCpushButton.setText(_translate("MainWindow", "Trimming"))
-        self.RunQCpushButton.setIcon(QtGui.QIcon("./icons/run1.svg"))
+        self.RunQCpushButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/run1.svg')))
         self.RunQCpushButton.setIconSize(QtCore.QSize(22, 22))
         self.RunQCpushButton.setStyleSheet("background-color: #704214")
-        self.nextbuttonqcDNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
+        self.nextbuttonqcDNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow.svg')))
         self.nextbuttonqcDNA.setStyleSheet("background-color: #704214")
         self.nextbuttonqcDNA.setIconSize(QtCore.QSize(35, 35))
-        self.previousbuttonqcDNA.setIcon(QtGui.QIcon("./icons/arrow1.svg"))
+        self.previousbuttonqcDNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow1.svg')))
         self.previousbuttonqcDNA.setStyleSheet("background-color: #704214")
         self.previousbuttonqcDNA.setIconSize(QtCore.QSize(35, 35))
         self.DNAtabWidget.setTabText(self.DNAtabWidget.indexOf(self.QC_dna), _translate("MainWindow", " Quality Control "))
-        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.QC_dna), QtGui.QIcon('./icons/qc.svg'))
+        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.QC_dna), QtGui.QIcon(os.path.join(module_dir,'./icons/qc.svg')))
         
         
         ## End ##
@@ -1352,27 +1352,27 @@ class Ui_MainWindow(object):
         self.AnnotatorcomboBoxDNA.setItemText(0, _translate("MainWindow", "SnpEff"))
         self.AnnotatorcomboBoxDNA.setItemText(1, _translate("MainWindow", "Annovar"))
 
-        self.nextbuttontoolDNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
+        self.nextbuttontoolDNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow.svg')))
         self.nextbuttontoolDNA.setStyleSheet("background-color: #704214")
         self.nextbuttontoolDNA.setIconSize(QtCore.QSize(35, 35))
-        self.previousbuttontoolDNA.setIcon(QtGui.QIcon("./icons/arrow1.svg"))
+        self.previousbuttontoolDNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow1.svg')))
         self.previousbuttontoolDNA.setStyleSheet("background-color: #704214")
         self.previousbuttontoolDNA.setIconSize(QtCore.QSize(35, 35))
         self.DNAtabWidget.setTabText(self.DNAtabWidget.indexOf(self.Tool_dna), _translate("MainWindow", " Tools Selection "))
-        self.Tool_dna.setStyleSheet("background-image: url(toolstab.png);")
-        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.Tool_dna), QtGui.QIcon('./icons/tools.svg'))
+        self.Tool_dna.setStyleSheet("background-image: url(os.path.join(module_dir,'./toolstab.png'));")
+        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.Tool_dna), QtGui.QIcon(os.path.join(module_dir,'./icons/tools.svg')))
         
         ## Add Index ##
 
         self.BWAIndexlineEdit.setToolTip(_translate("MainWindow", "Input the path of the Index for " + self.AlignercomboBoxDNA.currentText()))
         self.BWAIndexpushButton.setToolTip(_translate("MainWindow", "Click this to select one of the already available index or for a custom index"))
-        self.BWAIndexpushButton.setIcon(QtGui.QIcon("./icons/browse.png"))
+        self.BWAIndexpushButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
         self.BWAIndexpushButton.setIconSize(QtCore.QSize(22, 22))
         self.BWAIndexpushButton.setToolTip("Browse Index File")
         self.OrLabel_dna.setText(_translate("MainWindow", "Or"))
 
         self.RunIndexdnapushButton.setText(_translate("MainWindow", "Generate Index"))
-        self.RunIndexdnapushButton.setIcon(QtGui.QIcon("./icons/run1.svg"))
+        self.RunIndexdnapushButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/run1.svg')))
         self.RunIndexdnapushButton.setStyleSheet("background-color: #704214")
         self.RunIndexdnapushButton.setIconSize(QtCore.QSize (22, 22))
         
@@ -1381,45 +1381,45 @@ class Ui_MainWindow(object):
         
          ## Add run DNA##
         self.DNAtabWidget.setTabText(self.DNAtabWidget.indexOf(self.run_dna), _translate("MainWindow", " Run "))
-        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.run_dna), QtGui.QIcon('./icons/run1.svg'))
+        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.run_dna), QtGui.QIcon((os.path.join(module_dir,'./icons/run1.svg')))
 
         self.DNAtabWidget.setIconSize(QtCore.QSize(22, 22))
-        self.nextbuttonrunDNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
+        self.nextbuttonrunDNA.setIcon(QtGui.QIcon((os.path.join(module_dir,'./icons/arrow.svg')))
         self.nextbuttonrunDNA.setStyleSheet("background-color: #704214")
         self.nextbuttonrunDNA.setIconSize(QtCore.QSize(35, 35))
-        self.previousbuttonrunDNA.setIcon(QtGui.QIcon("./icons/arrow1.svg"))
+        self.previousbuttonrunDNA.setIcon(QtGui.QIcon("(os.path.join(module_dir,'./icons/arrow1.svg')))
         self.previousbuttonrunDNA.setStyleSheet("background-color: #704214")
         self.previousbuttonrunDNA.setIconSize(QtCore.QSize(35, 35))
         ##End##
         ##Add Result DNA##
         self.DNAtabWidget.setTabText(self.DNAtabWidget.indexOf(self.result_dna), _translate("MainWindow", " Results "))
-        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.result_dna), QtGui.QIcon('./icons/results.svg'))
+        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.result_dna), QtGui.QIcon((os.path.join(module_dir,'./icons/results.svg')))
 
         self.DNAtabWidget.setIconSize(QtCore.QSize(22, 22))
         ##End##
         
         ## Add run RNA##
         self.RNAtabWidget.setTabText(self.RNAtabWidget.indexOf(self.run_rna), _translate("MainWindow", " Run "))
-        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.run_rna), QtGui.QIcon('./icons/run1.svg'))
+        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.run_rna), QtGui.QIcon((os.path.join(module_dir,'./icons/run1.svg')))
         self.RNAtabWidget.setIconSize(QtCore.QSize(22, 22))
-        self.nextbuttonrunRNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
+        self.nextbuttonrunRNA.setIcon(QtGui.QIcon((os.path.join(module_dir,'./icons/arrow.svg')))
         self.nextbuttonrunRNA.setStyleSheet("background-color: #704214")
         self.nextbuttonrunRNA.setIconSize(QtCore.QSize(35, 35))
-        self.previousbuttonrunRNA.setIcon(QtGui.QIcon("./icons/arrow1.svg"))
+        self.previousbuttonrunRNA.setIcon(QtGui.QIcon((os.path.join(module_dir,'./icons/arrow1.svg')))
         self.previousbuttonrunRNA.setStyleSheet("background-color: #704214")
         self.previousbuttonrunRNA.setIconSize(QtCore.QSize(35, 35))
         ##End##
         ##Add Result RNA##
         self.RNAtabWidget.setTabText(self.RNAtabWidget.indexOf(self.result_rna), _translate("MainWindow", " Results "))
-        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.result_rna), QtGui.QIcon('./icons/results.svg'))
+        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.result_rna), QtGui.QIcon((os.path.join(module_dir,'./icons/results.svg')))
         self.RNAtabWidget.setIconSize(QtCore.QSize(22, 22))
         ##End##        
         
-        self.RunButton.setIcon(QtGui.QIcon("./icons/run1.svg"))
+        self.RunButton.setIcon(QtGui.QIcon((os.path.join(module_dir,'./icons/run1.svg')))
         self.RunButton.setIconSize(QtCore.QSize(50, 50))
         self.RunButton.setStyleSheet("background-color:#704214")
         
-        self.RunButton_dna.setIcon(QtGui.QIcon("./icons/run1.svg"))
+        self.RunButton_dna.setIcon(QtGui.QIcon((os.path.join(module_dir,'./icons/run1.svg')))
         self.RunButton_dna.setIconSize(QtCore.QSize(50, 50))
         self.RunButton_dna.setStyleSheet("background-color:#704214")        
         
@@ -1437,7 +1437,7 @@ class Ui_MainWindow(object):
 
 
         self.PipelinetabWidget.setTabText(self.PipelinetabWidget.indexOf(self.DNAseq), _translate("MainWindow", "DNA-Seq Pipeline"))
-        self.PipelinetabWidget.setTabIcon(self.PipelinetabWidget.indexOf(self.DNAseq), QtGui.QIcon('./icons/dna.svg'))
+        self.PipelinetabWidget.setTabIcon(self.PipelinetabWidget.indexOf(self.DNAseq), QtGui.QIcon((os.path.join(module_dir,'./icons/dna.svg')))
         self.PipelinetabWidget.setIconSize(QtCore.QSize(22, 22))
 
         self.PipelinetabWidget.setTabToolTip(self.PipelinetabWidget.indexOf(self.DNAseq), _translate("MainWindow", "Select this pipeline to generate Annotated VCFs"))
@@ -1448,7 +1448,7 @@ class Ui_MainWindow(object):
         self.SamplesNoradioButton_rna.setText(_translate("MainWindow", "Upload from Table"))
 
         self.SampleFolderlabel.setText(_translate("MainWindow", "Samples Folder"))
-        self.SampleFolderBrowseButton.setIcon(QtGui.QIcon("./icons/browse.png"))
+        self.SampleFolderBrowseButton.setIcon(QtGui.QIcon((os.path.join(module_dir,'./icons/browse.png')))
         self.SampleFolderBrowseButton.setIconSize(QtCore.QSize(22, 22))
         self.SampleFolderBrowseButton.setToolTip("Browse Samples Folder")
         self.Sampletablelabel.setText(_translate("MainWindow", "Samples Table"))
@@ -1456,14 +1456,14 @@ class Ui_MainWindow(object):
         self.FastaFilelabel.setText(_translate("MainWindow", "Fasta File"))
         self.AnnotatedFilelabelRNA.setText(_translate("MainWindow", "Annotated File"))
         
-        self.SampletableBrowseButton.setIcon(QtGui.QIcon("./icons/browse.png"))
+        self.SampletableBrowseButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
         self.SampletableBrowseButton.setIconSize(QtCore.QSize(22, 22))
         self.SampletableBrowseButton.setToolTip("Browse Samples Table")
         
-        self.FastaBrowseButton.setIcon(QtGui.QIcon("./icons/browse.png"))
+        self.FastaBrowseButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
         self.FastaBrowseButton.setIconSize(QtCore.QSize(22, 22))
         self.FastaBrowseButton.setToolTip("Browse Fasta File")
-        self.AnnotatedBrowserButtonRNA.setIcon(QtGui.QIcon("./icons/browse.png"))
+        self.AnnotatedBrowserButtonRNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
         self.AnnotatedBrowserButtonRNA.setIconSize(QtCore.QSize(22, 22))
         self.AnnotatedBrowserButtonRNA.setToolTip("Browse Annotated File")
 
@@ -1471,11 +1471,11 @@ class Ui_MainWindow(object):
         self.CorelineEditRNA.setText(_translate("MainWindow", "10"))
        
 
-        self.nextbuttoninputRNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
+        self.nextbuttoninputRNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow.svg')))
         self.nextbuttoninputRNA.setStyleSheet("background-color: #704214")
         self.nextbuttoninputRNA.setIconSize(QtCore.QSize(35, 35))
         self.RNAtabWidget.setTabText(self.RNAtabWidget.indexOf(self.input_rna), _translate("MainWindow", " Input Data "))
-        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.input_rna), QtGui.QIcon('./icons/input.svg'))
+        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.input_rna), QtGui.QIcon(os.path.join(module_dir,'./icons/input.svg')))
         self.RNAtabWidget.setIconSize(QtCore.QSize(22, 22))
         
         ## End ##
@@ -1492,17 +1492,17 @@ class Ui_MainWindow(object):
         self.CutadaptlineEdit_rna.setText(_translate("MainWindow", " --adapter AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT "))
 
         self.RunQCpushButton_rna.setText(_translate("MainWindow", "Trimming"))
-        self.RunQCpushButton_rna.setIcon(QtGui.QIcon("./icons/run1.svg"))
+        self.RunQCpushButton_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/run1.svg')))
         self.RunQCpushButton_rna.setIconSize(QtCore.QSize(22, 22))
         self.RunQCpushButton_rna.setStyleSheet("background-color: #704214")
-        self.nextbuttonqcRNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
+        self.nextbuttonqcRNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow.svg')))
         self.nextbuttonqcRNA.setStyleSheet("background-color: #704214")
         self.nextbuttonqcRNA.setIconSize(QtCore.QSize(35, 35))
-        self.previousbuttonqcRNA.setIcon(QtGui.QIcon("./icons/arrow1.svg"))
+        self.previousbuttonqcRNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow1.svg')))
         self.previousbuttonqcRNA.setStyleSheet("background-color: #704214")
         self.previousbuttonqcRNA.setIconSize(QtCore.QSize(35, 35))
         self.RNAtabWidget.setTabText(self.RNAtabWidget.indexOf(self.QC_rna), _translate("MainWindow", " Quality Control "))
-        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.QC_rna), QtGui.QIcon('./icons/qc.svg'))
+        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.QC_rna), QtGui.QIcon(os.path.join(module_dir,'./icons/qc.svg')))
         
 
         ## End ##
@@ -1515,32 +1515,32 @@ class Ui_MainWindow(object):
 
         self.DEcomboBoxRNA.setItemText(0, _translate("MainWindow", "ballgown"))
         self.DEcomboBoxRNA.setItemText(1, _translate("MainWindow", "DESeq2"))
-        self.nextbuttontoolRNA.setIcon(QtGui.QIcon("./icons/arrow.svg"))
+        self.nextbuttontoolRNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow.svg')))
         self.nextbuttontoolRNA.setStyleSheet("background-color: #704214")
         self.nextbuttontoolRNA.setIconSize(QtCore.QSize(35, 35))
-        self.previousbuttontoolRNA.setIcon(QtGui.QIcon("./icons/arrow1.svg"))
+        self.previousbuttontoolRNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow1.svg')))
         self.previousbuttontoolRNA.setStyleSheet("background-color: #704214")
         self.previousbuttontoolRNA.setIconSize(QtCore.QSize(35, 35))
         self.RNAtabWidget.setTabText(self.RNAtabWidget.indexOf(self.Tool_rna), _translate("MainWindow", " Tools Selection "))
-        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.Tool_rna), QtGui.QIcon('./icons/tools.svg'))
+        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.Tool_rna), QtGui.QIcon(os.path.join(module_dir,'./icons/tools.svg')))
         ## Add Index ##
         self.StarIndexlineEdit.setToolTip(_translate("MainWindow", "Input the path of the Index for" + self.AlignercomboBoxRNA.currentText()))
         self.StarIndexpushButton.setToolTip(_translate("MainWindow", "Click this to select one of the pre-installed index or for a custom index"))
-        self.StarIndexpushButton.setIcon(QtGui.QIcon("./icons/browse.png"))
+        self.StarIndexpushButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
         self.StarIndexpushButton.setIconSize(QtCore.QSize(22, 22))
         self.StarIndexpushButton.setToolTip("Browse Index File")
         self.OrLabel_rna.setText(_translate("MainWindow", "Or"))
 
         self.RunIndexrnapushButton.setText(_translate("MainWindow", "Generate Index"))
-        self.RunIndexrnapushButton.setIcon(QtGui.QIcon("./icons/run1.svg"))
+        self.RunIndexrnapushButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/run1.svg')))
         self.RunIndexrnapushButton.setStyleSheet("background-color: #704214")
         self.RunIndexrnapushButton.setIconSize(QtCore.QSize(22, 22))
 
         self.PipelinetabWidget.setTabText(self.PipelinetabWidget.indexOf(self.RNAseq), _translate("MainWindow", "RNA-Seq Pipeline"))
-        self.PipelinetabWidget.setTabIcon(self.PipelinetabWidget.indexOf(self.RNAseq), QtGui.QIcon('./icons/rna.svg'))
+        self.PipelinetabWidget.setTabIcon(self.PipelinetabWidget.indexOf(self.RNAseq), QtGui.QIcon(os.path.join(module_dir,'./icons/rna.svg')))
         self.PipelinetabWidget.setTabToolTip(self.PipelinetabWidget.indexOf(self.RNAseq), _translate("MainWindow", "Select this pipeline to generate Differentially Expressed Genes"))
         self.ShellTab.setTabText(self.ShellTab.indexOf(self.SnakemakeOutputTab), _translate("MainWindow", "Logs"))
-        self.ShellTab.setTabIcon(self.ShellTab.indexOf(self.SnakemakeOutputTab), QtGui.QIcon('./icons/log.svg'))
+        self.ShellTab.setTabIcon(self.ShellTab.indexOf(self.SnakemakeOutputTab), QtGui.QIcon(os.path.join(module_dir,'./icons/log.svg')))
         self.ShellTab.setIconSize(QtCore.QSize(22, 22))
         
         
@@ -1567,21 +1567,21 @@ class Ui_MainWindow(object):
         self.ctaglabel2.setFont(font_label2)
         urlLink1 = "<a href=\'https://github.com/RamanLab/cTaG'>cTaG</a>"
         self.ctaglabel3.setText(_translate("MainWindow", urlLink1 ))
-        self.ctaggithubbutton.setIcon(QtGui.QIcon("./icons/github.png"))
+        self.ctaggithubbutton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/github.png')))
         self.ctaggithubbutton.setIconSize(QtCore.QSize(22, 22))
         self.ctaggithubbutton.setToolTip("GitHub link")
         
-        self.mafBrowseButton.setIcon(QtGui.QIcon("./icons/browse.png"))
+        self.mafBrowseButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png'))))
         self.mafBrowseButton.setToolTip("Browse MAF File")
         self.mafBrowseButton.setIconSize(QtCore.QSize(22, 22))
         
         self.runctagpushButton.setText(_translate("MainWindow", "cTaG"))
-        self.runctagpushButton.setIcon(QtGui.QIcon("./icons/run1.svg"))
+        self.runctagpushButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/run1.svg')))
         self.runctagpushButton.setText(_translate("MainWindow", "  Run cTaG"))
         self.runctagpushButton.setIconSize(QtCore.QSize (22, 22))        
         
         self.resultctagpushButton.setText(_translate("MainWindow", "cTAG"))
-        self.resultctagpushButton.setIcon(QtGui.QIcon("./icons/document.svg"))
+        self.resultctagpushButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/document.svg')))
         self.resultctagpushButton.setText(_translate("MainWindow", " View Results"))
         self.resultctagpushButton.setIconSize(QtCore.QSize (22, 22))                
         
@@ -1606,27 +1606,27 @@ class Ui_MainWindow(object):
         self.nblabel3.setText(_translate("MainWindow", urlLink ))
         urlLink1 = "<a href=\'https://doi.org/10.3390/cancers13102366'>Banerjee et al.</a>"
         self.nblabel5.setText(_translate("MainWindow", urlLink1 ))
-        self.nbgithubbutton.setIcon(QtGui.QIcon("./icons/github.png"))
+        self.nbgithubbutton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/github.png')))
         self.nbgithubbutton.setIconSize(QtCore.QSize(22, 22))
         self.nbgithubbutton.setToolTip("GitHub link")
-        self.nbpaperbutton.setIcon(QtGui.QIcon("./icons/document.svg"))
+        self.nbpaperbutton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/document.svg')))
         self.nbpaperbutton.setIconSize(QtCore.QSize(22, 22))
         self.nbpaperbutton.setToolTip("GitHub link")
         urlLink2 = "<a href=\'https://doi.org/10.5281/zenodo.5759698'>link</a>"
         self.nblabel4.setText(_translate("MainWindow", " NBDriver predictions has been derived using hg19 reference genome only. The user needs to download the \n reference file from this      and put it in the /NBDriver_iCOMIC/ directory and the input vcf file must be \n kept inside /NBDriver_ICOMIC/vcf directory and renamed as NBDriver_vcf.vcf" ))
         self.nblabel6.setText(_translate("MainWindow", urlLink2 ))
         
-        self.vcfBrowseButton.setIcon(QtGui.QIcon("./icons/browse.png"))
+        self.vcfBrowseButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
         self.vcfBrowseButton.setToolTip("Browse VCF File")
         self.vcfBrowseButton.setIconSize(QtCore.QSize(22, 22))
         
         self.runnbpushButton.setText(_translate("MainWindow", "NBDriver"))
-        self.runnbpushButton.setIcon(QtGui.QIcon("./icons/run1.svg"))
+        self.runnbpushButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/run1.svg')))
         self.runnbpushButton.setText(_translate("MainWindow", "  Run NBDriver"))
         self.runnbpushButton.setIconSize(QtCore.QSize (22, 22))        
         
         self.resultnbpushButton.setText(_translate("MainWindow", "NBDriver"))
-        self.resultnbpushButton.setIcon(QtGui.QIcon("./icons/document.svg"))
+        self.resultnbpushButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/document.svg')))
         self.resultnbpushButton.setText(_translate("MainWindow", " View Results"))
         self.resultnbpushButton.setIconSize(QtCore.QSize (22, 22)) 
         
@@ -1849,7 +1849,7 @@ class Ui_MainWindow(object):
         self.Alignerninfoicon_dna.setGeometry(QtCore.QRect(48, 0, 20, 20))
         self.Alignerninfoicon_dna.setToolTip("Software for arranging sequences to identify regions of similarity")
         self.Alignerninfoicon_dna.setFont(font_info)
-        self.Alignerninfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.Alignerninfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.Alignerninfoicon_dna.setIconSize(QtCore.QSize(13, 13)) 
         
         self.AlignercomboBoxDNA = QtWidgets.QComboBox()
@@ -1901,7 +1901,7 @@ class Ui_MainWindow(object):
         self.RunIndexdnaButtonErroricon.setGeometry(QtCore.QRect(480, 175, 20, 20))
         self.RunIndexdnaButtonErroricon.setToolTip("Check and Run Index Again!")
         self.RunIndexdnaButtonErroricon.setFont(font_label)
-        self.RunIndexdnaButtonErroricon.setIcon(QtGui.QIcon("./icons/warning.svg"))
+        self.RunIndexdnaButtonErroricon.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/warning.svg')))
         self.hlayout0_runindex.addWidget(self.RunIndexdnaButtonErroricon, 0, alignment=QtCore.Qt.AlignCenter)
         self.RunIndexdnaButtonErroricon.hide()
         self.vlayout.addItem(self.hlayout0_runindex)
@@ -2006,7 +2006,7 @@ class Ui_MainWindow(object):
         self.VariantCallerninfoicon_dna.setGeometry(QtCore.QRect(84, 0, 20, 20))
         self.VariantCallerninfoicon_dna.setToolTip("Variant calling is the process by which variants are identified from \n the sample sequence data in comparison to the reference sequence.")
         self.VariantCallerninfoicon_dna.setFont(font_info)
-        self.VariantCallerninfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.VariantCallerninfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.VariantCallerninfoicon_dna.setIconSize(QtCore.QSize(13, 13))         
         
         self.VCcomboBoxDNA = QtWidgets.QComboBox()
@@ -2106,7 +2106,7 @@ class Ui_MainWindow(object):
         self.Annotatorninfoicon_dna.setGeometry(QtCore.QRect(64, 0, 20, 20))
         self.Annotatorninfoicon_dna.setToolTip("Software for functionally annotating the identified variants")
         self.Annotatorninfoicon_dna.setFont(font_info)
-        self.Annotatorninfoicon_dna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.Annotatorninfoicon_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.Annotatorninfoicon_dna.setIconSize(QtCore.QSize(13, 13))         
         
         self.AnnotatorcomboBoxDNA = QtWidgets.QComboBox()
@@ -2231,7 +2231,7 @@ class Ui_MainWindow(object):
         self.Alignerninfoicon_rna.setGeometry(QtCore.QRect(48, 0, 20, 20))
         self.Alignerninfoicon_rna.setToolTip("Software for arranging sequences to identify regions of similarity")
         self.Alignerninfoicon_rna.setFont(font_info)
-        self.Alignerninfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.Alignerninfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.Alignerninfoicon_rna.setIconSize(QtCore.QSize(13, 13))         
         
         self.AlignercomboBoxRNA = QtWidgets.QComboBox()
@@ -2280,7 +2280,7 @@ class Ui_MainWindow(object):
         self.RunIndexrnaButtonErroricon.setGeometry(QtCore.QRect(480, 175, 20, 20))
         self.RunIndexrnaButtonErroricon.setToolTip("Check and Run Index Again!")
         self.RunIndexrnaButtonErroricon.setFont(font_label)
-        self.RunIndexrnaButtonErroricon.setIcon(QtGui.QIcon("./icons/warning.svg"))
+        self.RunIndexrnaButtonErroricon.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/warning.svg'))))
         self.RunIndexrnaButtonErroricon.hide()
         self.hlayout0_runindex_rna.addWidget(self.RunIndexrnaButtonErroricon, 0, alignment=QtCore.Qt.AlignCenter)
         self.vlayout_rna.addItem(self.hlayout0_runindex_rna)
@@ -2383,7 +2383,7 @@ class Ui_MainWindow(object):
         self.eminfoicon_rna.setGeometry(QtCore.QRect(125, 0, 20, 20))
         self.eminfoicon_rna.setToolTip("Expression modelling refers to count the reads mapped \n to individual genes from the aligned the file")
         self.eminfoicon_rna.setFont(font_info)
-        self.eminfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.eminfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.eminfoicon_rna.setIconSize(QtCore.QSize(13, 13))              
         
         self.EMcomboBoxRNA = QtWidgets.QComboBox()
@@ -2474,7 +2474,7 @@ class Ui_MainWindow(object):
         self.deninfoicon_rna.setGeometry(QtCore.QRect(140, 0, 20, 20))
         self.deninfoicon_rna.setToolTip("Differential expression analysis referes to the normalization of read count data \n and employing statistical methods to discover quantitative changes\n in expression levels between different data groups")
         self.deninfoicon_rna.setFont(font_info)
-        self.deninfoicon_rna.setIcon(QtGui.QIcon("./icons/info.svg"))
+        self.deninfoicon_rna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/info.svg')))
         self.deninfoicon_rna.setIconSize(QtCore.QSize(13, 13))         
         
         self.DEcomboBoxRNA = QtWidgets.QComboBox()
