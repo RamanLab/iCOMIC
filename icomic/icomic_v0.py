@@ -1282,7 +1282,7 @@ class Ui_MainWindow(object):
         self.UnitsBrowseButtonDNA.setIconSize(QtCore.QSize(22, 22))
         self.UnitsBrowseButtonDNA.setToolTip("Browse Samples Table")
 #        self.RefGenomeBrowseButtonDNA.setText(_translate("MainWindow", "Browse"))
-        self.RefGenomeBrowseButtonDNA.setIcon(QtGui.QIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
+        self.RefGenomeBrowseButtonDNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
 #        self.RefGenomeBrowseButtonDNA.setStyleSheet("background-color: #aeaeae")
         self.RefGenomeBrowseButtonDNA.setToolTip("Browse Reference Genome")
         self.RefGenomeBrowseButtonDNA.setIconSize(QtCore.QSize(22, 22))
@@ -1292,19 +1292,19 @@ class Ui_MainWindow(object):
         self.CorelabelDNA.setText(_translate("MainWindow", "Maximum threads"))
         self.CorelineEditDNA.setText(_translate("MainWindow", "10"))
 #        self.SamplesBrowseButtonDNA.setText(_translate("MainWindow", "Browse"))
-        self.SamplesBrowseButtonDNA.setIcon(QtGui.QIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
+        self.SamplesBrowseButtonDNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
         self.SamplesBrowseButtonDNA.setIconSize(QtCore.QSize(22, 22))
 #        self.SamplesBrowseButtonDNA.setStyleSheet("background-color: #aeaeae")
         self.SamplesBrowseButtonDNA.setToolTip("Browse Samples Folder")
         self.RefVariantlabelDNA.setText(_translate("MainWindow", "Reference Known Variant"))
 #        self.RefVariantpushButton.setText(_translate("MainWindow", "Browse"))
-        self.RefVariantpushButton.setIcon(QtGui.QIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
+        self.RefVariantpushButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
 #        self.RefVariantpushButton.setStyleSheet("background-color: #aeaeae")
         self.RefVariantpushButton.setToolTip("Browse Reference Known Variant")
         self.RefVariantpushButton.setIconSize(QtCore.QSize(22, 22))
         self.RefNamelabelDNA.setText(_translate("MainWindow", "Reference Name (as in SnpEff Database)"))
 
-        self.nextbuttoninputDNA.setIcon(QtGui.QIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow.svg')))
+        self.nextbuttoninputDNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow.svg')))
         self.nextbuttoninputDNA.setIconSize(QtCore.QSize(35, 35))
         self.nextbuttoninputDNA.setStyleSheet("background-color: #704214")
         self.DNAtabWidget.setTabText(self.DNAtabWidget.indexOf(self.input_dna), _translate("MainWindow", " Input Data "))
@@ -1381,45 +1381,46 @@ class Ui_MainWindow(object):
         
          ## Add run DNA##
         self.DNAtabWidget.setTabText(self.DNAtabWidget.indexOf(self.run_dna), _translate("MainWindow", " Run "))
-        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.run_dna), QtGui.QIcon((os.path.join(module_dir,'./icons/run1.svg')))
-
+        
+        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.run_dna), QtGui.QIcon(os.path.join(module_dir,'./icons/run1.svg')))
         self.DNAtabWidget.setIconSize(QtCore.QSize(22, 22))
-        self.nextbuttonrunDNA.setIcon(QtGui.QIcon((os.path.join(module_dir,'./icons/arrow.svg')))
+        
+        self.nextbuttonrunDNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow.svg')))
         self.nextbuttonrunDNA.setStyleSheet("background-color: #704214")
         self.nextbuttonrunDNA.setIconSize(QtCore.QSize(35, 35))
-        self.previousbuttonrunDNA.setIcon(QtGui.QIcon("(os.path.join(module_dir,'./icons/arrow1.svg')))
+        self.previousbuttonrunDNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow1.svg')))
         self.previousbuttonrunDNA.setStyleSheet("background-color: #704214")
         self.previousbuttonrunDNA.setIconSize(QtCore.QSize(35, 35))
         ##End##
         ##Add Result DNA##
         self.DNAtabWidget.setTabText(self.DNAtabWidget.indexOf(self.result_dna), _translate("MainWindow", " Results "))
-        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.result_dna), QtGui.QIcon((os.path.join(module_dir,'./icons/results.svg')))
+        self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.result_dna), QtGui.QIcon(os.path.join(module_dir,'./icons/results.svg')))
 
         self.DNAtabWidget.setIconSize(QtCore.QSize(22, 22))
         ##End##
         
         ## Add run RNA##
         self.RNAtabWidget.setTabText(self.RNAtabWidget.indexOf(self.run_rna), _translate("MainWindow", " Run "))
-        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.run_rna), QtGui.QIcon((os.path.join(module_dir,'./icons/run1.svg')))
+        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.run_rna), QtGui.QIcon(os.path.join(module_dir,'./icons/run1.svg')))
         self.RNAtabWidget.setIconSize(QtCore.QSize(22, 22))
-        self.nextbuttonrunRNA.setIcon(QtGui.QIcon((os.path.join(module_dir,'./icons/arrow.svg')))
+        self.nextbuttonrunRNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow.svg')))
         self.nextbuttonrunRNA.setStyleSheet("background-color: #704214")
         self.nextbuttonrunRNA.setIconSize(QtCore.QSize(35, 35))
-        self.previousbuttonrunRNA.setIcon(QtGui.QIcon((os.path.join(module_dir,'./icons/arrow1.svg')))
+        self.previousbuttonrunRNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow1.svg')))
         self.previousbuttonrunRNA.setStyleSheet("background-color: #704214")
         self.previousbuttonrunRNA.setIconSize(QtCore.QSize(35, 35))
         ##End##
         ##Add Result RNA##
         self.RNAtabWidget.setTabText(self.RNAtabWidget.indexOf(self.result_rna), _translate("MainWindow", " Results "))
-        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.result_rna), QtGui.QIcon((os.path.join(module_dir,'./icons/results.svg')))
+        self.RNAtabWidget.setTabIcon(self.RNAtabWidget.indexOf(self.result_rna), QtGui.QIcon(os.path.join(module_dir,'./icons/results.svg')))
         self.RNAtabWidget.setIconSize(QtCore.QSize(22, 22))
         ##End##        
         
-        self.RunButton.setIcon(QtGui.QIcon((os.path.join(module_dir,'./icons/run1.svg')))
+        self.RunButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/run1.svg')))
         self.RunButton.setIconSize(QtCore.QSize(50, 50))
         self.RunButton.setStyleSheet("background-color:#704214")
         
-        self.RunButton_dna.setIcon(QtGui.QIcon((os.path.join(module_dir,'./icons/run1.svg')))
+        self.RunButton_dna.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/run1.svg')))
         self.RunButton_dna.setIconSize(QtCore.QSize(50, 50))
         self.RunButton_dna.setStyleSheet("background-color:#704214")        
         
@@ -1437,7 +1438,7 @@ class Ui_MainWindow(object):
 
 
         self.PipelinetabWidget.setTabText(self.PipelinetabWidget.indexOf(self.DNAseq), _translate("MainWindow", "DNA-Seq Pipeline"))
-        self.PipelinetabWidget.setTabIcon(self.PipelinetabWidget.indexOf(self.DNAseq), QtGui.QIcon((os.path.join(module_dir,'./icons/dna.svg')))
+        self.PipelinetabWidget.setTabIcon(self.PipelinetabWidget.indexOf(self.DNAseq), QtGui.QIcon(os.path.join(module_dir,'./icons/dna.svg')))
         self.PipelinetabWidget.setIconSize(QtCore.QSize(22, 22))
 
         self.PipelinetabWidget.setTabToolTip(self.PipelinetabWidget.indexOf(self.DNAseq), _translate("MainWindow", "Select this pipeline to generate Annotated VCFs"))
@@ -1448,7 +1449,7 @@ class Ui_MainWindow(object):
         self.SamplesNoradioButton_rna.setText(_translate("MainWindow", "Upload from Table"))
 
         self.SampleFolderlabel.setText(_translate("MainWindow", "Samples Folder"))
-        self.SampleFolderBrowseButton.setIcon(QtGui.QIcon((os.path.join(module_dir,'./icons/browse.png')))
+        self.SampleFolderBrowseButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
         self.SampleFolderBrowseButton.setIconSize(QtCore.QSize(22, 22))
         self.SampleFolderBrowseButton.setToolTip("Browse Samples Folder")
         self.Sampletablelabel.setText(_translate("MainWindow", "Samples Table"))
@@ -1571,7 +1572,7 @@ class Ui_MainWindow(object):
         self.ctaggithubbutton.setIconSize(QtCore.QSize(22, 22))
         self.ctaggithubbutton.setToolTip("GitHub link")
         
-        self.mafBrowseButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png'))))
+        self.mafBrowseButton.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
         self.mafBrowseButton.setToolTip("Browse MAF File")
         self.mafBrowseButton.setIconSize(QtCore.QSize(22, 22))
         
@@ -2280,7 +2281,7 @@ class Ui_MainWindow(object):
         self.RunIndexrnaButtonErroricon.setGeometry(QtCore.QRect(480, 175, 20, 20))
         self.RunIndexrnaButtonErroricon.setToolTip("Check and Run Index Again!")
         self.RunIndexrnaButtonErroricon.setFont(font_label)
-        self.RunIndexrnaButtonErroricon.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/warning.svg'))))
+        self.RunIndexrnaButtonErroricon.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/warning.svg')))
         self.RunIndexrnaButtonErroricon.hide()
         self.hlayout0_runindex_rna.addWidget(self.RunIndexrnaButtonErroricon, 0, alignment=QtCore.Qt.AlignCenter)
         self.vlayout_rna.addItem(self.hlayout0_runindex_rna)
