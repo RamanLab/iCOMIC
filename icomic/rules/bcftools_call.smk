@@ -71,7 +71,7 @@ rule bgzip:
         "{prefix}.vcf.gz",
     params:
         extra="", # optional
-    threads: 1
+    threads: config["threads"]
     shell:
         "bgzip -f {input} > {output} && tabix {output}"
     
