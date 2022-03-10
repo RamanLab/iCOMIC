@@ -77,8 +77,18 @@ rule bgzip:
         extra="", # optional
     threads: 1
     shell:
-        "bgzip {input} > {output} && tabix {output}"
+        "bgzip -f {input} > {output} && tabix {output}"
     
+#rule index:
+#    input:
+#        "{prefix}.vcf.gz",
+#    output:
+#        "{prefix}.vcf.gz.tbi",
+#    params:
+#        extra="", # optional
+#    threads: 1
+#    shell:
+#        "tabix -f -p {input}"
     
 rule merge_variants:
     input:

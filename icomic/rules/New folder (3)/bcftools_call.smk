@@ -73,7 +73,7 @@ rule bgzip:
         extra="", # optional
     threads: 1
     shell:
-        "bgzip -f {input} > {output} && tabix {output}"
+        "bgzip {input} > {output} && tabix {output}"
     
     
 rule merge_variants:
