@@ -45,7 +45,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("iCOMIC Pipeline")
         MainWindow.resize(725, 746)
         MainWindow.setFixedSize(725, 746)
-        MainWindow.setStyleSheet("background-image: url(os.path.join(module_dir,'./mainwindow.png'));")
+#        MainWindow.setStyleSheet("background-image: url(os.path.join(module_dir,'./mainwindow.png'));")
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -66,7 +66,8 @@ class Ui_MainWindow(object):
         self.DNAtabWidget = QtWidgets.QTabWidget(self.DNAseq)
         self.DNAtabWidget.setGeometry(QtCore.QRect(0, 0, 695, 507))
         self.DNAtabWidget.setObjectName("DNAtabWidget")
-        self.DNAtabWidget.setStyleSheet("background-image: url(os.path.join(module_dir,'./dnatab.png'));")
+        dnatab_img = os.path.join(module_dir,'dnatab.png')
+        self.DNAtabWidget.setStyleSheet("background-image: url({});".format(dnatab_img))
         
 
         ### Test Run Button Grey ###
@@ -547,7 +548,8 @@ class Ui_MainWindow(object):
         self.RNAtabWidget.setTabBarAutoHide(False)
         self.RNAtabWidget.setObjectName("RNAtabWidget")
 #        self.RNAtabWidget.setStyleSheet("background-color: #F0F9EC")
-        self.RNAtabWidget.setStyleSheet("background-image: url(os.path.join(module_dir,'./dnatab.png'));")
+        dnatab_img = os.path.join(module_dir,'dnatab.png')
+        self.RNAtabWidget.setStyleSheet("background-image: url({});".format(dnatab_img))
         ## Make Input as first tab ##
         self.input_rna = QtWidgets.QWidget()
         self.input_rna.setObjectName("input_rna")
@@ -840,7 +842,9 @@ class Ui_MainWindow(object):
         ## End ##
         self.Tool_rna = QtWidgets.QWidget()
         self.Tool_rna.setObjectName("Tool_rna")
-        self.Tool_rna.setStyleSheet("background-image: url(os.path.join(module_dir,'./toolstab.png'));")
+                
+        toolstab_img = os.path.join(module_dir,'toolstab.png')
+        self.Tool_rna.setStyleSheet("background-image: url({});".format(toolstab_img))
         
         self.create_aligner_groupbox_rna()
         self.create_em_groupbox()
@@ -958,8 +962,8 @@ class Ui_MainWindow(object):
         self.CTAGtabWidget.setMovable(False)
         self.CTAGtabWidget.setTabBarAutoHide(False)
         self.CTAGtabWidget.setObjectName("CTAGtabWidget")
-        self.CTAGtabWidget.setStyleSheet("background-image: url(os.path.join(module_dir,'./dnatab.png'));")
-        
+        dnatab_img = os.path.join(module_dir,'dnatab.png')
+        self.CTAGtabWidget.setStyleSheet("background-image: url({});".format(dnatab_img))
         self.ctaglabel = QtWidgets.QLabel(self.CTAG)
         self.ctaglabel.setGeometry(QtCore.QRect(15, 25, 400, 20))
         self.ctaglabel.setObjectName("ctaglabel")
@@ -1058,7 +1062,8 @@ class Ui_MainWindow(object):
         self.NBtabWidget.setMovable(False)
         self.NBtabWidget.setTabBarAutoHide(False)
         self.NBtabWidget.setObjectName("NBtabWidget")
-        self.NBtabWidget.setStyleSheet("background-image: url(os.path.join(module_dir,'./dnatab.png'));")
+        dnatab_img = os.path.join(module_dir,'dnatab.png')
+        self.NBtabWidget.setStyleSheet("background-image: url({});".format(dnatab_img))
         
         self.nblabel = QtWidgets.QLabel(self.NB)
         self.nblabel.setGeometry(QtCore.QRect(15, 25, 400, 20))
@@ -1148,7 +1153,9 @@ class Ui_MainWindow(object):
         self.ShellTab.setGeometry(QtCore.QRect(10, 550, 701, 151))
         self.ShellTab.setObjectName("ShellTab")
 #        self.ShellTab.setStyleSheet("background-color: #F0F9EC")
-        self.ShellTab.setStyleSheet("background-image: url(os.path.join(module_dir,'./shell1.png'));")
+        shell_img = os.path.join(module_dir,'shell1.png')
+        self.ShellTab.setStyleSheet("background-image: url({});".format(shell_img))        
+        
         self.SnakemakeOutputTab = QtWidgets.QWidget()
         self.SnakemakeOutputTab.setObjectName("SnakemakeOutputTab")
         self.textBrowser = QtWidgets.QTextBrowser(self.SnakemakeOutputTab)
@@ -1359,7 +1366,8 @@ class Ui_MainWindow(object):
         self.previousbuttontoolDNA.setStyleSheet("background-color: #704214")
         self.previousbuttontoolDNA.setIconSize(QtCore.QSize(35, 35))
         self.DNAtabWidget.setTabText(self.DNAtabWidget.indexOf(self.Tool_dna), _translate("MainWindow", " Tools Selection "))
-        self.Tool_dna.setStyleSheet("background-image: url(os.path.join(module_dir,'./toolstab.png'));")
+        toolstab_img = os.path.join(module_dir,'toolstab.png')
+        self.Tool_dna.setStyleSheet("background-image: url({});".format(toolstab_img))
         self.DNAtabWidget.setTabIcon(self.DNAtabWidget.indexOf(self.Tool_dna), QtGui.QIcon(os.path.join(module_dir,'./icons/tools.svg')))
         
         ## Add Index ##
