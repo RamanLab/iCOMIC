@@ -1297,7 +1297,7 @@ class Ui_MainWindow(object):
         self.RefGenomelabelDNA.setText(_translate("MainWindow", "Reference Genome"))
         self.SampleFilelabelDNA.setText(_translate("MainWindow", "Samples Folder"))
         self.CorelabelDNA.setText(_translate("MainWindow", "Maximum threads"))
-        self.CorelineEditDNA.setText(_translate("MainWindow", "10"))
+        self.CorelineEditDNA.setText(_translate("MainWindow", "1"))
 #        self.SamplesBrowseButtonDNA.setText(_translate("MainWindow", "Browse"))
         self.SamplesBrowseButtonDNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/browse.png')))
         self.SamplesBrowseButtonDNA.setIconSize(QtCore.QSize(22, 22))
@@ -1477,7 +1477,7 @@ class Ui_MainWindow(object):
         self.AnnotatedBrowserButtonRNA.setToolTip("Browse Annotated File")
 
         self.CorelabelRNA.setText(_translate("MainWindow", "Maximum threads"))
-        self.CorelineEditRNA.setText(_translate("MainWindow", "10"))
+        self.CorelineEditRNA.setText(_translate("MainWindow", "1"))
        
 
         self.nextbuttoninputRNA.setIcon(QtGui.QIcon(os.path.join(module_dir,'./icons/arrow.svg')))
